@@ -3,10 +3,6 @@
 /*white*/
 card, timeline background: #fff;
 
-/*green*/
-$primary-color: #06A763;
-$accent-color: #1976D2;
-
 /*blue*/
 $primary-color: #1F5694;
 $accent-color: #ff5722;
