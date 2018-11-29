@@ -292,7 +292,7 @@ html .btn, body .btn {
 */
 #loading {
     /*pre-loader*/
-    background-color: #9A64A9;
+    background-color: #3d2843;
     height: 100%;
     width: 100%;
     position: fixed;
@@ -427,7 +427,7 @@ html .btn, body .btn {
     top: 0;
     z-index: 10;
     text-align: left;
-    background: #9A64A9; }
+    background: #3d2843; }
 #home .menu a {
     /*menu links*/
     margin-left: 30px;
@@ -462,7 +462,7 @@ html .btn, body .btn {
     /*menu logo*/
     height: 200px;
     margin-top: -14px;
-    background: #9A64A9; }
+    background: #3d2843; }
 #home .menu .logo-flat img {
     /*logo image*/
     width: 100%;
@@ -568,7 +568,7 @@ html .btn, body .btn {
     height: 400px;
     overflow: hidden;
     z-index: 1;
-    background: #9A64A9;
+    background: #3d2843;
     margin: -20px 3px 0 0; }
 #home .header-background #v-card-holder #v-card .info-headings {
     /*basic infos*/
@@ -662,7 +662,7 @@ html .btn, body .btn {
     top: 0;
     border-style: dashed;
     border-width: 400px 0 0 100px;
-    border-color: transparent transparent transparent #9A64A9; }
+    border-color: transparent transparent transparent #3d2843; }
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
     #home .header-background #v-card-holder #v-card #profile .slant {
         /*slant properties for ie*/
@@ -672,7 +672,7 @@ html .btn, body .btn {
         top: 0;
         border-style: solid;
         border-width: 400px 0 0 100px;
-        border-color: transparent transparent transparent #9A64A9; } }
+        border-color: transparent transparent transparent #3d2843; } }
 @-moz-document url-prefix() {
     #home .header-background #v-card-holder #v-card #profile .slant {
         /*for firefox*/
@@ -682,7 +682,7 @@ html .btn, body .btn {
         top: 0;
         border-style: solid;
         border-width: 400px 0 0 100px;
-        border-color: transparent transparent transparent #9A64A9; } }
+        border-color: transparent transparent transparent #3d2843; } }
 @supports (-ms-accelerator: true) {
     #home .header-background #v-card-holder #v-card #profile .slant {
         /*for edge*/
@@ -692,7 +692,7 @@ html .btn, body .btn {
         top: 0;
         border-style: solid;
         border-width: 400px 0 0 100px;
-        border-color: transparent transparent transparent #9A64A9; } }
+        border-color: transparent transparent transparent #3d2843; } }
 #home .header-background #v-card-holder #v-card #profile .add-btn {
     /*plus button*/
     position: absolute;
@@ -792,7 +792,7 @@ html .btn, body .btn {
 #about .about-btn .btn {
     /*button style*/
     margin: 7px 7px;
-    background: #9A64A9;
+    background: #3d2843;
     color: #ffffff;
     width: 180px;
     border-radius: 2px; }
@@ -818,7 +818,7 @@ html .btn, body .btn {
     height: 99.5%;
     width: 4px;
     opacity: 0.3;
-    background: #9A64A9; }
+    background: #3d2843; }
 
 #timeline-experience {
     /*experience section*/
@@ -833,7 +833,7 @@ html .btn, body .btn {
     height: 99.5%;
     width: 4px;
     opacity: 0.3;
-    background: #9A64A9; }
+    background: #3d2843; }
 
 .timeline-block {
     /*timeline block*/
@@ -861,7 +861,7 @@ html .btn, body .btn {
     color: #12579b; }
 .timeline-block .timeline-dot {
     /*timeline dot*/
-    background: #9A64A9;
+    background: #3d2843;
     width: 50px;
     height: 50px;
     border-radius: 100%;
@@ -903,7 +903,7 @@ html .btn, body .btn {
     left: 100%;
     z-index: -2;
     opacity: 0.4;
-    background: #9A64A9; }
+    background: #3d2843; }
 .timeline-block .timeline-content::after {
     /*horizontal line*/
     clear: both;
@@ -934,7 +934,7 @@ html .btn, body .btn {
         margin-left: -2px;
         height: 77.1%;
         opacity: 0.4;
-        background: #9A64A9; }
+        background: #3d2843; }
 
     #timeline-experience::before {
         /*vertical line for experience in min width 768 */
@@ -942,7 +942,7 @@ html .btn, body .btn {
         margin-left: -2px;
         height: 69.1%;
         opacity: 0.4;
-        background: #9A64A9; }
+        background: #3d2843; }
 
     .timeline-block {
         /*timeline block in min width 768*/
@@ -981,7 +981,7 @@ html .btn, body .btn {
 */
 /*skills section*/
 #skills .card {
-    background: #9A64A9;
+    background: #3d2843;
     /*skills title*/ }
 #skills .card .skills-title {
     /*skills title*/
@@ -1281,7 +1281,7 @@ html .btn, body .btn {
     /*interest icon*/
     display: block;
     color: #fff;
-    background: #9A64A9;
+    background: #3d2843;
     height: 105px; }
 #interest .card .box .interest-icon i {
     /*icon*/
@@ -1293,7 +1293,7 @@ html .btn, body .btn {
 #interest .card .box .interest-icon-even {
     /*interest icon even*/
     display: block;
-    color: #9A64A9;
+    color: #3d2843;
     height: 105px;
     margin-right: -1px; }
 #interest .card .box .interest-icon-even i {
@@ -1418,7 +1418,7 @@ html .btn, body .btn {
 #pricing-table .card .pricing-top {
     /*pricing details*/
     width: 100%;
-    background: #9A64A9;
+    background: #3d2843;
     color: #fff;
     padding: 30px 0 40px 0;
     text-align: center; }
@@ -1448,7 +1448,7 @@ html .btn, body .btn {
     line-height: 1.7; }
 #pricing-table .card .btn {
     /*purchase button*/
-    background: #9A64A9;
+    background: #3d2843;
     margin-bottom: 5px;
     color: #fff;
     border-radius: 2px; }
@@ -1582,7 +1582,7 @@ html .btn, body .btn {
     top: 0.5rem; }
 #contact .card .card-content .btn {
     /*send button*/
-    background-color: #9A64A9;
+    background-color: #3d2843;
     width: 115px;
     color: #fff;
     border-radius: 2px;
