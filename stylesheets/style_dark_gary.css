@@ -165,7 +165,7 @@ html p, html a, html li, html label, html input, html blockquote, html cite, htm
 html p, body p {
     color: #757575; }
 html a, body a {
-    color: #06A763; }
+    color: #9A64A9; }
 html a:hover, body a:hover {
     color: #07c977;
     text-decoration: none; }
@@ -277,12 +277,12 @@ html .btn, body .btn {
     border: 0 !important; }
 .modal-content .btn-default {
     border-radius: 0;
-    background-color: #06A763;
-    border-color: #06A763; }
+    background-color: #9A64A9;
+    border-color: #9A64A9; }
 .modal-content .btn-default:hover, .modal-content .btn-default:focus {
     color: #f5f5f5;
-    background-color: #06A763;
-    border-color: #06A763;
+    background-color: #9A64A9;
+    border-color: #9A64A9;
     border-radius: 0; }
 
 /*
@@ -292,7 +292,7 @@ html .btn, body .btn {
 */
 #loading {
     /*pre-loader*/
-    background-color: #06A763;
+    background-color: #9A64A9;
     height: 100%;
     width: 100%;
     position: fixed;
@@ -427,7 +427,7 @@ html .btn, body .btn {
     top: 0;
     z-index: 10;
     text-align: left;
-    background: #06A763; }
+    background: #9A64A9; }
 #home .menu a {
     /*menu links*/
     margin-left: 30px;
@@ -441,10 +441,10 @@ html .btn, body .btn {
     text-transform: uppercase; }
 #home .menu a:hover {
     /*link option hover color*/
-    color: #06A763; }
+    color: #9A64A9; }
 #home .menu a:active {
     /*option active color*/
-    color: #06A763; }
+    color: #9A64A9; }
 #home .menu i {
     /*menu icon*/
     padding: 7px; }
@@ -462,7 +462,7 @@ html .btn, body .btn {
     /*menu logo*/
     height: 200px;
     margin-top: -14px;
-    background: #06A763; }
+    background: #9A64A9; }
 #home .menu .logo-flat img {
     /*logo image*/
     width: 100%;
@@ -518,7 +518,7 @@ html .btn, body .btn {
 #home #menuToggle .toggle-normal i {
     font-size: 31px;
     padding: 4px !important;
-    color: #06A763 !important; }
+    color: #9A64A9 !important; }
 #home #menuToggle .toggle-normal .top-bar {
     position: absolute;
     right: 0;
@@ -696,7 +696,7 @@ html .btn, body .btn {
 #home .header-background #v-card-holder #v-card #profile .add-btn {
     /*plus button*/
     position: absolute;
-    background-color: #06A763;
+    background-color: #9A64A9;
     top: 20%;
     right: 86%;
     overflow: hidden; }
@@ -792,7 +792,7 @@ html .btn, body .btn {
 #about .about-btn .btn {
     /*button style*/
     margin: 7px 7px;
-    background: #06A763;
+    background: #9A64A9;
     color: #ffffff;
     width: 180px;
     border-radius: 2px; }
@@ -818,7 +818,7 @@ html .btn, body .btn {
     height: 99.5%;
     width: 4px;
     opacity: 0.3;
-    background: #06A763; }
+    background: #9A64A9; }
 
 #timeline-experience {
     /*experience section*/
@@ -833,7 +833,7 @@ html .btn, body .btn {
     height: 99.5%;
     width: 4px;
     opacity: 0.3;
-    background: #06A763; }
+    background: #9A64A9; }
 
 .timeline-block {
     /*timeline block*/
@@ -861,7 +861,7 @@ html .btn, body .btn {
     color: #046c40; }
 .timeline-block .timeline-dot {
     /*timeline dot*/
-    background: #06A763;
+    background: #9A64A9;
     width: 50px;
     height: 50px;
     border-radius: 100%;
@@ -892,7 +892,7 @@ html .btn, body .btn {
     margin-right: 0;
     z-index: 1;
     margin-bottom: 5px;
-    border-left: 5px solid #06A763; }
+    border-left: 5px solid #9A64A9; }
 .timeline-block .timeline-content::before {
     /*horizontal line*/
     content: '';
@@ -903,7 +903,7 @@ html .btn, body .btn {
     left: 100%;
     z-index: -2;
     opacity: 0.4;
-    background: #06A763; }
+    background: #9A64A9; }
 .timeline-block .timeline-content::after {
     /*horizontal line*/
     clear: both;
@@ -934,7 +934,7 @@ html .btn, body .btn {
         margin-left: -2px;
         height: 77.1%;
         opacity: 0.4;
-        background: #06A763; }
+        background: #9A64A9; }
 
     #timeline-experience::before {
         /*vertical line for experience in min width 768 */
@@ -942,7 +942,7 @@ html .btn, body .btn {
         margin-left: -2px;
         height: 69.1%;
         opacity: 0.4;
-        background: #06A763; }
+        background: #9A64A9; }
 
     .timeline-block {
         /*timeline block in min width 768*/
@@ -981,7 +981,7 @@ html .btn, body .btn {
 */
 /*skills section*/
 #skills .card {
-    background: #06A763;
+    background: #9A64A9;
     /*skills title*/ }
 #skills .card .skills-title {
     /*skills title*/
@@ -1066,7 +1066,7 @@ html .btn, body .btn {
 #portfolios #portfolios-card .nav-tabs > li.active > a, #portfolios #portfolios-card .nav-tabs > li.active > a:hover, #portfolios #portfolios-card .nav-tabs > li.active > a:focus {
     /*tabs style bootstrap*/
     border: 0;
-    border-bottom: 5px solid #06A763;
+    border-bottom: 5px solid #9A64A9;
     background-color: transparent;
     /* outline: 0;*/ }
 #portfolios #portfolios-card .tab-content {
@@ -1195,11 +1195,11 @@ html .btn, body .btn {
     /*hover effect*/ }
 #portfolios #portfolios-card .tab-content figure.port-effect:hover h2 {
     /*hover effect for portfolio header*/
-    color: #06A763;
+    color: #9A64A9;
     -webkit-transform: translate3d(0, -50%, 0) translate3d(0, -40px, 0);
     transform: translate3d(0, -50%, 0) translate3d(0, -40px, 0); }
 #portfolios .btn-large {
-    color: #06A763 !important;
+    color: #9A64A9 !important;
     background: #f5f5f5 !important;
     margin-bottom: 10px !important; }
 @keyframes InLeft {
@@ -1281,7 +1281,7 @@ html .btn, body .btn {
     /*interest icon*/
     display: block;
     color: #f5f5f5;
-    background: #06A763;
+    background: #9A64A9;
     height: 105px; }
 #interest .card .box .interest-icon i {
     /*icon*/
@@ -1293,7 +1293,7 @@ html .btn, body .btn {
 #interest .card .box .interest-icon-even {
     /*interest icon even*/
     display: block;
-    color: #06A763;
+    color: #9A64A9;
     height: 105px;
     margin-right: -1px; }
 #interest .card .box .interest-icon-even i {
@@ -1317,9 +1317,9 @@ html .btn, body .btn {
 #testimonials .carousel {
     cursor: w-resize; }
 #testimonials .carousel-indicators li {
-    border: 2px solid #06A763; }
+    border: 2px solid #9A64A9; }
 #testimonials .carousel-indicators .active {
-    background-color: #06A763; }
+    background-color: #9A64A9; }
 #testimonials .item {
     padding-top: 25px; }
 #testimonials .ben {
@@ -1345,7 +1345,7 @@ html .btn, body .btn {
     content: "\201C";
     font-family: Georgia, serif;
     font-weight: bold;
-    color: #06A763;
+    color: #9A64A9;
     font-size: 2em;
     line-height: .1em;
     margin-right: 0;
@@ -1418,7 +1418,7 @@ html .btn, body .btn {
 #pricing-table .card .pricing-top {
     /*pricing details*/
     width: 100%;
-    background: #06A763;
+    background: #9A64A9;
     color: #f5f5f5;
     padding: 30px 0 40px 0;
     text-align: center; }
@@ -1448,7 +1448,7 @@ html .btn, body .btn {
     line-height: 1.7; }
 #pricing-table .card .btn {
     /*purchase button*/
-    background: #06A763;
+    background: #9A64A9;
     margin-bottom: 5px;
     color: #f5f5f5;
     border-radius: 2px; }
@@ -1582,7 +1582,7 @@ html .btn, body .btn {
     top: 0.5rem; }
 #contact .card .card-content .btn {
     /*send button*/
-    background-color: #06A763;
+    background-color: #9A64A9;
     width: 115px;
     color: #f5f5f5;
     border-radius: 2px;
@@ -1598,7 +1598,7 @@ html .btn, body .btn {
     height: 4px;
     display: block;
     width: 100%;
-    background-color: #06A763;
+    background-color: #9A64A9;
     border-radius: 0;
     margin: -4px 0 0; }
 #contact .card .indeterminate {
@@ -1613,7 +1613,7 @@ html .btn, body .btn {
     height: 36px;
     -webkit-border-radius: 50% 50% 50% 0;
     border-radius: 50% 50% 50% 0;
-    background: #06A763;
+    background: #9A64A9;
     position: absolute;
     -webkit-transform: rotate(-45deg) !important;
     -moz-transform: rotate(-45deg) !important;
@@ -1633,11 +1633,11 @@ html .btn, body .btn {
         height: 300px; } }
 #contact input:not([type]):focus:not([readonly]) + label, #contact input[type=text]:focus:not([readonly]) + label, #contact input[type=password]:focus:not([readonly]) + label, #contact input[type=email]:focus:not([readonly]) + label, #contact input[type=url]:focus:not([readonly]) + label, #contact input[type=time]:focus:not([readonly]) + label, #contact input[type=date]:focus:not([readonly]) + label, #contact input[type=datetime-local]:focus:not([readonly]) + label, #contact input[type=tel]:focus:not([readonly]) + label, #contact input[type=number]:focus:not([readonly]) + label, #contact input[type=search]:focus:not([readonly]) + label, #contact textarea.materialize-textarea:focus:not([readonly]) + label {
     /*materialize form*/
-    color: #06A763; }
+    color: #9A64A9; }
 #contact input:not([type]):focus:not([readonly]), #contact input[type=text]:focus:not([readonly]), #contact input[type=password]:focus:not([readonly]), #contact input[type=email]:focus:not([readonly]), #contact input[type=url]:focus:not([readonly]), #contact input[type=time]:focus:not([readonly]), #contact input[type=date]:focus:not([readonly]), #contact input[type=datetime-local]:focus:not([readonly]), #contact input[type=tel]:focus:not([readonly]), #contact input[type=number]:focus:not([readonly]), #contact input[type=search]:focus:not([readonly]), #contact textarea.materialize-textarea:focus:not([readonly]) {
     /*materialize form*/
-    border-bottom: 1px solid #06A763;
-    box-shadow: 0 1px 0 0 #06A763; }
+    border-bottom: 1px solid #9A64A9;
+    box-shadow: 0 1px 0 0 #9A64A9; }
 #contact input:not([type]), #contact input[type=text], #contact input[type=password], #contact input[type=email], #contact input[type=url], #contact input[type=time], #contact input[type=date], #contact input[type=datetime-local], #contact input[type=tel], #contact input[type=number], #contact input[type=search], #contact textarea.materialize-textarea {
     /*materialize form*/
     background-color: transparent;
@@ -1671,8 +1671,8 @@ html .btn, body .btn {
     width: 45px;
     cursor: pointer;
     font-size: 28px;
-    background: #06A763;
-    border: 1px solid #06A763;
+    background: #9A64A9;
+    border: 1px solid #9A64A9;
     text-align: center;
     position: fixed;
     bottom: 21px;
