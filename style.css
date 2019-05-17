@@ -1912,8 +1912,8 @@ fieldset[disabled] .btn-primary:focus,
 .btn-primary[disabled].focus,
 fieldset[disabled] .btn-primary.focus,
 .btn-primary {
-    background-color: #01bacf !important;
-    border-color: #01bacf !important;
+    background-color: #3d2843 !important;
+    border-color: #3d2843 !important;
     color: #ffffff !important;
 }
 
@@ -1921,7 +1921,7 @@ fieldset[disabled] .btn-primary.focus,
 .owl-theme-01 .owl-nav [class*="owl-"]:hover,
 a.goitem,
 .bgcolor {
-    background-color: #01bacf;
+    background-color: #3d2843;
 }
 
 .list-style-2 i,
@@ -1937,7 +1937,7 @@ a.goitem,
 .post-meta li:after,
 a:hover,
 a:focus {
-    color: #01bacf;
+    color: #3d2843;
 }
 
 .absolute-widget::before {
