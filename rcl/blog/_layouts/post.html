@@ -1,17 +1,63 @@
 ---
 layout: default
+page-class: page--post
 ---
 
-<article class="post">
-  <h1>{{ page.title }}</h1>
+{% include header.html %}
 
-  <div class="entry">
-    {{ content }}
-  </div>
+<div class="wrapper">
 
-  <div class="date">
-    Written on {{ page.date | date: "%B %e, %Y" }}
-  </div>
+    <div class="layout">
+        <section class="layout__item  desk-three-fifths  s-post" data-ui-component="Main content" itemscope itemtype="http://schema.org/Article">
 
-  {% include disqus.html %}
-</article>
+            <time class="post__date" datetime="{{ page.date | date: "%Y-%m-%d" }}"  itemprop="datePublished">{{ page.date | date: "%-d %B, %Y" }}</time>
+
+            <h1 itemprop="name  headline">{{ page.title }}</h1>
+
+            <p class="hide">Written by <b itemprop="author">Harry Roberts</b> on <b itemprop="publisher">CSS Wizardry</b>.</p>
+
+            {% if page.toc != false %}
+              <details>
+                <summary>Table of Contents</summary>
+                {% include toc.html html=content ordered=true %}
+              </details>
+            {% endif %}
+
+            {{ content }}
+
+            <hr />
+
+            <style>
+              {% include css/components.pagination.css %}
+            </style>
+
+            <nav class="c-pagination">
+              {% if page.previous.url %}
+                <a href="{{page.previous.url}}" class="c-pagination__item  c-pagination__prev">{{page.previous.title}}</a>
+              {% endif %}
+              {% if page.next.url %}
+                <a href="{{page.next.url}}" class="c-pagination__item c-pagination__next">{{page.next.title}}</a>
+              {% endif %}
+            </nav>
+
+            {% if page.hide-hire-me-link != true %}
+
+                <hr />
+
+                <p>
+                    <a href="/services/" class="btn  btn--full">Did you enjoy this? <strong>Hire me!</strong></a>
+                </p>
+            {% endif %}
+
+        </section
+       ><section class="layout__item  desk-three-tenths  desk-push-one-tenth" data-ui-component="Sub content">
+
+            {% include sub-content.html %}
+
+        </section>
+
+    </div>
+
+</div>
+
+{% include footer.html %}

@@ -1,0 +1,435 @@
+/*------------------------------------*\
+    #SITE-NAV
+\*------------------------------------*/
+
+// Internal variables.
+$logo-height:   64px;
+
+// Set a consistent style for triggers for the responsive nav.
+@mixin triggers() {
+  @include font-size(12px);
+  font-family: sans-serif;
+  text-transform: uppercase;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+
+}
+
+.site-nav {
+  @extend %clearfix;
+
+  /**
+   * If the site nav exists in a masthead, we absolutely position it. We have
+   * to do this because the masthead has a fixed height, partially governed by
+   * a faux-fluid-height technique which utilises a zeroed `height` and a
+   * large `padding-top` value, ergo, we *have* to take the nav out of flow.
+   */
+  .page-head--masthead & {
+    position: absolute;
+    top:   0;
+    right: $spacing-unit--small;
+    left:  $spacing-unit--small;
+
+    @include media-query(lap-and-up) {
+      top:   0;
+      right: $spacing-unit;
+      left:  $spacing-unit;
+    }
+
+  }
+
+}
+
+
+
+
+
+  /**
+   * The main site logo exists as part of the nav.
+   */
+  .site-nav__home-link {
+    display: block;
+    float: left;
+  }
+
+    .site-nav__logo {
+      display: block;
+    }
+
+      .site-nav__logo-fill {
+        fill: $color-brand;
+
+        .page-head--masthead & {
+          fill: $color-page-head;
+        }
+
+      }
+
+
+
+
+
+  /**
+   * On smaller screens, this is the link that will open the responsive nav.
+   */
+  .site-nav__open {
+    @include triggers();
+    float: right;
+    line-height: $logo-height;
+
+    &:before {
+      content: "☰ ";
+    }
+
+    .page--home & {
+      color: #fff;
+    }
+
+    @include media-query(lap-and-up) {
+      display: none;
+    }
+
+  }
+
+  /**
+   * The invisible target that will power the responsive nav’s open/close.
+   */
+  .site-nav__target {
+    position: fixed;
+    top:  0;
+    left: 0;
+  }
+
+  /**
+   * The great big list of links that gets pushed and pulled around across
+   * breakpoints. Things get a little hairy.
+   *
+   * 1. Hide the nav off-screen until we need it.
+   */
+  .site-nav__list {
+    margin:  0;
+    padding: 0;
+    list-style: none;
+    position: fixed;
+    top:    6px;
+    right:  0;
+    bottom: 0;
+    left:   0;
+    z-index: 1;
+    -webkit-transform: translateX(100%); /* [1] */
+       -moz-transform: translateX(100%); /* [1] */
+        -ms-transform: translateX(100%); /* [1] */
+         -o-transform: translateX(100%); /* [1] */
+            transform: translateX(100%); /* [1] */
+    -webkit-transition: 0.2s;
+       -moz-transition: 0.2s;
+        -ms-transition: 0.2s;
+         -o-transition: 0.2s;
+            transition: 0.2s;
+    will-change: transform;
+    background-color: $color-gray;
+
+    @supports (backdrop-filter: blur(5px)) {
+      background-color: rgba($color-gray, 0.8);
+      backdrop-filter: blur(5px);
+    }
+
+    /**
+     * If we’re targetting the nav, then don’t hide it.
+     */
+    .site-nav__target:target + & {
+      -webkit-transform: none;
+         -moz-transform: none;
+          -ms-transform: none;
+           -o-transform: none;
+              transform: none;
+    }
+
+    /**
+     * Unhide it permanently on larger screens.
+     */
+    @include media-query(lap-and-up) {
+      position: relative;
+      top:    auto;
+      right:  auto;
+      bottom: auto;
+      left:   auto;
+      float: right;
+      background-color: transparent;
+      overflow: visible;
+      backdrop-filter: none;
+      -webkit-transform: none;
+         -moz-transform: none;
+          -ms-transform: none;
+           -o-transform: none;
+              transform: none;
+    }
+
+  }
+
+
+
+
+
+    /**
+     * Each list item in the nav gets its own class. Items are stacked by
+     * default, and horizontally arranged on wider screens.
+     */
+    .site-nav__item {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      @include media-query(lap-and-up) {
+        position: relative;
+        border-bottom: none;
+        float: left;
+
+        .site-nav__sub-menu & {
+          float: none;
+        }
+
+        .site-nav__sub-menu & + & {
+          border-top: 1px solid $color-sub-menu-border;
+        }
+
+      }
+
+    }
+
+
+
+
+
+    /**
+     * The link for closing the nav again.
+     */
+    .site-nav__item--close {
+
+        @include media-query(lap-and-up) {
+          display: none;
+        }
+
+      }
+
+        .site-nav__close {
+          @include triggers();
+          line-height: $logo-height;
+          text-align: right;
+
+          &:after {
+            content: " ×";
+            font-size: 18px;
+            line-height: 12px;
+          }
+
+        }
+
+
+
+
+
+        /**
+         * Sub-menus are indented by default, or act as dropdowns on large enough
+         * screens.
+         */
+        .site-nav__sub-menu {
+          list-style: none;
+          margin-left: 0;
+          padding-left: $spacing-unit;
+
+          @include media-query(lap-and-up) {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            -webkit-transform: translateX(-50%) translateY(-10px);
+               -moz-transform: translateX(-50%) translateY(-10px);
+                -ms-transform: translateX(-50%) translateY(-10px);
+                 -o-transform: translateX(-50%) translateY(-10px);
+                    transform: translateX(-50%) translateY(-10px);
+            z-index: 1;
+            padding-left: 0;
+            text-align: center;
+            white-space: nowrap;
+            background-color: #fff;
+            border-radius: $brand-round;
+            border: 1px solid $color-sub-menu-border;
+            box-shadow: $brand-round $brand-round 0 rgba(0, 0, 0, 0.1);
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.333s;
+
+            .site-nav__item:hover & {
+              opacity: 1;
+              visibility: visible;
+              will-change: opacity;
+              -webkit-transform: translateX(-50%) translateY(0);
+                 -moz-transform: translateX(-50%) translateY(0);
+                  -ms-transform: translateX(-50%) translateY(0);
+                   -o-transform: translateX(-50%) translateY(0);
+                      transform: translateX(-50%) translateY(0);
+            }
+
+            /**
+             * Pure CSS arrows to point back at the dropdown’s parent.
+             */
+            &:before,
+            &:after {
+              content: "";
+              position: absolute;
+              bottom: 100%;
+              left: 50%;
+            }
+
+            &:before {
+              border: 12px solid transparent;
+              border-bottom-color: $color-sub-menu-border;
+              margin-left: -12px;
+            }
+
+            &:after {
+              border: 11px solid transparent;
+              border-bottom-color: #fff;
+              margin-left: -11px;
+            }
+
+          }
+
+        }
+
+        /**
+         * Links in the main tier of the nav.
+         */
+        .site-nav__link {
+          display: block;
+          padding: $spacing-unit--small;
+          color: #fff;
+
+          @include attention() {
+            text-decoration: none;
+            color: $color-links;
+          }
+
+          @include media-query(lap-and-up) {
+            line-height: $logo-height;
+            color: $color-gray;
+            padding-top: 0;
+            padding-bottom: 0;
+          }
+
+          .page-head--masthead & {
+
+            @include attention(self) {
+              color: $color-masthead;
+              }
+
+              @include attention() {
+                text-decoration: underline;
+              }
+
+          }
+
+        }
+
+
+
+
+
+        /**
+         * The current state for the nav (in large-screen view) is a notched
+         * out triangle lying toward the bottom of the page head. We apply
+         * this styling to a silent class which we then extend out of the
+         * loop below.
+         */
+        %site-nav__current {
+          color: $color-links;
+
+          @include media-query(lap-and-up) {
+
+            $notch-size: halve($spacing-unit);
+
+            position: relative;
+
+            &:before,
+            &:after {
+              content: "";
+              position: absolute;
+              left: 50%;
+              pointer-events: none;
+              border-style: solid;
+              border-color: transparent;
+            }
+
+            &:before {
+              border-width: $notch-size;
+              border-bottom-color: #f2f2f2;
+              margin-left: -$notch-size;
+              bottom: -$spacing-unit;
+            }
+
+            &:after {
+              border-width: $notch-size - 1;
+              border-bottom-color: $inuit-base-background-color;
+              margin-left: -($notch-size - 1);
+              bottom: -($spacing-unit + 1);
+            }
+
+          }
+
+        }
+
+        @each $page in about, case-studies, services, contact {
+
+          .page--#{$page} .site-nav__#{$page} {
+            @extend %site-nav__current;
+          }
+
+        }
+
+        %site-nav__current--sub {
+          text-decoration: underline;
+        }
+
+        @each $page in workshops, code-reviews, consultancy, speaking {
+          .page--#{$page} .site-nav__#{$page} {
+            @extend %site-nav__current--sub;
+          }
+        }
+
+        .page--home .site-nav__home {
+          text-decoration: underline;
+        }
+
+
+
+
+
+            /**
+             * Links inside of sub-menus get their own special treatment.
+             */
+            .site-nav__sub-link {
+              display: block;
+              padding: $spacing-unit--small;
+              color: #fff;
+
+              @include attention() {
+                text-decoration: underline;
+              }
+
+              @include media-query(lap-and-up) {
+                @include font-weight('regular');
+                color: $color-gray;
+
+                @include attention() {
+                  text-decoration: none;
+                  color: $color-sub-menu-link-hover;
+                }
+
+              }
+
+            }
