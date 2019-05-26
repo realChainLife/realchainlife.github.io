@@ -747,11 +747,11 @@ ul li {
 }
 
 .blue.darken-2 {
-    background-color: #1976D2!important
+    background-color: #c2d82e!important
 }
 
 .blue-text.text-darken-2 {
-    color: #1976D2!important
+    color: #c2d82e!important
 }
 
 .blue.darken-3 {
@@ -1059,11 +1059,11 @@ ul li {
 }
 
 .teal.lighten-1 {
-    background-color: #26a69a!important
+    background-color: #c2d82e!important
 }
 
 .teal-text.text-lighten-1 {
-    color: #26a69a!important
+    color: #c2d82e!important
 }
 
 .teal {
@@ -2887,7 +2887,7 @@ th {
 }
 
 .collection .collection-item.active {
-    background-color: #26a69a;
+    background-color: #c2d82e;
     color: #eafaf9
 }
 
@@ -2898,7 +2898,7 @@ th {
 .collection a.collection-item {
     display: block;
     transition: .25s;
-    color: #26a69a
+    color: #c2d82e
 }
 
 .collection a.collection-item:not(.active):hover {
@@ -2921,7 +2921,7 @@ th {
 
 .secondary-content {
     float: right;
-    color: #26a69a
+    color: #c2d82e
 }
 
 .collapsible .collection {
@@ -2944,7 +2944,7 @@ span.badge.new {
     font-weight: 300;
     font-size: .8rem;
     color: #fff;
-    background-color: #26a69a;
+    background-color: #c2d82e;
     border-radius: 2px
 }
 
@@ -7072,7 +7072,7 @@ footer.page-footer .footer-copyright {
 .btn-large {
     text-decoration: none;
     color: #fff;
-    background-color: #26a69a;
+    background-color: #c2d82e;
     letter-spacing: .5px;
     transition: .2s ease-out;
     cursor: pointer
@@ -7085,7 +7085,7 @@ footer.page-footer .footer-copyright {
 
 .btn-floating,
 .btn-floating:hover {
-    background-color: #26a69a
+    background-color: #c2d82e
 }
 
 .btn-floating {
@@ -7235,7 +7235,7 @@ button.btn-floating {
 .dropdown-content li>a,
 .dropdown-content li>span {
     font-size: 16px;
-    color: #26a69a;
+    color: #c2d82e;
     display: block;
     line-height: 22px;
     padding: 14px 16px
@@ -7668,8 +7668,8 @@ input[type=text]:focus:not([readonly]),
 input[type=time]:focus:not([readonly]),
 input[type=url]:focus:not([readonly]),
 textarea.materialize-textarea:focus:not([readonly]) {
-    border-bottom: 1px solid #26a69a;
-    box-shadow: 0 1px 0 0 #26a69a
+    border-bottom: 1px solid #c2d82e;
+    box-shadow: 0 1px 0 0 #c2d82e
 }
 
 input:not([type]):focus:not([readonly])+label,
@@ -7684,7 +7684,7 @@ input[type=text]:focus:not([readonly])+label,
 input[type=time]:focus:not([readonly])+label,
 input[type=url]:focus:not([readonly])+label,
 textarea.materialize-textarea:focus:not([readonly])+label {
-    color: #26a69a
+    color: #c2d82e
 }
 
 input:not([type]).valid,
@@ -7850,7 +7850,7 @@ textarea.materialize-textarea+label:after {
 }
 
 .input-field .prefix.active {
-    color: #26a69a
+    color: #c2d82e
 }
 
 .input-field .prefix~input,
