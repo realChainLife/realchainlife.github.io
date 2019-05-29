@@ -56,11 +56,9 @@ $logo-height:   64px;
   }
 
     .site-nav__logo {
-      display: block;
+      padding: 80px 0 0;
+      text-align: center;
     }
-
-      .site-nav__logo-fill {
-        fill: $color-brand;
 
         .page-head--masthead & {
           fill: $color-page-head;
