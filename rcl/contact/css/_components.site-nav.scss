@@ -51,7 +51,7 @@ $logo-height:   64px;
    * The main site logo exists as part of the nav.
    */
   .site-nav__home-link {
-    display: block;
+    display: table-cell;
     float: left;
   }
 
