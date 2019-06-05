@@ -1,0 +1,172 @@
+/*------------------------------------*\
+    #TYPE
+\*------------------------------------*/
+
+/**
+ * Typographical base selectors.
+ */
+
+/**
+ * Headings 1–6.
+ */
+@include headings() {
+    @include font-weight(regular);
+    color: $color-headings;
+}
+
+
+
+
+
+/**
+ * A generic heading style which can be applied to any headings.
+ */
+.heading {
+    @include font-size(22px);
+}
+
+.heading-sub {
+    @include font-size(16px);
+    @include font-weight(bold);
+    margin-bottom: 0;
+    color: $color-heading-sub;
+}
+
+
+
+
+
+/**
+ * Emboldened elements.
+ */
+a,
+strong, b,
+dt {
+    @include font-weight(bold);
+}
+
+
+
+
+
+/**
+ * Code-like elements.
+ */
+code, kbd, samp {
+    color: $color-code;
+    font-family: "Operator Mono", Inconsolata, Monaco, Consolas, "Andale Mono", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+    font-style: normal;
+}
+
+pre {
+    white-space: pre;
+    word-wrap: normal;
+    overflow: auto;
+    padding: $spacing-unit--small;
+    background-color: $color-pre-background;
+    border-radius: $base-round;
+    @include media-query(lap-and-up) {
+      margin-right: -$spacing-unit--small;
+      margin-left:  -$spacing-unit--small;
+    }
+
+    &,
+    code, kbd, samp {
+        color: $color-pre;
+    }
+
+}
+
+var {
+  font-family: Hoefler Text, Georgia, serif;
+  line-height: 1;
+  font-style: italic;
+}
+
+
+
+
+
+/**
+ * Figures.
+ *
+ * 1. Outdent figures by an arbitrary amount at the relevant viewport size.
+ * 2. Reindent figcaptions.
+ */
+figure {
+
+    @media screen and (min-width: 1380px) {
+        margin-left: -128px; /* [1] */
+    }
+
+    > img {
+        border-radius: $base-round;
+    }
+
+}
+
+    figcaption {
+        @include font-size(12px);
+
+        @media screen and (min-width: 1380px) {
+            margin-left: 128px; /* [2] */
+        }
+
+    }
+
+
+
+
+
+/**
+ * Horizontal rules.
+ */
+hr {
+    border: none;
+    border-bottom: 1px solid $color-gray-ui;
+    margin-bottom: $spacing-unit - 1px;
+}
+
+
+
+
+
+/**
+ * Highlighted text.
+ */
+mark {
+
+    pre & {
+        background: none;
+        border-bottom: 1px solid;
+        color: inherit;
+    }
+
+}
+
+
+
+
+
+/**
+ * Text-alignment.
+ */
+.text-banner {
+    text-align: center;
+}
+
+
+
+
+
+/**
+ * Inserted and deleted text.
+ */
+del {
+  opacity: 0.75;
+}
+
+ins {
+  border-bottom: none;
+  background-color: $color-hilite;
+}
