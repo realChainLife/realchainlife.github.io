@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-GB" class="page  {{page.page-class }}">
+
+  {% include head.html %}
+
+<body>
+
+    {{ content }}
+
+<script>
+  // Crude image lazy-loader
+  [].forEach.call(document.querySelectorAll('img[data-src]'), function(img) {
+    img.setAttribute('src', img.getAttribute('data-src'));
+    img.onload = function() {
+      img.removeAttribute('data-src');
+    };
+  });
+</script>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('/sw.js').then(function(registration) {
+        // Successfully registered the Service Worker
+        //console.log('Service Worker registration successful with scope: ', registration.scope);
+      }).catch(function(err) {
+        // Failed to register the Service Worker
+        //console.log('Service Worker registration failed: ', err);
+      });
+    });
+  }
+</script>
+
+</body>
+</html>
