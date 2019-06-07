@@ -1,0 +1,15 @@
+# Site settings
+title: Blog | RealChain🐮ʕ •ᴥ•ʔ
+email: realchainlife@protonmail.com
+description: "Decentralized protocols, Distributed Systems, and more, by Sonia John"
+baseurl: "/blog"
+url: ""
+future: true
+
+# Build settings
+markdown: kramdown
+permalink: /:year/:month/:title/
+paginate: 10
+
+# Gems
+gems: [jekyll-paginate]

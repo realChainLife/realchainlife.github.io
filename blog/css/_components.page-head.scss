@@ -1,0 +1,52 @@
+/*------------------------------------*\
+    #PAGE-HEAD
+\*------------------------------------*/
+
+/**
+ * The site’s main page-head can have two different states:
+ *
+ * 1) Regular page-head with no backgrounds or extra treatments; it just
+ *    contains the logo and nav.
+ * 2) A masthead that has a fluid-height (becoming fixed after a certain point)
+ *    which has a large background image, and some supporting text.
+ *
+ * The regular page-head is incredibly simple, but the masthead version has some
+ * slightly intermingled dependency with the wrapper that lives inside it.
+ */
+
+
+/**
+ * 1. A slightly smaller padding on smaller viewports.
+ * 2. Grow to full-sized padding on large enough viewports.
+ */
+.page-head {
+    @extend %margin-bottom;
+    border-style: solid;
+    border-width: $header-border-width 0 1px;
+    border-top-color: $color-page-head-border;
+    border-bottom-color: #f2f2f2;
+    padding-top:    $spacing-unit--small; /* [1] */
+    padding-bottom: $spacing-unit--small; /* [1] */
+    background-color: $color-page-head-background;
+
+    @include media-query(lap-and-up) {
+        padding-top:    $spacing-unit; /* [2] */
+        padding-bottom: $spacing-unit; /* [2] */
+    }
+
+    /**
+     * If the browser supports sticky positioning, let’s dock the header on tall
+     * enough screens.
+     */
+    @supports (position: sticky) {
+
+      @media screen and (min-height: 75em) {
+        position: sticky;
+        top: 0;
+        background-color: rgba(255, 255, 255, 0.95);
+        z-index: 1;
+      }
+
+    }
+
+}
