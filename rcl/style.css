@@ -346,7 +346,7 @@ img {
         .header-area .navbar .navbar-nav {
           margin-right: 30px; } }
   .header-area.sticky {
-    background-color: #000000;
+    background-color: #3d2843;
     margin-top: 0;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); }
     .header-area.sticky .navbar {
@@ -1213,7 +1213,7 @@ textarea:focus ~ .highlight {
     transform: rotate(-45deg) scaleX(0) translateY(-10px); } }
 /* Footer Area CSS */
 .footer-area {
-  background-color: #161616;
+  background-color: #3d2843;
   padding: 70px 0;
   position: relative;
   z-index: 1; }
