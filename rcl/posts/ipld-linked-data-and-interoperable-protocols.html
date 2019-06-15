@@ -217,12 +217,71 @@
                                 hold the same content are considered equal and therefore stored only once because their hash 
                                 values are the same
                             </h6>
-                            <h6>Donec orci dolor, pretium in luctus id, consequat vitae nibh. Quisque hendrerit, lorem sit amet 
-                                mollis malesuada, urna orci volutpat ex, sed scelerisque nunc velit et massa. Sed maximus id erat 
-                                vel feugiat. Phasellus bibendum nisi non urna bibendum elementum. Aenean tincidunt nibh vitae ex 
-                                facilisis ultrices. Integer ornare efficitur ultrices. Integer neque lectus, venenatis at pulvinar 
-                                quis, aliquet id neque. Mauris ultrices consequat velit, sed dignissim elit posuere in. Cras vitae 
-                                dictum dui.
+                            <h6>We can demonstrate this further by using [Matt Zumwalt's](https://github.com/flyingzumwalt/decentralized-web-primer/tree/master/samples) building out files-as-dags lesson tutorial. We will `ipfs cat` the cosmos.jpg file 
+                                    from the command line: 
+                                    
+                                        ipfs cat QmWNj1pTSjbauDHpdyg5HQ26vYcNWnubg1JehmwAE9NnU9 > cosmos.jpg
+                                    
+                                    Now you can add it locally, and if you `cat`’d it initially, make sure the hashes match 
+                                    then assign the returned hash to the env variable hash:
+                                    
+                                        hash=`ipfs add -q cosmos.jpg`
+                                        echo $hash
+                                    
+                                    The CID output should match the image hash like this:
+                                    
+                                        QmWNj1pTSjbauDHpdyg5HQ26vYcNWnubg1JehmwAE9NnU9
+                                    
+                                    Now, that the file has been chunked we can query all the ipfs objects for the image by 
+                                    running: 
+                                    
+                                        ipfs ls -v $hash
+                                    
+                                    Each linked object is about 256k, together these chunks make up the whole image - and 
+                                    when a network request for this file is made, different peers share a different chunk of 
+                                    the image which is put together by the requesting peer. 
+                                    
+                                        Hash                                           Size   Name
+                                        QmPHPs1P3JaWi53q5qqiNauPhiTqa3S1mbszcVPHKGNWRh 262158 
+                                        QmPCuqUTNb21VDqtp5b8VsNzKEMtUsZCCVsEUBrjhERRSR 262158 
+                                        QmS7zrNSHEt5GpcaKrwdbnv1nckBreUxWnLaV4qivjaNr3 262158 
+                                        QmQQhY1syuqo9Sq6wLFAupHBEeqfB8jNnzYUSgZGARJrYa 76151
+                                    
+                                    You can also use this super new and fun tool to explore DAGs (IPLD obejcts) in the browser. 
+                                    Check out the git example for a fun one. Or even better, explore the above DAG object.
+                                    
+                                    Now, just to show you that the above four chunks do indeed make up the single image, you can 
+                                    use the following code to ‘manually’ join the chunks together to create the image file — which 
+                                    is essentially what cat is doing in the background when you reference the base CID:
+                                    
+                                        ipfs cat \
+                                        QmPHPs1P3JaWi53q5qqiNauPhiTqa3S1mbszcVPHKGNWRh \
+                                        QmPCuqUTNb21VDqtp5b8VsNzKEMtUsZCCVsEUBrjhERRSR \
+                                        QmS7zrNSHEt5GpcaKrwdbnv1nckBreUxWnLaV4qivjaNr3 \
+                                        QmQQhY1syuqo9Sq6wLFAupHBEeqfB8jNnzYUSgZGARJrYa \
+                                        > cat-cosmos.jpg
+                                        open cat-cosmos.jpg
+                                    
+                                    Alternatively, you could do this more succinctly using pipes again:
+                                    
+                                        ipfs refs $hash | ipfs cat > test.jpg ; open test.jpg
+                                    
+                                    There you go. It’s links all the way down. And on top of that we’ve learned a few many IPFS 
+                                    command-line tools to manipulate IPFS DAG objects. Handy!
+                                    
+                                    ## Summary
+                                    
+                                    The IPLD protocol is magic that runs on cryptography, math and networking. Its a single 
+                                    namespace for all hash-inspired protocols. Through IPLD, links can be traversed across protocols, 
+                                    allowing you explore data regardless of the underlying protocol. We can use it to 
+                                    referencea large data files using only the base CID, and you actually have a verified reference 
+                                    to the whole object. With the simple `ipfs add` command a new merkle DAG is created from data
+                                    in the files, this command also creates the underlying IPNS objects you'll need to access your
+                                    files. 
+                                    
+                                    With such great technology, there's nothing stopping you from building great distributed web 
+                                    projects. If you're already work on one, I'd love to hear about it!
+                                    
                             </h6>
                             <!-- Post Tags -->
                             <ul class="post-tags">
