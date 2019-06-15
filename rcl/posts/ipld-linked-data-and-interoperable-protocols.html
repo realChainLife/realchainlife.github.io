@@ -121,21 +121,45 @@
                                 <img src="/img/blog-img/content-multi-hashing.png" alt="" />
                                 <figcaption>Illustration: IPFS Content Hashing, Source: Textile</figcaption>
                             </figure>
-                            <h6>Maecenas vitae sem varius, imperdiet nisi a, tristique nisi. Sed scelerisque suscipit leo 
-                                cursus accumsan. Donec vel turpis quam. Mauris non nisl nec nunc gravida ullamcorper id 
-                                vestibulum magna. Donec non velit finibus, laoreet arcu nec, facilisis augue. Aliquam sed 
-                                purus id erat accumsan congue. Mauris semper ullamcorper nibh non pellentesque. Aenean euismod 
-                                purus sit amet quam vehicula ornare.
+                            <h6>In the example above, a cat photo added to the ipfs is hashed and added into the Merkle
+                                DAG. These Merkle DAGs are the core data structure for the IPLD structure.
                             </h6>
-                            <blockquote class="mb-30">
-                                <h6>Aliquam auctor lacus a dapibus pulvinar. Morbi in elit erat. Quisque et augue nec tortor
-                                     blandit hendrerit eget sit amet sapien. Curabitur at tincidunt metus, quis porta ex. Duis 
-                                     lacinia metus vel eros cursus pretium eget.
-                                    </h6>
-                                <div class="post-author">
-                                    <p>Robert Morgan</p>
-                                </div>
-                            </blockquote>
+                            <h3>Hash-Linked Data Structures</h3>
+                            <h6>IPLD is a hash-linked data structure that models everything as a series of linked objects. 
+
+                                An IPLD oject consists of:
+                                    
+                                    * `Data` — blob of unstructured binary data of size < 256 kB.
+                                    * `Links` — array of Link structures. These are links to other IPFS objects.
+                                    
+                                A Link structure has three data fields:
+                                    
+                                    * `Name` — name of the Link
+                                    * `Hash` — hash of the linked IPFS object
+                                    * `Size` — cumulative size of linked IPFS object, including following its links
+                                    
+                                An IPLD object looks something like this:
+                                    
+                                    {
+                                        "hello": "world",
+                                        "foo": {"/": "QmTz3oc4gdpRMKP2sdGUPZTAGRngqjsi99BPoztyP53JMM"},
+                                        "baz": [
+                                            {"/": "QmWg1Ux3cb3xCToGBCmZBNaMvpcFhTEEjb74fruG9uVHja"}
+                                            ]
+                                    }
+                                    
+                                The basic idea is that any valid CBOR object (and subsequently, any valid JSON object 
+                                since they map 1-to-1) can be an IPLD object. On top of that, theres a special format 
+                                for inserting merkle-links that is the real meat of IPLD. The strange objects with a 
+                                key of '/' and a value of an IPFS hash are the links. These links are understood by 
+                                IPFS and can be used to build path references across objects.
+                            </h6>
+                            <h6>In the example above, a cat photo added to the ipfs is hashed and added into the Merkle
+                                DAG. These Merkle DAGs are the core data structure for the IPLD structure.
+                            </h6>
+                            <h6>In the example above, a cat photo added to the ipfs is hashed and added into the Merkle
+                                DAG. These Merkle DAGs are the core data structure for the IPLD structure.
+                            </h6>
                             <h6>Donec orci dolor, pretium in luctus id, consequat vitae nibh. Quisque hendrerit, lorem sit amet 
                                 mollis malesuada, urna orci volutpat ex, sed scelerisque nunc velit et massa. Sed maximus id erat 
                                 vel feugiat. Phasellus bibendum nisi non urna bibendum elementum. Aenean tincidunt nibh vitae ex 
