@@ -79,7 +79,7 @@
     <!-- ***** Header Area End ***** -->
 
     <!-- ********** Hero Area Start ********** -->
-    <div class="hero-area height-200 bg-img background-overlay" style="background-image: url(img/blog-img/bg2.jpg);">
+    <div class="hero-area height-300 bg-img background-overlay" style="background-image: url(img/blog-img/bg2.jpg);">
         <div class="container h-100">
             <div class="row h-100 align-items-center justify-content-center">
                 <div class="col-12 col-md-8 col-lg-6">
@@ -154,11 +154,68 @@
                                 key of '/' and a value of an IPFS hash are the links. These links are understood by 
                                 IPFS and can be used to build path references across objects.
                             </h6>
-                            <h6>In the example above, a cat photo added to the ipfs is hashed and added into the Merkle
-                                DAG. These Merkle DAGs are the core data structure for the IPLD structure.
+                            <h3>IPLD: Getting Started</h3>
+                            <h6>To truly apprecite IPLD, we are going to learn the basics using simple IPFS command 
+                                line tools. Initial IPLD support has been released in ipfs, install or update IPFS 
+                                before following along on the rest of this guide. Once you’re ready, we’ll take a quick 
+                                look at the object structure for a simple hello.txt file using the [jq tool](https://stedolan.github.io/jq/).
                             </h6>
-                            <h6>In the example above, a cat photo added to the ipfs is hashed and added into the Merkle
-                                DAG. These Merkle DAGs are the core data structure for the IPLD structure.
+                            <h6>Start with the following command, which pipes (|) the result from getting the IPFS 
+                                object to the jq command.
+                                    
+                                    ipfs object get QmJTB2qXtFCfLarActp7tDNikE4PdsgaTQW2WQi7j6c7Ug | jq
+                                    
+                                Producing the following output:
+                                    
+                                    {
+                                        "Links": [
+                                           {
+                                            "Name": "hello.txt",
+                                            "Hash": "Qm34sdwMe9USZ7nS1YhWrCiS4gz7Xiud286K6pohQcTKYq",
+                                            "Size": 181100
+                                           }
+                                        ],
+                                        "Data": "\b\u0001"
+                                    }
+                                    
+                                    
+                                This is pretty cool, but let’s say you had the following directory structure, and you 
+                                wanted to add it to IPFS:
+                                
+                                    test_directory/
+                                        ├── bigfile.js
+                                        ├── *hello.txt
+                                        └── my_directory
+                                           ├── *test_file.txt
+                                           └── *test.txt
+                                    
+                                Here, we assume that all three files with an asterisk (*) — `hello.txt`, `test_file.txt`, 
+                                and `test.txt`— contain the same text: `“Hello World!/n”`. Now let’s add them to IPFS:
+                                    
+                                    ipfs add -r test_directory/
+                                    
+                                The newly created DAG for your upload will look similar to this:
+                                    
+                                    <figure>
+                                        <img src="/blog/wp-content/uploads/2018/08/new-dag.png" alt="" />
+                                        <figcaption>Illustration: IPFS Merkle DAG</figcaption>
+                                    </figure>
+                                    
+                                As illustrated above, the benefits of using a DAG to represent data in IPFS is very clear, 
+                                depending on the actual contents of the files in your directory, you end up with a series 
+                                of objects, linked via their CIDs. This is pretty cool and since we are referencing the
+                                same content we get `deduplication` for free! 
+                                    
+                                Important to note our bigfile.js, been chunked into three smaller pieces, each of which has 
+                                its own CID, which together form the larger file. Following all of these CIDs up the tree, 
+                                will give you a CID that describes the contents below it. This is **the genius of IPLD.**
+                                    
+                                This collection of Data and Links across the IPFS network creates a graph-like object 
+                                structure - commonly referred to as the **Merkle Forest** by **Juan Benet**. This data structure
+                                is highly tamper proof, because all content its `hash-verified` And since we are hashing the 
+                                contents of the objects, we have no duplication, because in the Merkle DAG, all objects that 
+                                hold the same content are considered equal and therefore stored only once because their hash 
+                                values are the same
                             </h6>
                             <h6>Donec orci dolor, pretium in luctus id, consequat vitae nibh. Quisque hendrerit, lorem sit amet 
                                 mollis malesuada, urna orci volutpat ex, sed scelerisque nunc velit et massa. Sed maximus id erat 
