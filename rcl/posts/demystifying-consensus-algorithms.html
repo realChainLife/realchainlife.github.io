@@ -280,16 +280,52 @@
                                     require high computational resources.
                                 </h6>
                             </h6>
-                            <h6></h6>
-                            <h6></h6>
-                            <h6></h6>
-                            <h6></h6>
-                            <h6></h6>
-                            <h6></h6>
-                            <h6></h6>
-                            <h6></h6>
-                            <h6></h6>
-                            <h6></h6>
+                            <h6>One of my major drawbacks from PBFT, despite some of it's advantages and 
+                                promising facts is its `communication gap`. Nodes running the PBFT algorithm
+                                are required to make sure that the information they gather is solid. This forcibly
+                                limits how many nodes can run on the network to retain a high quality communication
+                                between them.
+                            </h6>
+                            <h3>Directed Acyclic Graphs (DAGs) Algorithm</h3>
+                            <h6>Commonly known as the Blockchain Killers, DAGs are used in several blockchain
+                                networks including IOTA, Hashgraph and Nano. Its also integrated in non-blockchain
+                                networks like `IPFS`. 
+                            </h6>
+                            <figure>
+                                <img src="/blog/wp-content/uploads/2017/03/commit-message.png" alt="" />
+                                <figcaption>Source: Hackernoon</figcaption>
+                            </figure>
+                            <h6>Although I've listed it as a consensus algorithm, DAG is basically a form of data 
+                                structure that *theoretically* handles infinite transactions per second mostly 
+                                asynchronously. **Tangle** the DAG consensus algorithm used by Iota requires each
+                                node to validate two previous transactions before sending one on the network. This
+                                two-for-one consensus strenghens the validity of transactions the more transactions
+                                are added to the network.
+                            </h6>
+                            <h6>Nodes on **Hashgraph** on the other hand, share their known transactions with other
+                                nodes at random until eventually all the transactions are `gossiped` around to all of 
+                                the network nodes. At 250,000+ transactions per second it is one of the fastest 
+                                networks which makes it a great option for private networks. Despite its advantages
+                                Hashgraph is still susceptible to [sybil attacks](https://en.wikipedia.org/wiki/Sybil_attack).
+                            </h6>
+                            <h3>Conclusion</h3>
+                            <h6>Consensus algorithms make blockchain networks versatile and while there is no 
+                                one perfect algorithm to implement the field is still wide open to innovation 
+                                by creating variations of these implementations as well as new approaches to 
+                                them. My brief write up covers what I've considered the most dominant in the 
+                                market.
+                            </h6>
+                            <h6>The whole idea of the blockchain technology is decentralization and a fight 
+                                against service centralization. I am eagerly waiting for the development of 
+                                better and better consensus algorithms that will address issues like the
+                                handling of potential attacks with ease. Join our consensus-building community 
+                                if you're keen on developing the decentralized world further.
+                            </h6>
+                            <h6><small> ***Disclaimer***: The information is subject to my own opinion. Please 
+                                do your `very own` market research before making any investment in cryptocurrencies.
+                                Any financial loss caused as a result of this writing will be attributed to 
+                                you alone. </small>
+                            </h6>
                         </div>
                     </div>
                 </div>
