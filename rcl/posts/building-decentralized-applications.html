@@ -9,7 +9,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title  -->
-    <title>IPLD: Linked Data & Interoperable Protocols | RealChain 🐮ʕ •ᴥ•ʔ</title>
+    <title>Building Decentralized Applications | RealChain 🐮ʕ •ᴥ•ʔ</title>
 
     <!-- Favicon  -->
     <link rel="icon" href="img/core-img/favicon.ico">
@@ -85,8 +85,8 @@
                 <div class="col-12 col-md-8 col-lg-6">
                     <div class="single-blog-title text-center">
                         <!-- Catagory -->
-                        <div class="post-cta"><a href="#">IPFS</a></div>
-                        <h3>IPLD: Linked Data & Interoperable Protocols</h3>
+                        <div class="post-cta"><a href="#">BLOCKCHAINS</a></div>
+                        <h3>Building Decentralized Applications</h3>
                     </div>
                 </div>
             </div>
@@ -102,29 +102,178 @@
                     <div class="single-blog-content mb-100">
                         <!-- Post Meta -->
                         <div class="post-meta">
-                            <p><a href="#" class="post-date">2018-08-20 19:07:24</a></p>
+                            <p><a href="#" class="post-date">2018-04-23 19:41:12</a></p>
                         </div>
                         <!-- Post Content -->
                         <div class="post-content">
-                            <h6>Interplanetary Linked Data (IPLD) is a data format for merkle-linked objects. Its 
-                                purpose is to make it easy to build your own hash linked data structures and move 
-                                them around with IPFS. IPLD objects are stored and moved around by IPFS encoded with 
-                                CBOR, but can be written and operated on in JSON or any other schemaless serialization 
-                                format.
+                            <h6>Decentralized applications (or Dapps) are server-less applications that run 
+                                on a P2P network of computers rather than a single computer. They can be run 
+                                jointly on the client side and within a blockchain based distributed network - 
+                                although they don’t necessarily need to run on top of a blockchain network.
                             </h6>
-                            <h6>When an object is added to the IPFS it is chunked up into smaller parts (about 256k each), 
-                                each part is hashed, a CID is created for each chunk, and then these chunks are combined 
-                                into a hierarchical data structure, for which a single, base CID is computed. This data 
-                                structure is essentially something called a Merkle DAG, or directed acyclic graph. 
+                            <h6>BitTorrent, Popcorn Time, BitMessage, Tor, are all traditional dApps that run 
+                                on a P2P network, but not on a Blockchain (*which is a specific kind of P2P* 
+                                *network*).
                             </h6>
                             <figure>
-                                <img src="/img/blog-img/content-multi-hashing.png" alt="" />
-                                <figcaption>Illustration: IPFS Content Hashing, Source: Textile</figcaption>
+                                <img src="/blog/wp-content/uploads/2018/04/building-dapps-01.png" alt="">
+                                <figcaption>Blockchain & Decentralized Apps</figcaption>
                             </figure>
-                            <h6>In the example above, a cat photo added to the ipfs is hashed and added into the Merkle
-                                DAG. These Merkle DAGs are the core data structure for the IPLD structure.
+                            <h6>This post aims to cover:
+
+                                <h6>* Features of a blockchain dApp;</h6>
+                                <h6>* Ways of developing decentralized apps;</h6>
+                                <h6>* Why decentralized apps are the future;</h6>
+                                <h6>* Overview dApp development Platforms</h6>
+
                             </h6>
-                            <h3>Hash-Linked Data Structures</h3>
+                            <h6>Technically most of the Decentralised applications run on the principle of 
+                                `smart contracts` with no centralized authority controlling the application. 
+                                The apps contain real-world assets which can be used within the network.
+                            </h6>
+                            <h3>Features of a Decentralized Application</h3>
+                            <h6>If you're going to build a dApp, there are some prominent features that I suggest 
+                                be included by default. These features prove that programmable trust could power 
+                                a `decentralized system` without the need for a central institution. These are the 
+                                technological features that will power modern applications of all kinds:
+                            </h6>
+                            <h6>1. <b>Censorship Resistance Apps</b> - As the number of countries engaged in 
+                                some form of censorship continues to increase YOY it will be important 
+                                that you create applications on a decentralized infrastructure with a 
+                                natural resistance to all forms of censorship.
+                            </h6>
+                            <h6>2. **Resilience & Reliability** - The dApp logic and data should be replicated 
+                                across all the participating nodes on the networks using smart contracts.
+                                These replicated and distributed smart contracts will ensure fulltime
+                                availability and reliability for the dApp.
+                            </h6>
+                            <h6>3. **Auditability & transparency** - With the integrated smart contracts,
+                                users can verify the code implementing the business logic. This provides
+                                additional transparency and verifiable trust model to dApps.
+                            </h6>
+                            <h6>4. **Better Business Model** - For Web decentralization to work, we need to 
+                                develop commercialization models that are not only user friendly but also
+                                provided better mechanism designs and digital assets - these will cultivate
+                                a better internet.
+                            </h6>
+                            <h6>5. **Cryptographic Key Management** - Because the production of digital assets
+                                go hand-in-hand with protection, dApps need to incorporate asymmetric 
+                                encryption systems for the user credential management policy. This creates a 
+                                very sparse and challenging attack surface. A hacker now has to breach each 
+                                user individually.
+                            </h6>
+                            <h6>Using Dapps, we can design platforms that are fully decentralized and give more 
+                                control to users. There are very few mobile app developers out there who understand 
+                                the nitty gritty of developing a decentralized app. Though blockchain enthusiasts 
+                                have definitely increased over the past few years, there is still a deficiency of 
+                                expert decentralized app developers.
+                            </h6>
+                            <h6>Regardless of where you fall on the developer skill level, anyone can try out a few 
+                                methods to developing dApps that can be compiled into an easy-to-follow guide.
+                            </h6>
+                            <h3>Developing Decentralized apps</h3>
+                            <h6>Before we get started with key steps involved in the developing, building and 
+                                deploying of decentralized applications its important to remind ourselves that 
+                                this field is constantly evolving and that it is always a good idea to keep 
+                                refreshing your knowledge on the subject.
+                            </h6>
+                            <h4>Development Step I: Defining Your Environment</h4>
+                            <h6>Deciding which blockchain environment would best fit a business creates a headache 
+                                formany companies and developers. Due to the fragmented nature of the industry, 
+                                technology implemented by some companies faces many risks including `obsoletion`, 
+                                `insecurity`, `cost-inefficieny` and so on. 
+                            </h6>
+                            <h6>To avoid the pains associated with poor matching of a solution to technology, 
+                                developers need to determine the type of technology required for each area of 
+                                development i.e.
+
+                                    <h6>* Database Management</h6>
+                                    <h6>* APIs</h6>
+                                    <h6>* Development Servers</h6>
+                                    <h6>* Hosting</h6>
+                                    <h6>* Frameworks</h6>
+                                    <h6>* Programming Language</h6>
+                                    <h6>* & Frontend</h6>
+                            </h6> 
+                            <h6>Each technology choice contributes to the final efficiency, usability and 
+                                commercialibilty of the dApp and thus its can be called a critical factor of 
+                                dApp development.
+                            </h6>
+                            <h4>Development Step II: Set Up Development Framework</h4>
+                            <h6>Dependent on the technology you've chosen to work with, we will proceed to 
+                                installing the development framework, dependancies and evironment needed to 
+                                start working on the codebase and business logic for the smart contracts.
+                            </h6>
+                            <h6>There are two development frameworks that are most common and available for developers to 
+                                select from:
+
+                                <h6>* ***Platform Apps*** - These are suitable for developers new to 
+                                        decentralized app building. Platforms like Hyperledger, Ethereum 
+                                        or Azure provide easy to follow steps to deploying application most 
+                                        of them requiring developers to only write a smart contract that is 
+                                        deployed on the network through a series of automatic functions.
+                                </h6>
+                                <h6>* ***Software Apps*** - With this approach, developers can leverage 
+                                        pre-exiting softwares to build new sofwares or dApps that provide a 
+                                        specific suitable solution to existing network problems. AN example 
+                                        is the Lightning Network build on Bitcoin to solve the problem of 
+                                        high-cost transactions.
+                                </h6>
+
+                                Based on the framework of choice, you'll need to set up all the tools you will 
+                                need for the end-to-end development and deployment of the app. Every framework 
+                                provides an easy to work with development platform including Truffle on Ethereum. 
+                               
+                            </h6>
+                            <h4>Development Step III: Code The Application</h4>
+                            <h6>The core of any decentralized application is the business logic written into
+                                its smart contract. Though it might feel a little counterproductive for a new
+                                learning curve to be indroduced to something as basic as a programming language,
+                                that's excatly what happens with some blockchain networks. 
+                            </h6>
+                            <h6>As a developer of a dApp, you'll need to learn & adopt to each development platform's
+                                standard` for writing smart contracts. On **Ethereum** for example, smart contracts 
+                                are written in specific new language, [solidity](https://solidity.readthedocs.io/en/v0.5.9/) 
+                                and deployed through a special editor **Remix**. On **Hyperledger** smart contracts
+                                are referred to as [Chaincode](https://hyperledger-fabric.readthedocs.io/en/release-1.4/chaincode4ade.html) 
+                                and work with [Chaincoder](https://www.chaincoder.org) an interactive tool for rapid 
+                                development, creation and deployment of applications on Hyperledger Fabric. 
+                            </h6>
+                            <h6>In this example, we have two solutions that have addressed the issue of programming
+                                language differently. Chaincode is implementable in `Go`, `node.js` or `java` - 
+                                already common languages but Ethereum requires you to learn the the language
+                                from scratch. This should be considered in while choosing the preferred development
+                                environment. 
+                            </h6>
+                            <h6>Here, you should also consider your `Frontend UI` options and include the design and
+                                development process in the entire coding phase. This will be important for the dApp
+                                tests that will be done in the next step. 
+                            </h6>
+                            <h4>Development Step IV: Deploy & Test Application</h4>
+                            <h6>Before we can launch and start using our application in the last step we need to 
+                                deploy and test what you've developed. For majority of platform applications this
+                                step is as simple as:
+
+                                <h6>1. Uploading the configuration files and smart contracts</h6>
+                                <h6>2. Adding network participants</h6>
+                                <h6>2. Adding network participants</h6>
+                            </h6>
+                            <h6></h6>
+                            <h6></h6>
+                            <h6></h6>
+                            <h6></h6>
+                            <h6></h6>
+                            <h6></h6>
+                            <h6></h6>
+                            <h6></h6>
+                            <h6></h6>
+                            <h6></h6>
+                            <h6></h6>
+                            <h6></h6>
+                            <h6></h6>
+                            <h6></h6>
+                            <h6></h6>
+                            <h6></h6>
                             <h6>IPLD is a hash-linked data structure that models everything as a series of linked objects. 
 
                                 An IPLD oject consists of:
