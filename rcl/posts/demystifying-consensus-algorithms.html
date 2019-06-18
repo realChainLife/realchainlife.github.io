@@ -106,36 +106,124 @@
                         </div>
                         <!-- Post Content -->
                         <div class="post-content">
-                            <h6>Interplanetary Linked Data (IPLD) is a data format for merkle-linked objects. Its 
-                                purpose is to make it easy to build your own hash linked data structures and move 
-                                them around with IPFS. IPLD objects are stored and moved around by IPFS encoded with 
-                                CBOR, but can be written and operated on in JSON or any other schemaless serialization 
-                                format.
+                            <h6>One of my absolute all time favourite topics to write about, **Consensus Algorithms**
+                                Before diving into the definitions, types and differences between each consensus
+                                algorithm, we need to know more about the technology that these scripts are written 
+                                for and function within i.e. **blockchain technology**.
                             </h6>
-                            <h6>When an object is added to the IPFS it is chunked up into smaller parts (about 256k each), 
-                                each part is hashed, a CID is created for each chunk, and then these chunks are combined 
-                                into a hierarchical data structure, for which a single, base CID is computed. This data 
-                                structure is essentially something called a Merkle DAG, or directed acyclic graph. 
+                            <h6>`Blockchain` is an open, distributed ledger that can record transactions between 
+                                two parties efficiently and in a verifiable and permanent way. Generally it is a 
+                                system for maintaining distributed ledgers by using peer-to-peer protocols. 
+                                Blockchain enables real-time transactions and securely shares tamper-proof data 
+                                across a trusted business network. 
                             </h6>
                             <figure>
                                 <img src="/blog/wp-content/uploads/2017/03/commit-message-small.png" alt="" />
                                 <figcaption>Source: Oracle</figcaption>
                             </figure>
-                            <h6>In the example above, a cat photo added to the ipfs is hashed and added into the Merkle
-                                DAG. These Merkle DAGs are the core data structure for the IPLD structure.
+                            <h6>No consensus algorithm is perfect, they all have their pros and cons and for blockchain
+                                networks, one of the major functions of a consensus algorithm is to prevent double
+                                spend; another is to store transaction data in distributed ledgers. Depending on 
+                                the algorithm - a network can build either a `permissioned` or `permissionless` 
+                                distributed ledger.
+
+                                    <h6>**Permissioned** networks are closed ecosystems where validators are vetted 
+                                        and selected by the network owner. This include *Hyperledger* and *Corda*.
+                                    </h6>
+                                    <h6>**Permissionless** networks allow anyone with the computational resources 
+                                        to read the chain and write new blocks according to the consensus rules. 
+                                        It's also known by its widest description as a public blockchain and its
+                                        what we'll be covering alot of today. 
+                                    </h6>
                             </h6>
-                            <h3>Hash-Linked Data Structures</h3>
-                            <pre>
-                                <span >
-                                    {
-                                        "hello": "world",
-                                        "foo": {"/": "QmTz3oc4gdpRMKP2sdGUPZTAGRngqjsi99BPoztyP53JMM"},
-                                        "baz": [
-                                        {"/": "QmWg1Ux3cb3xCToGBCmZBNaMvpcFhTEEjb74fruG9uVHja"}
-                                        ]
-                                    }
-                                </span>
-                            </pre>
+                            
+                            <h6>Before we can delve into each of the algorithms we need to understand some
+                                of the base functionalities and mechanisms of these consensus algorithms.
+                                For instance to ensure transaction validation, protocols need to follow
+                                a simple three-step process of `endorsing`, `ordering` and `validating`
+                                transactions. 
+                            </h6>
+                            <h6>Because blockchain is a decentralized peer-to-peer network - participants 
+                                (developers, miners, exchanges, users) need a decision-making model that
+                                is not only open or logical, it needs to be fair and balanced. This
+                                model is what is referred to as a consensus `mechanism`.
+                            </h6>
+                            <h6>It usually covers 6 critical participant agreements on: **collaboration**,
+                                **co-operation**, **equal-rights**, **participation** and **activity**. All
+                                these will be covered in detail as we go through each algorithm starting
+                                here with `Proof-Of-Work`. 
+                            </h6>
+                            <h3>Proof-Of-Work (PoW) Algorithm</h3>
+                            <h6>PoW or as commonly referred, the `Bitcoin algorithm`, works on a technological
+                                principle that requires all nodes (*miners*) to confirm all of their transactions 
+                                and produce relevant blocks to the network chain. New blocks come with a Hash 
+                                Function, and the hash function of the previous block. This provides the 
+                                network an added layer of protection and prevents any type of violations.
+                            </h6>
+                            <h6>In proof of work, miners compete to add the next block (a set of transactions)
+                                in the chain by racing to solve a extremely difficult cryptographic puzzle. 
+                                Once a miner solves the puzzle, a new block gets created, and the transaction 
+                                is confirmed.
+                            </h6>
+                            <h6>Other cryptocurrencies such as Litecoin have adopted this model for their 
+                                network and although a masterpiece in its own right, proof of work isn't
+                                quite perfect.
+                            </h6>
+                            <h4>Where The Proof of Work Consensus Algorithm Falls Short</h4>
+                            <h6>Far from what we can assume was Satoshi Nakamoto's vision, Bitcoin today has
+                                evolved into a `datacenter-hosted style mining operation`. This is because of 
+                                the high computational power required to solve cryptographic puzzles during
+                                the creation of new blocks. As a result people and organizations that can 
+                                afford faster and more powerful `ASICs` usually have better chances of mining 
+                                than the others.
+                            </h6>
+                            <h6>While environmentalists argue that this level of energy consumptions is killing 
+                                the planet as its slowing the migration to other sources of energy - the PoW
+                                model is getting more `energy-efficient` as a result of technological innovation. 
+                                Therefore, the energy consumption of bitcoin will only improve with time.
+                            </h6>
+                            <h6>Another challenge that has been noted as a result of the high computational 
+                                resource requirement is the `centralization of miners` i.e. a small pool of
+                                miners controling a large part of the network. Although it might seem this way,
+                                bitcoin is used by millions across the world - and any changes to the network
+                                will not be implementated as easily as it's often thought. It is also extremely
+                                costly to implement changes on the network.
+                            </h6>
+                            <h3>Proof-Of-Stake (PoS) Algorithm</h3>
+                            <h6>PoS is a new type of concept where every individual can mine or even validate 
+                                new blocks only based on their coin possession. A user with a specific amount 
+                                of coins stored previously in the wallet qualify to be a node on the network.
+                            </h6>
+                            <h6>To qualify to be a miner users are required to deposit a certain amount of coin, 
+                                after a vote is held to choose the network validators. At the end the miners 
+                                stake the minimum amount required for the special wallet staking.
+                            </h6>
+                            <h6>The tedious solving of cryptographic puzzles in PoW is replaced with a block
+                                validation process that starts off with validators identifying blocks which 
+                                they think will be added to the chain. They validate these block by placing
+                                a `bet` on it. For every block staked, validators receive a reward proportionate 
+                                to their `bets` for example a 10% stake is rewarded by validating 10% of new blocks.
+                            </h6>
+                            <h6>The major grep with this consensus algorithm is due to its seemingly `minimal`
+                                requirements for validator roles - What is to discourage validators from creating 
+                                two blocks and claiming two sets of transaction fees? And what is to discourage
+                                a signer from signing both of those blocks? This has been called the 
+                                `'nothing-at-stake'` problem and its yet to be addressed by common users of the
+                                algorithm including Ethereum (which recently made the switch from PoW) or PIVX.
+                            </h6>
+                            <h6></h6>
+                            <h6></h6>
+                            <h6></h6>
+                            <h6></h6>
+                            <h6></h6>
+                            <h6></h6>
+                            <h6></h6>
+                            <h6></h6>
+                            <h6></h6>
+                            <h6></h6>
+                            <h6></h6>
+                            <h6></h6>
+                            <h6></h6>
                         </div>
                     </div>
                 </div>
