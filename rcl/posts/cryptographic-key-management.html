@@ -271,34 +271,40 @@
                             </h6>
                             <h6>Here are some of the major threats to consider while managing the safe storage of keys:
 
-                                * **Usage of Keys** - How keys are used across various databases or applications
-                                  can impact how safe the keys remain. For instance, `Improper re-use of keys` in 
-                                  certain circumstances can make it easier for an attacker to crack the key.
+                                <h6>**Usage of Keys - How keys are used across various databases or applications
+                                    can impact how safe the keys remain. For instance, `Improper re-use of keys` in 
+                                    certain circumstances can make it easier for an attacker to crack the key.
+
+                                    Without the proper `rotation of keys` i.e. if a key is over-used then it makes 
+                                    the key more vulnerable especially when using older symmetric algorithms;
+                                </h6> 
+
+                                <h6>Inappropriate & Inadequate Protection - This is simple, keys should never
+                                    be `stored alongside the data` that they protect as any data corruption is likely 
+                                    to compromise the key also.
+                                    
+                                    Even keys stored only in server memory `should be encrypted` whenever stored 
+                                    and only be made available in unencrypted form within a secure, offline tamper-
+                                    protected environment.
+                                </h6>* 
                               
-                                  Without the proper `rotation of keys` i.e. if a key is over-used then it makes 
-                                  the key more vulnerable especially when using older symmetric algorithms;
+                                <h6>Insecure Movement of Keys - When sharing symmetric keys on a system, the 
+                                    key should be `split into multiple components` that must then be kept separate 
+                                    until being re-entered into the target system (and then the components are destroyed). 
+                                    Without this extra caution, keys are at risk of being publicised.
+                                </h6>
                               
-                                * **Inappropriate & Inadequate Protection** - This is simple, keys should never
-                                  be `stored alongside the data` that they protect as any data corruption is likely 
-                                  to compromise the key also.
+                                <h6>Non-Desctruction of Keys - Keys should be `securely deleted` once they 
+                                    have expired, unless explicitly required for later use (e.g. to decrypt data). 
+                                    This removes the risk of accidental compromise at some future date.
+                                </h6>
                               
-                                  Even keys stored only in server memory `should be encrypted` whenever stored 
-                                  and only be made available in unencrypted form within a secure, offline tamper-
-                                  protected environment.
-                              
-                                * **Insecure Movement of Keys** - When sharing symmetric keys on a system, the 
-                                  key should be `split into multiple components` that must then be kept separate 
-                                  until being re-entered into the target system (and then the components are destroyed). 
-                                  Without this extra caution, keys are at risk of being publicised.
-                              
-                                * **Non-Desctruction of Keys** - Keys should be `securely deleted` once they 
-                                  have expired, unless explicitly required for later use (e.g. to decrypt data). 
-                                  This removes the risk of accidental compromise at some future date.
-                              
-                                * **Manual Key Management** - The use of a manual key management processes,
-                                  using `paper` or `inappropriate` tools such as spreadsheets and accompanied 
-                                  by manual key ceremonies, can easily result in human errors that often go 
-                                  unnoticed and may leave keys highly vulnerable.
+                                <h6>Manual Key Management - The use of a manual key management processes,
+                                    using `paper` or `inappropriate` tools such as spreadsheets and accompanied 
+                                    by manual key ceremonies, can easily result in human errors that often go 
+                                    unnoticed and may leave keys highly vulnerable.
+                                </h6>
+
                             </h6>
                             <h6>There are other physical environment security threats that need to be considered a threat 
                                 and factored in the security plan this include ***physical access controls***, ***fire*** 
