@@ -9,7 +9,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title  -->
-    <title>IPLD: Linked Data & Interoperable Protocols | RealChain 🐮ʕ •ᴥ•ʔ</title>
+    <title>Cryptographic Key Management | RealChain 🐮ʕ •ᴥ•ʔ</title>
 
     <!-- Favicon  -->
     <link rel="icon" href="img/core-img/favicon.ico">
@@ -79,14 +79,14 @@
     <!-- ***** Header Area End ***** -->
 
     <!-- ********** Hero Area Start ********** -->
-    <div class="hero-area height-400 bg-img background-overlay" style="background-image: url(img/blog-img/bg2.jpg);">
+    <div class="hero-area height-300 bg-img background-overlay" style="background-image: url(img/blog-img/bg2.jpg);">
         <div class="container h-100">
             <div class="row h-100 align-items-center justify-content-center">
                 <div class="col-12 col-md-8 col-lg-6">
                     <div class="single-blog-title text-center">
                         <!-- Catagory -->
-                        <div class="post-cta"><a href="#">IPFS</a></div>
-                        <h3>IPLD: Linked Data & Interoperable Protocols</h3>
+                        <div class="post-cta"><a href="#">Cryptography</a></div>
+                        <h3>Cryptographic Key Management</h3>
                     </div>
                 </div>
             </div>
@@ -102,59 +102,161 @@
                     <div class="single-blog-content mb-100">
                         <!-- Post Meta -->
                         <div class="post-meta">
-                            <p><a href="#" class="post-date">2018-08-20 19:07:24</a></p>
+                            <p><a href="#" class="post-date">2018-06-04 14:39:29</a></p>
                         </div>
                         <!-- Post Content -->
                         <div class="post-content">
-                            <h6>Interplanetary Linked Data (IPLD) is a data format for merkle-linked objects. Its 
-                                purpose is to make it easy to build your own hash linked data structures and move 
-                                them around with IPFS. IPLD objects are stored and moved around by IPFS encoded with 
-                                CBOR, but can be written and operated on in JSON or any other schemaless serialization 
-                                format.
+                            <h6>In my quest for continous learning, two months ago I started studying Cryptography 
+                                a course offered by Standford University on [Coursera](https://coursera.org). My 
+                                objective for taking this subject was to learn how to combine the lessons of 
+                                cryptography as a tool for protecting information and continous decentralized apps 
+                                development.
                             </h6>
-                            <h6>When an object is added to the IPFS it is chunked up into smaller parts (about 256k each), 
-                                each part is hashed, a CID is created for each chunk, and then these chunks are combined 
-                                into a hierarchical data structure, for which a single, base CID is computed. This data 
-                                structure is essentially something called a Merkle DAG, or directed acyclic graph. 
+                            <h6>It was also my intention to apply the principles of symmetric and asymmetric 
+                                cryptographic operations to provide different security properties to the softwares
+                                I build. The use of cryptographic encryption and authentication framework is fast
+                                becoming a necessity for modern businesses; for example, enterprises are leveraging 
+                                `Public Key Infrastructure` to authenticate users and machines.  S/MIME is proving 
+                                its worth as both an email encryption option and a way to validate email sources 
+                                to counter phishing.
                             </h6>
-                            <figure>
-                                <img src="/img/blog-img/content-multi-hashing.png" alt="" />
-                                <figcaption>Illustration: IPFS Content Hashing, Source: Textile</figcaption>
-                            </figure>
-                            <h6>In the example above, a cat photo added to the ipfs is hashed and added into the Merkle
-                                DAG. These Merkle DAGs are the core data structure for the IPLD structure.
+                            <h6>Before detailing how cryptographic frameworks can be used in various business solutions
+                                we need to understand what cryptography is, how it works under the hood and how 
+                                programmers can integrate it into software development. 
                             </h6>
-                            <h3>Hash-Linked Data Structures</h3>
-                            <h6>IPLD is a hash-linked data structure that models everything as a series of linked objects. 
+                            <h3>Introduction</h3>
+                            <h6>Whether you know it or not, as long as you have used any service on the internet 
+                                you have interacted with Cryptographic key management or `encryption` as we will
+                                refer to it for here-on. Encryption is applied to protect electronic communications
+                                and financial transactions, maintain the privacy of sensitive data and it enables
+                                secure authentication and authorization. 
+                            </h6>
+                            <h6>Most, *if not all*, encryption lifecycles on most services start with the generation, 
+                                usage, storage, archiving, and finally the deletion of keys. What are these keys
+                                that we're referencing? A `cryptographic key` is data that specifies the transformation 
+                                of plaintext into ciphertext, and vice versa. Keys are typically designed to be both 
+                                random and reasonably long such that they are difficult to guess. 
+                            </h6>
+                            <h3>Types of Cryptographic Keys</h3>
+                            <h6>In general, cryptographic keys are categorized according to their properties and uses. 
+                                The value of any key is equivalent to the value of all the data and/or assets it is 
+                                used to protect. Although there are more than 10 types of keys, today we will be covering
+                                three primary types: 
+                            </h6>
+                            <h6>1. **Symmetric keys** – these are typically used to protect bulk *data-at-rest*. 
+                                It draws its name from the fact that the same encryption key is used to both 
+                                encrypt and decrypt the data and is only accessible to authorized users i.e
+                                anyone with the secret key. 
+                            </h6>
+                            <h6>2. **Asymmetric Keys** – as the name suggests are a pair of keys used for the 
+                                encryption and decryption of data. Both keys are different but related to 
+                                each other and are created at the same time. They are referred to as a 
+                                `public` and a `private` keys:
+                             
+                                 * Public Key - this is a key used for data encryption and can be 
+                                   shared publicly.
+                             
+                                 * Private Key - this key is used to decrypt the data encrypted
+                                   by the public key. This key must be safeguarded at all times.
+                             
+                                 This type of cryptography is commonly known for its usage with asymmetric 
+                                 algorithms like RSA or ECDSA; in these instances, private key storage best 
+                                 practises are employed since anyone with the private key can impersonate 
+                                 the key owner to decrypt private data, gain unauthorized access to systems 
+                                 or generate a fraudulent digital signature that appears authentic.
+                             
+                                 <figure>
+                                   <img src="/blog/wp-content/uploads/2018/06/key-management.png" alt="" />
+                                   <figcaption>Illustration: symmetric & asymmetric keys</figcaption>
+                                 </figure>
+                            </h6>
+                            <h6>3. **Hash Keys**  – these are used to safeguard the integrity and authenticity of 
+                                data and transactions with algorithms like HMAC-SHA256. If you have used Bitcoin,
+                                other cryptocurriencies or blockchain in general then you are familiar with a hash. 
+                             
+                                Similar to asymmetric encryption, private hash keys should not be disclosed, or 
+                                lost as mal-intended users of this key can impersonate transaction originators to 
+                                modify, falsify or create incorrect data/transactions that recipients will believe 
+                                to be authentic. 
+                            </h6>
+                            <h3>How Cryptographic Encryption Works</h3>
+                            <h6>So far in this post we have covered what encryption is and the most common types of keys
+                                used for data protection. Without going into the historic details of encryption we will
+                                now dive deep to understand how modern encryption systems actually work.                                
+                            </h6>
+                            <h3>Symmetric Encryption Systems</h3>
+                            <h6>A historical example of symmetric encryption used by Julius Caesar: the `Caesar cipher`
+                                is a method of shifting the alphabet by three characters. In this case the encryption 
+                                and decryption key is the number 3. The Caesar cipher is a weak form of symmetric 
+                                cryptography since anyone with this knowledge could decipher any message between Ceaser 
+                                and his generals.
+                            </h6>
+                            <h6>Thankfully, encryption has come a long way since the Caesar cipher. Using amazing math 
+                                and the help of computers, symmetric-key algorithms today can be divided into [stream ciphers](https://en.wikipedia.org/wiki/Stream_cipher) and block ciphers. Stream ciphers encrypt bits of a message one at 
+                                a time. In a synchronous stream cipher, a stream of pseudo-random digits is generated 
+                                independently of the plaintext and ciphertext messages, and then combined with the 
+                                plaintext (to encrypt) or the ciphertext (to decrypt). There’s a lot of different symmetric 
+                                algorithms one can choose from including ***Twofish***, ***Serpent***, ***TDES***, and ***IDEA***.
+                            </h6>
+                            <h6>To take it further, lets breakdown how an authorized user can access encrypted data:
 
-                                An IPLD oject consists of:
-
-                                    * `Data` — blob of unstructured binary data of size < 256 kB.
-                                    * `Links` — array of Link structures. These are links to other IPFS objects.
-                                    
-                                A Link structure has three data fields:
-                                    
-                                    * `Name` — name of the Link
-                                    * `Hash` — hash of the linked IPFS object
-                                    * `Size` — cumulative size of linked IPFS object, including following its links
-                                    
-                                An IPLD object looks something like this:
-                                    
-                                    {
-                                        "hello": "world",
-                                        "foo": {"/": "QmTz3oc4gdpRMKP2sdGUPZTAGRngqjsi99BPoztyP53JMM"},
-                                        "baz": [
-                                            {"/": "QmWg1Ux3cb3xCToGBCmZBNaMvpcFhTEEjb74fruG9uVHja"}
-                                            ]
-                                    }
-                                    
-                                The basic idea is that any valid CBOR object (and subsequently, any valid JSON object 
-                                since they map 1-to-1) can be an IPLD object. On top of that, theres a special format 
-                                for inserting merkle-links that is the real meat of IPLD. The strange objects with a 
-                                key of '/' and a value of an IPFS hash are the links. These links are understood by 
-                                IPFS and can be used to build path references across objects.
+                                1. A user requests access to encrypted data.
+                                2. The client `Key Manager` API receives a `Data Encryption Key` retieval request 
+                                   from a database or application.
+                                3. Here, once the client Key Manager API `certificate` has been verified, the Key 
+                                   Manager must send `its certificate` to the `Key Manager API` for authentication
+                                   and acceptance. 
+                                4. A `secure TLS connection` is opened between the client KM API & the KM once the 
+                                   certificates have been accepted.
+                                5. The KM API sends a decrypted `Data Encryption Key` (*that was received over the encrypted TLS session*) 
+                                   to the database or application.
+                                6. A DEK cached in a `temporary secure memory` lets the database or application `send` 
+                                   `the plaintext` information to the user.                               
                             </h6>
-                            <h3>IPLD: Getting Started</h3>
+                            <h6>Symmetric cryptography however doesn’t address several issues for example:
+
+                                * How does the sender send the symmetric decryption key to the 
+                                  recipient without someone spying on that conversation too? 
+                              
+                                * What if the sender and recipient are physically far away from 
+                                  each other?                              
+                            </h6>
+                            <h3>Asymmetric Encryption Systems</h3>
+                            <h6>The critical advantage in an asymmetric key system is that users never need to send a 
+                                copy of their keys to each other. The `public key cryptography` allows someone to send 
+                                their public key in an open, insecure channel. This system also prevents third party 
+                                `intermediaries` — *such as the email service providers, Internet service providers, 
+                                and those on their networks* — from seeing the message content. Theses intermediaries 
+                                are restricted to `metadata`. 
+                            </h6>
+                            <h6>In these systems, **users can encrypt and send messages to `owners` of a public key while also using their `private key` to decrpyt messages they receive**. Asymmetric encryption uses different keys for 
+                                encryption and decryption - and that's one of the major benefits of this encryption 
+                                system. We never need to send secret keys or passwords over insecure network channels.
+                            </h6>
+                            <h6>Another one of those benefits of this system is that it boasts a simple encryption-to-decryption-to-encryption
+                                process that happens in quick succession:
+                                
+                                  1. It starts once the `Sender's certificate` has been verified. The 
+                                     `recipient` then sends `their certificate` to the sender for 
+                                     `authentication and acceptance`.
+                                  2. Once the sender has received the recipients `public key` they create 
+                                     a `one-session-use` symmetric encryption key and encrypts the `message`.
+                                  3. The `symmetric key` is encrypted with the senders `public key` and 
+                                     sent to the recipient.
+                                  4. The `message` is received as a packet and is `decrypted` by the recipients 
+                                     private key - the recipient then decrypts the message with the `one-session-use` 
+                                     symmetric key. 
+                            </h6>
+                            <h6>Now that we know how each encryption system works I want to cover the very vital topic 
+                                of key storage options & best practises. With an ever-increasing number of keys to protect, 
+                                and an ever-increasing value of data being protected by those keys, how do we address the 
+                                many threats that can result in a key being compromised.
+                            </h6>
+                            <h6>
+                            </h6>
+                            <h6>
+                            </h6>
+                            <h3>Asymmetric Encryption Systems</h3>
                             <h6>To truly apprecite IPLD, we are going to learn the basics using simple IPFS command 
                                 line tools. Initial IPLD support has been released in ipfs, install or update IPFS 
                                 before following along on the rest of this guide. Once you’re ready, we’ll take a quick 
