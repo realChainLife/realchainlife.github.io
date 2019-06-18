@@ -258,177 +258,91 @@
                                 <h6>2. Adding network participants</h6>
                                 <h6>2. Adding network participants</h6>
                             </h6>
-                            <h6></h6>
-                            <h6></h6>
-                            <h6></h6>
-                            <h6></h6>
-                            <h6></h6>
-                            <h6></h6>
-                            <h6></h6>
-                            <h6></h6>
-                            <h6></h6>
-                            <h6></h6>
-                            <h6></h6>
-                            <h6></h6>
-                            <h6></h6>
-                            <h6></h6>
-                            <h6></h6>
-                            <h6></h6>
-                            <h6>IPLD is a hash-linked data structure that models everything as a series of linked objects. 
-
-                                An IPLD oject consists of:
-
-                                    * `Data` — blob of unstructured binary data of size < 256 kB.
-                                    * `Links` — array of Link structures. These are links to other IPFS objects.
-                                    
-                                A Link structure has three data fields:
-                                    
-                                    * `Name` — name of the Link
-                                    * `Hash` — hash of the linked IPFS object
-                                    * `Size` — cumulative size of linked IPFS object, including following its links
-                                    
-                                An IPLD object looks something like this:
-                                    
-                                    {
-                                        "hello": "world",
-                                        "foo": {"/": "QmTz3oc4gdpRMKP2sdGUPZTAGRngqjsi99BPoztyP53JMM"},
-                                        "baz": [
-                                            {"/": "QmWg1Ux3cb3xCToGBCmZBNaMvpcFhTEEjb74fruG9uVHja"}
-                                            ]
-                                    }
-                                    
-                                The basic idea is that any valid CBOR object (and subsequently, any valid JSON object 
-                                since they map 1-to-1) can be an IPLD object. On top of that, theres a special format 
-                                for inserting merkle-links that is the real meat of IPLD. The strange objects with a 
-                                key of '/' and a value of an IPFS hash are the links. These links are understood by 
-                                IPFS and can be used to build path references across objects.
+                            <h6>It is worth noting that any deployed smart contract code will be unalterable and 
+                                forever stored on the blockchain. For this reason, you should know before beginning
+                                all the `variables` that will be testnet for various function performance tracking. 
                             </h6>
-                            <h3>IPLD: Getting Started</h3>
-                            <h6>To truly apprecite IPLD, we are going to learn the basics using simple IPFS command 
-                                line tools. Initial IPLD support has been released in ipfs, install or update IPFS 
-                                before following along on the rest of this guide. Once you’re ready, we’ll take a quick 
-                                look at the object structure for a simple hello.txt file using the [jq tool](https://stedolan.github.io/jq/).
+                            <h4>Development Step V: Launch The App</h4>
+                            <h6>This can be the most exciting and daunting phase of the entire development process.
+                                Exciting because the fruit of your hardwork is seemingly ready to be shared with 
+                                the world - daunting because any mistakes in the development of the application
+                                can lead to un-usability of the dApp. 
                             </h6>
-                            <h6>Start with the following command, which pipes (|) the result from getting the IPFS 
-                                object to the jq command.
-                                    
-                                    ipfs object get QmJTB2qXtFCfLarActp7tDNikE4PdsgaTQW2WQi7j6c7Ug | jq
-                                    
-                                Producing the following output:
-                                    
-                                    {
-                                        "Links": [
-                                           {
-                                            "Name": "hello.txt",
-                                            "Hash": "Qm34sdwMe9USZ7nS1YhWrCiS4gz7Xiud286K6pohQcTKYq",
-                                            "Size": 181100
-                                           }
-                                        ],
-                                        "Data": "\b\u0001"
-                                    }
-                                    
-                                    
-                                This is pretty cool, but let’s say you had the following directory structure, and you 
-                                wanted to add it to IPFS:
+                            <h6>Once your app has been tested you will be ready to launch it. Choose a custom domain 
+                                for the application and let everyone know it is up and ready. Keep in mind that this 
+                                will be the most intensive part of your marketing strategy and you should keep up the 
+                                same level of hard work and diligence that lead to you creating a great app in the 
+                                first place.
+                            </h6>
+                            <h3>Decentralized Apps of The Future</h3>
+                            <h6>Time and time again I have mentioned the importance of the `Decentralized Web`
+                                and the role decentralized applications will play in the mainstream adoption
+                                of decentralized and distributed systems.
+                            </h6>
+                            <figure>
+                                <img src="/blog/wp-content/uploads/2018/04/building-dapps-02.png" alt="">
+                                <figcaption>Illustration: Decentralized Application</figcaption>
+                            </figure>
+                            <h6>A major challenge we face with the current client/server models we use on our
+                                applications gives hackers a single point at which to orchestrate attacks. This 
+                                failure has resulted in massive data breaches which have not only cost huge sums 
+                                of money, but have also dented customer trust as well. Decentralization prevents 
+                                these kinds of attacks because there is no one point of failure.
+                            </h6>
+                            <h6>The decentralized application will be held to the same criteria of decentralized
+                                applications in development today:
                                 
-                                    test_directory/
-                                        ├── bigfile.js
-                                        ├── *hello.txt
-                                        └── my_directory
-                                           ├── *test_file.txt
-                                           └── *test.txt
-                                    
-                                Here, we assume that all three files with an asterisk (*) — `hello.txt`, `test_file.txt`, 
-                                and `test.txt`— contain the same text: `“Hello World!/n”`. Now let’s add them to IPFS:
-                                    
-                                    ipfs add -r test_directory/
-                                    
-                                The newly created DAG for your upload will look similar to this:
-                                    
-                                    <figure>
-                                        <img src="/blog/wp-content/uploads/2018/08/new-dag.png" alt="" />
-                                        <figcaption>Illustration: IPFS Merkle DAG</figcaption>
-                                    </figure>
-                                    
-                                As illustrated above, the benefits of using a DAG to represent data in IPFS is very clear, 
-                                depending on the actual contents of the files in your directory, you end up with a series 
-                                of objects, linked via their CIDs. This is pretty cool and since we are referencing the
-                                same content we get `deduplication` for free! 
-                                    
-                                Important to note our bigfile.js, been chunked into three smaller pieces, each of which has 
-                                its own CID, which together form the larger file. Following all of these CIDs up the tree, 
-                                will give you a CID that describes the contents below it. This is **the genius of IPLD.**
-                                    
-                                This collection of Data and Links across the IPFS network creates a graph-like object 
-                                structure - commonly referred to as the **Merkle Forest** by **Juan Benet**. This data structure
-                                is highly tamper proof, because all content its `hash-verified` And since we are hashing the 
-                                contents of the objects, we have no duplication, because in the Merkle DAG, all objects that 
-                                hold the same content are considered equal and therefore stored only once because their hash 
-                                values are the same
+                                    <h6>**Distributed Ledger** - Application’s data and records of operation 
+                                        must be cryptographically stored in a public, decentralized blockchain 
+                                        in order to avoid any central points of failure.
+                                    </h6>
+                                    <h6>**Generate Tokens** - Application must generate tokens according to a 
+                                        standard cryptographic algorithm acting as a proof of the value, for
+                                        example Bitcoin uses the Proof of Work Algorithm to generate more BTC.
+                                    </h6>
+                                    <h6>**Open Source** - Application must operate autonomously, and with no 
+                                        entity controlling the majority of its tokens - the consensus of its 
+                                        users must decide all changes.
+                                    </h6>
                             </h6>
-                            <h6>We can demonstrate this further by using [Matt Zumwalt's](https://github.com/flyingzumwalt/decentralized-web-primer/tree/master/samples) building out files-as-dags lesson tutorial. We will `ipfs cat` the cosmos.jpg file 
-                                from the command line: 
-                                    
-                                    ipfs cat QmWNj1pTSjbauDHpdyg5HQ26vYcNWnubg1JehmwAE9NnU9 > cosmos.jpg
-                                    
-                                Now you can add it locally, and if you `cat`’d it initially, make sure the hashes match 
-                                then assign the returned hash to the env variable hash:
-                                    
-                                    hash=`ipfs add -q cosmos.jpg`
-                                    echo $hash
-                                    
-                                The CID output should match the image hash like this:
-                                    
-                                    QmWNj1pTSjbauDHpdyg5HQ26vYcNWnubg1JehmwAE9NnU9
-                                    
-                                Now, that the file has been chunked we can query all the ipfs objects for the image by 
-                                running: 
-                                    
-                                    ipfs ls -v $hash
-                                    
-                                Each linked object is about 256k, together these chunks make up the whole image - and 
-                                when a network request for this file is made, different peers share a different chunk of 
-                                the image which is put together by the requesting peer. 
-                                    
-                                    Hash                                           Size   Name
-                                    QmPHPs1P3JaWi53q5qqiNauPhiTqa3S1mbszcVPHKGNWRh 262158 
-                                    QmPCuqUTNb21VDqtp5b8VsNzKEMtUsZCCVsEUBrjhERRSR 262158 
-                                    QmS7zrNSHEt5GpcaKrwdbnv1nckBreUxWnLaV4qivjaNr3 262158 
-                                    QmQQhY1syuqo9Sq6wLFAupHBEeqfB8jNnzYUSgZGARJrYa 76151
-                                    
-                                You can also use this super new and fun tool to explore DAGs (IPLD obejcts) in the browser. 
-                                Check out the git example for a fun one. Or even better, explore the above DAG object.
-                                    
-                                Now, just to show you that the above four chunks do indeed make up the single image, you can 
-                                use the following code to ‘manually’ join the chunks together to create the image file — which 
-                                is essentially what cat is doing in the background when you reference the base CID:
-                                    
-                                    ipfs cat \
-                                    QmPHPs1P3JaWi53q5qqiNauPhiTqa3S1mbszcVPHKGNWRh \
-                                    QmPCuqUTNb21VDqtp5b8VsNzKEMtUsZCCVsEUBrjhERRSR \
-                                    QmS7zrNSHEt5GpcaKrwdbnv1nckBreUxWnLaV4qivjaNr3 \
-                                    QmQQhY1syuqo9Sq6wLFAupHBEeqfB8jNnzYUSgZGARJrYa \
-                                    > cat-cosmos.jpg
-                                    open cat-cosmos.jpg
-                                    
-                                Alternatively, you could do this more succinctly using pipes again:
-                                    
-                                    ipfs refs $hash | ipfs cat > test.jpg ; open test.jpg
-                                    
-                                There you go. It’s links all the way down. And on top of that we’ve learned a few many IPFS 
-                                command-line tools to manipulate IPFS DAG objects. Handy!
-                            </h6> 
-                            <h3>Summary</h3>
-                            <h6>The IPLD protocol is magic that runs on cryptography, math and networking. Its a single 
-                                namespace for all hash-inspired protocols. Through IPLD, links can be traversed across protocols, 
-                                allowing you explore data regardless of the underlying protocol. We can use it to 
-                                referencea large data files using only the base CID, and you actually have a verified reference 
-                                to the whole object. With the simple `ipfs add` command a new merkle DAG is created from data
-                                in the files, this command also creates the underlying IPNS objects you'll need to access your
-                                files. 
-                                    
-                                With such great technology, there's nothing stopping you from building great distributed web 
-                                projects. If you're already work on one, I'd love to hear about it!    
+                            <h6>dAapps act as an enabler for new kinds of applications providing decentralized 
+                                scalability, strong security, resilience, and availability. By building on the 
+                                current technical solutions we will offer significant control to end-users on 
+                                their credentials, data, and communications and hence will create a major shift, 
+                                particularly in consumer applications.
+                            </h6>
+                            <h3>Overview: Decentralized Application Platforms</h3>
+                            <h6>As I've mentioned sparsely in the steps to developing, deploying and launching
+                                a decentralized applications, `platform apps` offer various easy solutions to 
+                                dApp development. 
+                            </h6>
+                            <h6>In this last segment I want to hightlight, briefly, some of my favorite platforms
+                                to work with for smart contract deployment: 
+
+                                <h6>**[Liquid Network](https://blockstream.com/liquid/)** - This Bitcoin 
+                                    sidechain was announced by Blockstream in 2016 and is set for release
+                                    later this year, will provide participants various benefits includ
+                                </h6>
+                                <h6>**[Ethereum](https:ethereum.org)** - Perhaps the most popular dApp
+                                    platform, Ethereum provides users with multiple tools like Truffle,
+                                    Web3, Remix and more to facilitate the creation and deployment of 
+                                    smart contracts. Learning **Solidity** is easy as well which is a 
+                                    very welcome addition to the ease-of-use of Ethereum.
+                                </h6>
+                            </h6>
+                            <h6>***Platforms To Watch***:</h6>
+                            <h6>This list although not exhaustive covers the platform that are currently
+                                developing solutions that I think will contribute greatly to how we 
+                                write and deploy decentralized applications:
+
+                                <h6>* IPFS,</h6>
+                                <h6>* Vechain Thor,</h6>
+                                <h6> * Waves Platform &</h6>
+                                <h6>* Steem</h6>
+                            </h6>
+                            <h6>This is my personal list, if yours is different from mine leave a comment
+                                with the list and why that's your selection. Also, what's would the most 
+                                vital feature of your decentralized application?
                             </h6>
                         </div>
                     </div>
