@@ -153,11 +153,11 @@
                                 each other and are created at the same time. They are referred to as a 
                                 `public` and a `private` keys:
                              
-                                 * Public Key - this is a key used for data encryption and can be 
-                                   shared publicly.
+                                 <h6>* Public Key - this is a key used for data encryption and can be 
+                                   shared publicly.</h6>
                              
-                                 * Private Key - this key is used to decrypt the data encrypted
-                                   by the public key. This key must be safeguarded at all times.
+                                 <h6>* Private Key - this key is used to decrypt the data encrypted
+                                   by the public key. This key must be safeguarded at all times.</h6>
                              
                                  This type of cryptography is commonly known for its usage with asymmetric 
                                  algorithms like RSA or ECDSA; in these instances, private key storage best 
@@ -196,7 +196,7 @@
                                 a time. In a synchronous stream cipher, a stream of pseudo-random digits is generated 
                                 independently of the plaintext and ciphertext messages, and then combined with the 
                                 plaintext (to encrypt) or the ciphertext (to decrypt). There’s a lot of different symmetric 
-                                algorithms one can choose from including ***Twofish***, ***Serpent***, ***TDES***, and ***IDEA***.
+                                algorithms one can choose from including <b>Twofish, Serpent, TDES, and IDEA</b>.
                             </h6>
                             <h6>To take it further, lets breakdown how an authorized user can access encrypted data:
 
@@ -216,11 +216,11 @@
                             <h6></h6>
                             <h6>Symmetric cryptography however doesn’t address several issues for example:
 
-                                * How does the sender send the symmetric decryption key to the 
-                                  recipient without someone spying on that conversation too? 
+                                <h6>* How does the sender send the symmetric decryption key to the 
+                                  recipient without someone spying on that conversation too? </h6>
                               
-                                * What if the sender and recipient are physically far away from 
-                                  each other?                              
+                                <h6>* What if the sender and recipient are physically far away from 
+                                  each other? </h6>                              
                             </h6>
                             <h3>Asymmetric Encryption Systems</h3>
                             <h6>The critical advantage in an asymmetric key system is that users never need to send a 
@@ -230,23 +230,24 @@
                                 and those on their networks* — from seeing the message content. Theses intermediaries 
                                 are restricted to `metadata`. 
                             </h6>
-                            <h6>In these systems, **users can encrypt and send messages to `owners` of a public key while also using their `private key` to decrpyt messages they receive**. Asymmetric encryption uses different keys for 
-                                encryption and decryption - and that's one of the major benefits of this encryption 
+                            <h6>In these systems, **users can encrypt and send messages to `owners` of a public key while also 
+                                using their `private key` to decrpyt messages they receive**. Asymmetric encryption uses different 
+                                keys for encryption and decryption - and that's one of the major benefits of this encryption 
                                 system. We never need to send secret keys or passwords over insecure network channels.
                             </h6>
                             <h6>Another one of those benefits of this system is that it boasts a simple encryption-to-decryption-to-encryption
                                 process that happens in quick succession:
                                 
-                                  1. It starts once the `Sender's certificate` has been verified. The 
+                                  <h6>1. It starts once the `Sender's certificate` has been verified. The 
                                      `recipient` then sends `their certificate` to the sender for 
-                                     `authentication and acceptance`.
-                                  2. Once the sender has received the recipients `public key` they create 
-                                     a `one-session-use` symmetric encryption key and encrypts the `message`.
-                                  3. The `symmetric key` is encrypted with the senders `public key` and 
-                                     sent to the recipient.
-                                  4. The `message` is received as a packet and is `decrypted` by the recipients 
+                                     `authentication and acceptance`. </h6>
+                                  <h6>2. Once the sender has received the recipients `public key` they create 
+                                     a `one-session-use` symmetric encryption key and encrypts the `message`. </h6>
+                                  <h6> 3. The `symmetric key` is encrypted with the senders `public key` and 
+                                     sent to the recipient. </h6>
+                                  <h6>4. The `message` is received as a packet and is `decrypted` by the recipients 
                                      private key - the recipient then decrypts the message with the `one-session-use` 
-                                     symmetric key. 
+                                     symmetric key. </h6>
                             </h6>
                             <h6>Now that we know how each encryption system works I want to cover the very vital topic 
                                 of key storage options & best practises. With an ever-increasing number of keys to protect, 
