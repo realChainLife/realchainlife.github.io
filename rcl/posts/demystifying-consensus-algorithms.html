@@ -127,14 +127,14 @@
                                 the algorithm - a network can build either a `permissioned` or `permissionless` 
                                 distributed ledger.
 
-                                    <h6>**Permissioned** networks are closed ecosystems where validators are vetted 
-                                        and selected by the network owner. This include *Hyperledger* and *Corda*.
-                                    </h6>
-                                    <h6>**Permissionless** networks allow anyone with the computational resources 
-                                        to read the chain and write new blocks according to the consensus rules. 
-                                        It's also known by its widest description as a public blockchain and its
-                                        what we'll be covering alot of today. 
-                                    </h6>
+                                     <h6>**Permissioned** networks are closed ecosystems where validators are vetted 
+                                         and selected by the network owner. This include *Hyperledger* and *Corda*.
+                                     </h6>
+                                     <h6>**Permissionless** networks allow anyone with the computational resources 
+                                         to read the chain and write new blocks according to the consensus rules. 
+                                         It's also known by its widest description as a public blockchain and its
+                                         what we'll be covering alot of today. 
+                                     </h6>
                             </h6>
                             
                             <h6>Before we can delve into each of the algorithms we need to understand some
@@ -211,9 +211,75 @@
                                 `'nothing-at-stake'` problem and its yet to be addressed by common users of the
                                 algorithm including Ethereum (which recently made the switch from PoW) or PIVX.
                             </h6>
-                            <h6></h6>
-                            <h6></h6>
-                            <h6></h6>
+                            <h3>Proof-Of-Authority (PoA) Algorithm</h3>
+                            <h6>PoA was proposed by a group of developers in March 2017, and was first released as
+                                new network named Kovan a primary test network available on Ethereum. Since its
+                                release its been optimized and used a core governance model on new networks like
+                                `VechainThor`. 
+                            </h6>
+                            <h6>This model leverages identity as the form of stake where validators are pre-approved 
+                                to validate transactions and blocks within the respective network. Originally it was
+                                thought it worked best with a small number of validators (`less ~25`) but on Vechain
+                                they increased the number of `Authority Masternodes` to 101. 
+                            </h6>
+                            <h6>Like other consensus algorithms designed after PoW, PoA networks run on low requirement 
+                                of computational power, no requirement of communication between nodes to reach consensus, 
+                                and continuity of the network is independent of the number of the available nodes since 
+                                they are pre-approved and verifiably trustable through cross verification.
+                            </h6>
+                            <h6>These characteristics feed into the fairly obvious advantages of the PoA algorithm. PoA
+                                based networks enjoy increased efficiency in transaction times and overall network 
+                                consensus. This model is also much more effective with decentralized applications
+                                and is easily scalable compared to other decentralized networks.
+                            </h6>
+                            <h3>Delegated Proof-Of-Stake (DPoS) Algorithm</h3>
+                            <h6>Developed by [Daniel Larimer](https://bytemaster.github.io/) for use in the EOS network 
+                                token hodlers don’t vote on the validity of the blocks themselves, but vote to elect 
+                                delegates to do the validation on their behalf. 
+                            </h6>
+                            <h6>The system is quite robust and adds a different form of flexibility to the whole equation.
+                                By replacing miners or validators with delegates this system of block production ensures 
+                                all levels of protection aganist regulatory problems. Blocks can also be produced at a
+                                fraction of time significantly smaller that PoW networks. 
+                            </h6>
+                            <h6>The partial centralized nature of this type of network is a major drawback for some users 
+                                of decentralized systems.
+                            </h6>
+                            <h3>Practical Byzantine Fault Tolerance (PBFT) Algorithm</h3>
+                            <h6>PBFT was made famous for it use in the `Hyperledger`, `Stellar` and `Ripple`
+                                blockchains. It was designed as a solution to a problem presented by the
+                                previous use of BGP (*Byzantine Generals Problem*). The algorithm is designed for 
+                                asynchronous consensus where all the nodes inside the system get arranged 
+                                in a specific order. One node is selected as the primary one, and others 
+                                work as the backup plan. However, all the nodes inside the system work 
+                                in harmony and communicate with one another.
+                            </h6>
+                            <h4>PBFT & The Hyperledger Blockchain</h4>
+                            <h6>PBFT algorithms share some interesting facts with us. I will write an in-depth
+                                article on how Hyperledger uses PBFT to run the network but for the moment I 
+                                will highlight some of the benefits associated with PBFT and why it was the 
+                                algorithm of choice for Hyperledger:
+
+                                <h6>***Block Transaction Confirmation***
+                                    PBFT uses a system of checks and balances during the lifecycle of a 
+                                    transaction including the usage of endorsement policies to dictate 
+                                    the members that must endorse a certain transaction class. Once 
+                                    nodes agree on a specific block, it gets finalized. This is due to 
+                                    the fact that, all the authentic nodes communicate with each other 
+                                    and come to an understanding of the specific block.
+                                </h6>
+                                <h6>***Higher Transaction Throughput***
+                                    Hyperledger requires all participants to be authenticated, due to 
+                                    its permissioned implementation nature, as a result, the network 
+                                    tends to provide higher transaction throughput rates and performance.
+                                </h6>
+                                <h6>***Reduction in Energy Consumption***
+                                    The PBFT algorithm offers a good amount of reduction in consumption 
+                                    of power than PoW. This is because not every miner is solving the 
+                                    typical hashing algorithmic puzzles. That’s why the system doesn’t 
+                                    require high computational resources.
+                                </h6>
+                            </h6>
                             <h6></h6>
                             <h6></h6>
                             <h6></h6>
