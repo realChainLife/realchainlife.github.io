@@ -106,168 +106,130 @@
                         </div>
                         <!-- Post Content -->
                         <div class="post-content">
-                            <h6>Interplanetary Linked Data (IPLD) is a data format for merkle-linked objects. Its 
-                                purpose is to make it easy to build your own hash linked data structures and move 
-                                them around with IPFS. IPLD objects are stored and moved around by IPFS encoded with 
-                                CBOR, but can be written and operated on in JSON or any other schemaless serialization 
-                                format.
+                            <h6>The internet was initially introduced as a way to build a common neutral network
+                                which everyone can participate in equally for the betterment of humanity. During 
+                                the first dot-com bubble much of this altruism faded as people realized it was 
+                                easier to extract value from this neutral fabric by building <b>centralized</b>
+                                services which trap and monetise information. 
                             </h6>
-                            <h6>When an object is added to the IPFS it is chunked up into smaller parts (about 256k each), 
-                                each part is hashed, a CID is created for each chunk, and then these chunks are combined 
-                                into a hierarchical data structure, for which a single, base CID is computed. This data 
-                                structure is essentially something called a Merkle DAG, or directed acyclic graph. 
+                            <h6>So what happened to the initial dream of the web? Fortunately, there is an emerging
+                                movement which is intending to bring the web back to its original vision. It's the 
+                                Decentralized Web or Web 3.0 and since you managed to find this page out of all the 
+                                possible million others on the web, congratulations! You’re passionate about 
+                                decentralizing the web - just like me! 
                             </h6>
                             <figure>
                                 <img src="/img/blog-img/content-multi-hashing.png" alt="" />
                                 <figcaption>Illustration: IPFS Content Hashing, Source: Textile</figcaption>
                             </figure>
-                            <h6>In the example above, a cat photo added to the ipfs is hashed and added into the Merkle
-                                DAG. These Merkle DAGs are the core data structure for the IPLD structure.
+                            <h6>Jason Griffey, a fellow at the <b>Berkman Center for Internet and Society at 
+                                Harvard University</b> describes the Decentralized Web as a series of technologies 
+                                that replace or augment current communication protocols, networks, and services and 
+                                distribute them in a way that is robust against single-actor control or censorship. 
+                                Simply put it's an architectural system that builds services on the internet which 
+                                do not depend on any single “central” organisation to function.
                             </h6>
-                            <h3>Hash-Linked Data Structures</h3>
-                            <h6>IPLD is a hash-linked data structure that models everything as a series of linked objects. 
-
-                                An IPLD oject consists of:
-
-                                    * `Data` — blob of unstructured binary data of size < 256 kB.
-                                    * `Links` — array of Link structures. These are links to other IPFS objects.
-                                    
-                                A Link structure has three data fields:
-                                    
-                                    * `Name` — name of the Link
-                                    * `Hash` — hash of the linked IPFS object
-                                    * `Size` — cumulative size of linked IPFS object, including following its links
-                                    
-                                An IPLD object looks something like this:
-                                    
-                                    {
-                                        "hello": "world",
-                                        "foo": {"/": "QmTz3oc4gdpRMKP2sdGUPZTAGRngqjsi99BPoztyP53JMM"},
-                                        "baz": [
-                                            {"/": "QmWg1Ux3cb3xCToGBCmZBNaMvpcFhTEEjb74fruG9uVHja"}
-                                            ]
-                                    }
-                                    
-                                The basic idea is that any valid CBOR object (and subsequently, any valid JSON object 
-                                since they map 1-to-1) can be an IPLD object. On top of that, theres a special format 
-                                for inserting merkle-links that is the real meat of IPLD. The strange objects with a 
-                                key of '/' and a value of an IPFS hash are the links. These links are understood by 
-                                IPFS and can be used to build path references across objects.
+                            <h3>What’s the Problem With Centralization?</h3>
+                            <h6>For much of their existence, centralized platforms have provided solutions and 
+                                services to millions of internet users, across multiple continents with easy-to-use
+                                interfaces. The centralization of the internet basically started with its 
+                                commercialization.  
                             </h6>
-                            <h3>IPLD: Getting Started</h3>
+                            <h6>Without this commercialization we could argue the internet would not have survived 
+                                the dot-com bubble. Users of the internet today don't just rely on it for general 
+                                research or online shopping. We also use the Internet to pay bills, RSVP to 
+                                invitations, work remotely with teams around the world and even internet banking. 
+                                It has become a necessity for modern living.
+                            </h6>
+                            <h6>Although the internet centralization has resulted in its expansion of service 
+                                offerings its not without its shortfalls:
+                                
+                                1. A user’s access to the Internet is at the mercy of their provider and 
+                                   the platform;
+                                2. CEO's of large tech companies have turned these companies into gatekeepers 
+                                   of information and we have to trust them to use their power fairly and 
+                                   responsibly;
+                                3. Through the creation of Terms of Service or Data Policies, internet users 
+                                   are required to agree with the collection of personal data which is often 
+                                   shared with `Third Parties` for monetary gain;
+                                4. Disruptive tech startups today suffer a slow and painful death as tech-giants 
+                                   exploit their seemingly unlimited supply of cash to copy new features - either
+                                   that or accept being acquired;
+                                5. Centralized architectures, require companies to own centralized servers - which
+                                   expose users to serious security and privacy incidents like data breaches and
+                                   hacks which occur several times a year;
+                                6. These architectures are also vulnerable to Denial of Service and Distributed 
+                                   Denial of Service (DoS/DDoS) attacks;
+                                7. Centralized servers are single points of failure, **when they fail, websites** 
+                                   **and applications that depend on them also fail**.
+                            </h6>
+                            <h6>A decentralized version of the internet would solve many of the problems that the 
+                                current internet faces. Without a single point of failure, Web3.0 is resilient
+                                against cyberattacks. Data breaches also become near impossible without central data
+                                storage solutions. Users would once again have control and ownership of their data. 
+                            </h6>
+                            <h6>It's not lost on me, or avid internet users that there's an urgency to decentralizing
+                                the web. Listings the protocols and networks that will enable us to do this is
+                                relatively easy. However understanding the underlying technology of each decentralized
+                                protocol is usually a good deal harder. 
+                            </h6>
+                            <h6>In this post I want to introduce some of my favorite decentralized systems, 
+                                deconstruct how they work, provide workarounds to some of the substanial bottlenecks 
+                                within each network (both in itself and for other resources) and finally highlight my 
+                                evolution theory for each system. 
+                            </h6>
+                            <h3>Decentralized File Sharing - IPFS</h3>
                             <h6>To truly apprecite IPLD, we are going to learn the basics using simple IPFS command 
                                 line tools. Initial IPLD support has been released in ipfs, install or update IPFS 
                                 before following along on the rest of this guide. Once you’re ready, we’ll take a quick 
                                 look at the object structure for a simple hello.txt file using the [jq tool](https://stedolan.github.io/jq/).
                             </h6>
-                            <h6>Start with the following command, which pipes (|) the result from getting the IPFS 
-                                object to the jq command.
-                                    
-                                    ipfs object get QmJTB2qXtFCfLarActp7tDNikE4PdsgaTQW2WQi7j6c7Ug | jq
-                                    
-                                Producing the following output:
-                                    
-                                    {
-                                        "Links": [
-                                           {
-                                            "Name": "hello.txt",
-                                            "Hash": "Qm34sdwMe9USZ7nS1YhWrCiS4gz7Xiud286K6pohQcTKYq",
-                                            "Size": 181100
-                                           }
-                                        ],
-                                        "Data": "\b\u0001"
-                                    }
-                                    
-                                    
-                                This is pretty cool, but let’s say you had the following directory structure, and you 
-                                wanted to add it to IPFS:
-                                
-                                    test_directory/
-                                        ├── bigfile.js
-                                        ├── *hello.txt
-                                        └── my_directory
-                                           ├── *test_file.txt
-                                           └── *test.txt
-                                    
-                                Here, we assume that all three files with an asterisk (*) — `hello.txt`, `test_file.txt`, 
-                                and `test.txt`— contain the same text: `“Hello World!/n”`. Now let’s add them to IPFS:
-                                    
-                                    ipfs add -r test_directory/
-                                    
-                                The newly created DAG for your upload will look similar to this:
-                                    
-                                    <figure>
-                                        <img src="/blog/wp-content/uploads/2018/08/new-dag.png" alt="" />
-                                        <figcaption>Illustration: IPFS Merkle DAG</figcaption>
-                                    </figure>
-                                    
-                                As illustrated above, the benefits of using a DAG to represent data in IPFS is very clear, 
+                            <h6>As illustrated above, the benefits of using a DAG to represent data in IPFS is very clear, 
                                 depending on the actual contents of the files in your directory, you end up with a series 
                                 of objects, linked via their CIDs. This is pretty cool and since we are referencing the
                                 same content we get `deduplication` for free! 
-                                    
-                                Important to note our bigfile.js, been chunked into three smaller pieces, each of which has 
-                                its own CID, which together form the larger file. Following all of these CIDs up the tree, 
-                                will give you a CID that describes the contents below it. This is **the genius of IPLD.**
-                                    
-                                This collection of Data and Links across the IPFS network creates a graph-like object 
-                                structure - commonly referred to as the **Merkle Forest** by **Juan Benet**. This data structure
-                                is highly tamper proof, because all content its `hash-verified` And since we are hashing the 
-                                contents of the objects, we have no duplication, because in the Merkle DAG, all objects that 
-                                hold the same content are considered equal and therefore stored only once because their hash 
-                                values are the same
                             </h6>
-                            <h6>We can demonstrate this further by using [Matt Zumwalt's](https://github.com/flyingzumwalt/decentralized-web-primer/tree/master/samples) building out files-as-dags lesson tutorial. We will `ipfs cat` the cosmos.jpg file 
-                                from the command line: 
-                                    
-                                    ipfs cat QmWNj1pTSjbauDHpdyg5HQ26vYcNWnubg1JehmwAE9NnU9 > cosmos.jpg
-                                    
-                                Now you can add it locally, and if you `cat`’d it initially, make sure the hashes match 
-                                then assign the returned hash to the env variable hash:
-                                    
-                                    hash=`ipfs add -q cosmos.jpg`
-                                    echo $hash
-                                    
-                                The CID output should match the image hash like this:
-                                    
-                                    QmWNj1pTSjbauDHpdyg5HQ26vYcNWnubg1JehmwAE9NnU9
-                                    
-                                Now, that the file has been chunked we can query all the ipfs objects for the image by 
-                                running: 
-                                    
-                                    ipfs ls -v $hash
-                                    
-                                Each linked object is about 256k, together these chunks make up the whole image - and 
-                                when a network request for this file is made, different peers share a different chunk of 
-                                the image which is put together by the requesting peer. 
-                                    
-                                    Hash                                           Size   Name
-                                    QmPHPs1P3JaWi53q5qqiNauPhiTqa3S1mbszcVPHKGNWRh 262158 
-                                    QmPCuqUTNb21VDqtp5b8VsNzKEMtUsZCCVsEUBrjhERRSR 262158 
-                                    QmS7zrNSHEt5GpcaKrwdbnv1nckBreUxWnLaV4qivjaNr3 262158 
-                                    QmQQhY1syuqo9Sq6wLFAupHBEeqfB8jNnzYUSgZGARJrYa 76151
-                                    
-                                You can also use this super new and fun tool to explore DAGs (IPLD obejcts) in the browser. 
-                                Check out the git example for a fun one. Or even better, explore the above DAG object.
-                                    
-                                Now, just to show you that the above four chunks do indeed make up the single image, you can 
-                                use the following code to ‘manually’ join the chunks together to create the image file — which 
-                                is essentially what cat is doing in the background when you reference the base CID:
-                                    
-                                    ipfs cat \
-                                    QmPHPs1P3JaWi53q5qqiNauPhiTqa3S1mbszcVPHKGNWRh \
-                                    QmPCuqUTNb21VDqtp5b8VsNzKEMtUsZCCVsEUBrjhERRSR \
-                                    QmS7zrNSHEt5GpcaKrwdbnv1nckBreUxWnLaV4qivjaNr3 \
-                                    QmQQhY1syuqo9Sq6wLFAupHBEeqfB8jNnzYUSgZGARJrYa \
-                                    > cat-cosmos.jpg
-                                    open cat-cosmos.jpg
-                                    
-                                Alternatively, you could do this more succinctly using pipes again:
-                                    
-                                    ipfs refs $hash | ipfs cat > test.jpg ; open test.jpg
-                                    
-                                There you go. It’s links all the way down. And on top of that we’ve learned a few many IPFS 
-                                command-line tools to manipulate IPFS DAG objects. Handy!
+                            <h6>Without going into a lot of the details that are comprehensively covered in the IPFS
+                                [whitepaper](https://github.com/ipfs/papers/raw/master/ipfs-cap2pfs/ipfs-p2p-file-system.pdf),
+                                I'll highlight these subsystems with a short description of each:
+                            </h6>
+                            <h6>* **Identities & NodeId** - Using the S/Kademlia crypto puzzle, nodes are identified
+                                by a NodeId, the cryptographic hash of its public-key. Although new nodes can 
+                                be created for every new IPFS launch, users are incentived to maintain the same node;
+                              
+                                * **Network** - Nodes on IPFS communicate through several stack features like the use 
+                                of ICE NAT traversal techniques. IPFS also stores addresses as `multiaddr` formatted 
+                                byte strings therefore able to function without reliance on or assumption of IP 
+                                addresses. For example;
+                              
+                                    ```
+                                    an SCTP/IPv4 connection
+                                    /ip4/10.20.30.40/sctp/1234/
+                                    ```
+                                * **Node Routing** - For nodes to find other peers' network addresses and serve 
+                                objects, IPFS uses a *Distributed Hash Table* which enables any participating 
+                                node to efficiently retrieve the value associated with a given key.
+                              
+                                * **BitSwap Protocol** - In IPFS, data distribution happens through the block barter 
+                                exchange. This is a BitTorrent inspired protocol where nodes have to provide direct 
+                                value to each other in the form of blocks. In the marketplace each peer **is looking to acquire a set of blocks (`want_list`), and has another set of blocks to offer in exchange (`have_list`)**.
+                              
+                                * **Merkle Forest** - This is a map of all network objects linked cryptographically
+                                through the directed acyclic graph (DAG). The DAG intergration allows IFPS to a)
+                                uniquely identify content by its `multihash` checksum, **including links** b) detect
+                                content corruption using data checksum c) deduplicating content by equating objects
+                                to content and storing once.
+                              
+                                * **DNS Naming** - IPFS uses DNS TXT records to map a domain name to an IPFS address.
+                                Users can edit DNS records, and use them to always point to the latest version of 
+                                an object in IPFS. Because DNSLink uses DNS records, the names it produces are also 
+                                usually easy to type and read.
+                            </h6>
+                            <h6>
+                            </h6>
+                            <h6>
+                            </h6>
+                            <h6>
                             </h6> 
                             <h3>Summary</h3>
                             <h6>The IPLD protocol is magic that runs on cryptography, math and networking. Its a single 
