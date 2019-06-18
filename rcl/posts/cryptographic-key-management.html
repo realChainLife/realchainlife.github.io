@@ -200,19 +200,20 @@
                             </h6>
                             <h6>To take it further, lets breakdown how an authorized user can access encrypted data:
 
-                                1. A user requests access to encrypted data.
-                                2. The client `Key Manager` API receives a `Data Encryption Key` retieval request 
-                                   from a database or application.
-                                3. Here, once the client Key Manager API `certificate` has been verified, the Key 
-                                   Manager must send `its certificate` to the `Key Manager API` for authentication
-                                   and acceptance. 
-                                4. A `secure TLS connection` is opened between the client KM API & the KM once the 
-                                   certificates have been accepted.
-                                5. The KM API sends a decrypted `Data Encryption Key` (*that was received over the encrypted TLS session*) 
-                                   to the database or application.
-                                6. A DEK cached in a `temporary secure memory` lets the database or application `send` 
-                                   `the plaintext` information to the user.                               
+                                <h6>1. A user requests access to encrypted data.</h6>
+                                <h6>2. The client `Key Manager` API receives a `Data Encryption Key` retieval request 
+                                        from a database or application.</h6>
+                                <h6>3. Here, once the client Key Manager API `certificate` has been verified, the Key 
+                                        Manager must send `its certificate` to the `Key Manager API` for authentication
+                                        and acceptance. </h6>
+                                <h6>4. A `secure TLS connection` is opened between the client KM API & the KM once the 
+                                        certificates have been accepted.</h6>
+                                <h6>5. The KM API sends a decrypted `Data Encryption Key` (*that was received over the encrypted TLS session*) 
+                                        to the database or application.</h6>
+                                <h6>6. A DEK cached in a `temporary secure memory` lets the database or application `send` 
+                                        `the plaintext` information to the user. </h6>                         
                             </h6>
+                            <h6></h6>
                             <h6>Symmetric cryptography however doesn’t address several issues for example:
 
                                 * How does the sender send the symmetric decryption key to the 
