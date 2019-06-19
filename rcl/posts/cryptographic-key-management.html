@@ -225,25 +225,27 @@
             symmetric key.
           </li>
         </ol>
-        <p>Now that we know how each encryption system works I want to cover the very vital topic of key storage
-          options & best practises. With an ever-increasing number of keys to protect, and an ever-increasing 
-          value of data being protected by those keys, how do we address the many threats that can result in a 
-          key being compromised.
+        <p>Now that we know how each encryption system works I want to cover the very vital topic of 
+          key storage options & best practises. With an ever-increasing number of keys to protect, 
+          and an ever-increasing value of data being protected by those keys, how do we address the 
+          many threats that can result in a key being compromised.
         </p>
         <h2>Key Management - the Risks & Mitigation</h2>
-        <p>Best practice tells us that a private key should remain secure and, well…private! Should anyone get a 
-          hold of it, depending on the certificate type, they could create phishing websites with the organization’s 
-          certificate in the address bar, they could authenticate to corporate networks by impersonating the owner, 
-          they could sign applications or documents as the owner, and even read encrypted emails.
+        <p>Best practice tells us that a private key should remain secure and, well…private! Should 
+          anyone get a hold of it, depending on the certificate type, they could create phishing websites 
+          with the organization’s certificate in the address bar, they could authenticate to corporate 
+          networks by impersonating the owner, they could sign applications or documents as the owner, 
+          and even read encrypted emails.
         </p>
-        <p>In this section, we’ll discuss the options for private key protection and storage - but before we can 
-          talk about security we need to know the possible threats to key management.
+        <p>In this section, we’ll discuss the options for private key protection and storage - but before 
+          we can talk about security we need to know the possible threats to key management.
         </p>
         <h3>Key Management - the Risks</h3>
-        <p>We know a single compromised key could lead to a massive data breach with consequential reputational 
-          damage, punitive regulatory fines or loss of investor and customer confidence. Yet, the ever-present 
-          vulnerabilities in modern computing systems, and with growing sophistication of cyber attacks, it has 
-          never been more important, nor more challenging, to keep cryptographic keys safe and secure.
+        <p>We know a single compromised key could lead to a massive data breach with consequential 
+          reputational damage, punitive regulatory fines or loss of investor and customer confidence. 
+          Yet, the ever-present vulnerabilities in modern computing systems, and with growing sophistication 
+          of cyber attacks, it has never been more important, nor more challenging, to keep cryptographic 
+          keys safe and secure.
         </p>
         <p>Here are some of the major threats to consider while managing the safe storage of keys:</p>
         <ul>
@@ -258,68 +260,68 @@
             never be <i><strong>stored alongside the data</strong></i> that they protect as any data 
             corruption is likely to compromise the key also.
           
-            Even keys stored only in server memory <i><strong>should be encrypted</strong></i> whenever 
-            stored and only be made available in unencrypted form within a secure, offline tamper-protected 
-            environment.
+            Even keys stored only in server memory <i><strong>should be encrypted</strong></i> 
+            whenever stored and only be made available in unencrypted form within a secure, offline 
+            tamper-protected environment.
           </li>
-          <li><strong>Insecure Movement of Keys</strong> - When sharing symmetric keys on a system, the 
-              key should be `split into multiple components` that must then be kept separate 
-              until being re-entered into the target system (and then the components are destroyed). 
-              Without this extra caution, keys are at risk of being publicised.
+          <li><strong>Insecure Movement of Keys</strong> - When sharing symmetric keys on a system, 
+            the key should be <i><strong>split into multiple components</strong></i> that must then 
+            be kept separate until being re-entered into the target system (and then the components 
+            are destroyed). Without this extra caution, keys are at risk of being publicized.
           </li>
-          <li>**Non-Desctruction of Keys** - Keys should be <i><strong>IDEA</strong></i>`securely deleted` once they 
-              have expired, unless explicitly required for later use (e.g. to decrypt data). 
-              This removes the risk of accidental compromise at some future date.
+          <li><strong>Non-Desctruction of Keys</strong> - Keys should be <i><strong>securely deleted</strong></i>
+            once they have expired, unless explicitly required for later use (e.g. to decrypt data). 
+            This removes the risk of accidental compromise at some future date.
           </li>
-          <li>**Manual Key Management** - The use of a manual key management processes,
-              using <i><strong>IDEA</strong></i>`paper` or <i><strong>IDEA</strong></i>`inappropriate` tools such as spreadsheets and accompanied 
-              by manual key ceremonies, can easily result in human errors that often go 
-              unnoticed and may leave keys highly vulnerable.
+          <li><strong>Manual Key Management</strong> - The use of a manual key management processes, 
+            using <i><strong>paper</strong></i> or <i><strong>inappropriate</strong></i> tools such 
+            as spreadsheets and accompanied by manual key ceremonies, can easily result in human errors 
+            that often go unnoticed and may leave keys highly vulnerable.
           </li>
         </ul>
-        <p>There are other physical environment security threats that need to be considered a threat 
-            and factored in the security plan this include <i><strong>IDEA</strong></i>***physical access controls***, ***fire*** 
-            ***safety***, ***utilities failure***, ***mobile device management*** and even <i><strong>IDEA</strong></i>***structural integrity***.
+        <p>There are other physical environment security threats that need to be considered a threat and 
+          factored in the security plan this include <i><strong>physical access controls, fire, safety, 
+          mobile device management</strong></i> and even <i><strong>structural integrity</strong></i>.
         </p>
         <h3>Securing Encryption Key Managers</h3>
         <p>Now that we have hightlighted ways to the secure the physical environment in which the key 
-            manager is housed we will naturally turn to securing the key manager itself with a hardware 
-            security module. Some of this hardware modules are:
+          manager is housed we will naturally turn to securing the key manager itself with a hardware 
+          security module. Some of this hardware modules are:
         </p>
         <ul>
-            <li>**Cryptographic Tokens** - With cryptographic hardware, the key is generated on 
-                the hardware itself and is not exportable. This means the private key never leaves 
-                the device, making it much more difficult for someone to compromise.
+            <li><strong>Cryptographic Tokens</strong> - With cryptographic hardware, the 
+              key is generated on the hardware itself and is not exportable. This means the 
+              private key never leaves the device, making it much more difficult for someone 
+              to compromise.
             </li>
-            <li>**Hardware Security Module**  - This is typically a server with different levels 
-                of security protection or “hardening” of the module with tamper evident/resistant 
-                screws and locks along with the highest sensitivity to “tamper detection/response 
-                circuitry that wipes out all sensitive data.
+            <li><strong>Hardware Security Module</strong> - This is typically a server with 
+              different levels of security protection or “hardening” of the module with tamper 
+              evident/resistant screws and locks along with the highest sensitivity to “tamper 
+              detection/response circuitry that wipes out all sensitive data.
             </li>
-            <li>**Virtual Instances** - In many cases, a virtual key manager can be downloaded
-                from a vendor in a matter of minutes and deployed in a virtual environment. The 
-                downside, of course, is that by it’s nature of being virtual with no set physical 
-                components, a virtual key manager’s software can only be FIPS 140-2 compliant, 
-                but not validated. 
+            <li><strong>Virtual Instances</strong> - In many cases, a virtual key manager can 
+              be downloaded from a vendor in a matter of minutes and deployed in a virtual environment. 
+              The downside, of course, is that by it’s nature of being virtual with no set physical 
+              components, a virtual key manager’s software can only be FIPS 140-2 compliant, but not 
+              svalidated. 
             </li>
         </ul>
-        <p>The key storage options discussed above are somewhat traditional methods that have been 
-            used for years. However, as more devices come online they need to authenticate and communicate 
-            securely. We will continue turning to PKI-based solutions, which in turn bring about new 
-            considerations, requirements and technologies for protecting private keys.
+        <p>The key storage options discussed above are somewhat traditional methods that have been used 
+          for years. However, as more devices come online they need to authenticate and communicate securely. 
+          We will continue turning to PKI-based solutions, which in turn bring about new considerations, 
+          requirements and technologies for protecting private keys.
         </p>
         <h2>Need for Algorithmic Key Encryption</h2>
-        <p>So now that we understand the risks and mitigations that come with encryption key 
-            management, why is algorithmic key encryption important? Well encryption has been 
-            around for millenniums but in 2000 when `Advanced Encryption Standard` (AES) algorithm 
-            was formally adopted as the standard encryption algorithm it introduced a `single key use` 
-            as a part of the encryption process.
+        <p>So now that we understand the risks and mitigations that come with encryption key management, 
+          why is algorithmic key encryption important? Well encryption has been around for millenniums but 
+          in 2000 when <i><strong>Advanced Encryption Standard</strong></i> (AES) algorithm was formally 
+          adopted as the standard encryption algorithm it introduced a <i><strong>single key use</strong></i> 
+          as a part of the encryption process.
         </p>
-        <p>The key can be 128 bits (16 bytes), 192 bits (24 bytes), or 256 bits (32 bytes) in 
-            length. Given that the fastest computer would take billions of years to run through 
-            every permutation of a 256-bit key, AES is considered an extremely secure encryption 
-            standard. Regardless, its advised to maintain a robust encryption key management 
-            strategy even after deploying an encryption.
+        <p>The key can be 128 bits (16 bytes), 192 bits (24 bytes), or 256 bits (32 bytes) in length. Given 
+          that the fastest computer would take billions of years to run through every permutation of a 256-bit 
+          key, AES is considered an extremely secure encryption standard. Regardless, its advised to maintain 
+          a robust encryption key management strategy even after deploying an encryption.
         </p>
         <figure data-rt-type="image" data-rt-align="center" data-rt-max-width="60" class="w-richtext-align-center" 
             style="max-width: 60%;" data-rt-max-height="33.75">
@@ -327,11 +329,10 @@
             <figcaption>Source: Wikipedia</figcaption>
         </figure>
         <h2>Conclusion</h2>
-        <p>Private key storage `shouldn’t be a dark art`. Any key management system that
-            utilizes HSM to generate keys will not only help protect your keys, it will also boost 
-            efficiency, reduce reliance on highly-skilled personnel, and simplify achieving, 
-            maintaining and demonstrating compliance with a multitude of standards and regulations 
-            such as GDPR.
+        <p>Private key storage `shouldn’t be a dark art`. Any key management system that utilizes 
+          HSM to generate keys will not only help protect your keys, it will also boost efficiency, 
+          reduce reliance on highly-skilled personnel, and simplify achieving, maintaining and 
+          demonstrating compliance with a multitude of standards and regulations such as GDPR.
         </p>
       </div>
       <div class="button-wrapper"><a class="button w-button" href="/blog/archive">←&nbsp;View all posts</a></div>
