@@ -69,7 +69,7 @@
         <p>One of my absolute all time favourite topics to write about, <strong>Consensus Algorithms</strong>
           Before diving into the definitions, types and differences between each consensus
           algorithm, we need to know more about the technology that these scripts are written 
-          for and function within i.e. <strong>blockchain technology</strong>. 
+          for and function within i.e. <i>blockchain technology</i>. 
         </p>
         <p><i>Blockchain</i> is an open, distributed ledger that can record transactions between 
           two parties efficiently and in a verifiable and permanent way. Generally it is a 
@@ -90,7 +90,7 @@
         </p>
         <ul>
           <li><strong>Permissioned</strong> networks are closed ecosystems where validators are vetted 
-              and selected by the network owner. This include <strong>Hyperledger</strong> and <strong>Corda</strong>.
+              and selected by the network owner. This include <i>Hyperledger</i> and <i>Corda</i>.
           </li>
           <li><strong>Permissionless</strong> networks allow anyone with the computational resources 
             to read the chain and write new blocks according to the consensus rules. 
@@ -107,7 +107,7 @@
         <p>Because blockchain is a decentralized peer-to-peer network - participants 
           (developers, miners, exchanges, users) need a decision-making model that
           is not only open or logical, it needs to be fair and balanced. This
-          model is what is referred to as a consensus `mechanism`.
+          model is what is referred to as a consensus <i>mechanism</i>.
         </p>
         <p>It usually covers 6 critical participant agreements on: <strong>collaboration,
           co-operation, equal-rights, participation</strong> and <strong>activity</strong>. All
@@ -140,11 +140,11 @@
         </p>
         <p>While environmentalists argue that this level of energy consumptions is killing 
           the planet as its slowing the migration to other sources of energy - the PoW
-          model is getting more `energy-efficient` as a result of technological innovation. 
+          model is getting more <i>energy-efficient</i> as a result of technological innovation. 
           Therefore, the energy consumption of bitcoin will only improve with time.
         </p>
         <p>Another challenge that has been noted as a result of the high computational 
-          resource requirement is the `centralization of miners` i.e. a small pool of
+          resource requirement is the <i>centralization of miners</i> i.e. a small pool of
           miners controling a large part of the network. Although it might seem this way,
           bitcoin is used by millions across the world - and any changes to the network
           will not be implementated as easily as it's often thought. It is also extremely
@@ -165,7 +165,7 @@
           a <i>bet</i> on it. For every block staked, validators receive a reward proportionate 
           to their <i>bets</i> for example a 10% stake is rewarded by validating 10% of new blocks.
         </p>
-        <p>The major grep with this consensus algorithm is due to its seemingly `minimal`
+        <p>The major grep with this consensus algorithm is due to its seemingly <i>minimal</i>
           requirements for validator roles - What is to discourage validators from creating 
           two blocks and claiming two sets of transaction fees? And what is to discourage
           a signer from signing both of those blocks? This has been called the 
@@ -180,7 +180,7 @@
         </p>
         <p>This model leverages identity as the form of stake where validators are pre-approved 
           to validate transactions and blocks within the respective network. Originally it was
-          thought it worked best with a small number of validators (`less ~25`) but on Vechain
+          thought it worked best with a small number of validators (<i>less ~25</i>) but on Vechain
           they increased the number of <i>Authority Masternodes</i> to 101.
         </p>
         <p>Like other consensus algorithms designed after PoW, PoA networks run on low requirement 
@@ -207,9 +207,9 @@
           of decentralized systems.
         </p>
         <h2>Practical Byzantine Fault Tolerance (PBFT) Algorithm</h2>
-        <p>PBFT was made famous for it use in the `Hyperledger`, `Stellar` and `Ripple`
+        <p>PBFT was made famous for it use in the <i>Hyperledger, Stellar</i> and <i>Ripple</i>
           blockchains. It was designed as a solution to a problem presented by the
-          previous use of BGP (*Byzantine Generals Problem*). The algorithm is designed for 
+          previous use of BGP (<i>Byzantine Generals Problem</i>). The algorithm is designed for 
           asynchronous consensus where all the nodes inside the system get arranged 
           in a specific order. One node is selected as the primary one, and others 
           work as the backup plan. However, all the nodes inside the system work 
@@ -243,7 +243,7 @@
           </li>
         </ul>
         <p>One of my major drawbacks from PBFT, despite some of it's advantages and 
-          promising facts is its `communication gap`. Nodes running the PBFT algorithm
+          promising facts is its <i>communication gap</i>. Nodes running the PBFT algorithm
           are required to make sure that the information they gather is solid. This forcibly
           limits how many nodes can run on the network to retain a high quality communication
           between them.
@@ -251,7 +251,7 @@
         <h2>Directed Acyclic Graphs (DAGs) Algorithm</h2>
         <p>Commonly known as the Blockchain Killers, DAGs are used in several blockchain
           networks including IOTA, Hashgraph and Nano. Its also integrated in non-blockchain
-          networks like `IPFS`.
+          networks like <i>IPFS</i>.
         </p>
         <figure data-rt-type="image" data-rt-align="center" data-rt-max-width="60" class="w-richtext-align-center" 
           style="max-width: 60%;" data-rt-max-height="33.75">
@@ -260,13 +260,13 @@
         </figure>
         <p>Although I've listed it as a consensus algorithm, DAG is basically a form of data 
           structure that <i>theoretically</i> handles infinite transactions per second mostly 
-          asynchronously. **Tangle** the DAG consensus algorithm used by Iota requires each
+          asynchronously. <strong>Tangle</strong> the DAG consensus algorithm used by Iota requires each
           node to validate two previous transactions before sending one on the network. This
           two-for-one consensus strenghens the validity of transactions the more transactions
           are added to the network.
         </p>
         <p>Nodes on <strong>Hashgraph</strong> on the other hand, share their known transactions with other
-          nodes at random until eventually all the transactions are `gossiped` around to all of 
+          nodes at random until eventually all the transactions are <i>gossiped</i> around to all of 
           the network nodes. At 250,000+ transactions per second it is one of the fastest 
           networks which makes it a great option for private networks. Despite its advantages
           Hashgraph is still susceptible to <a href="https://en.wikipedia.org/wiki/Sybil_attack">sybil attacks</a>.
