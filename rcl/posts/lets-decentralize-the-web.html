@@ -109,7 +109,7 @@
               responsibly;</li>
           <li>Through the creation of Terms of Service or Data Policies, internet users 
               are required to agree with the collection of personal data which is often 
-              shared with `Third Parties` for monetary gain;</li>
+              shared with <i>Third Parties</i> for monetary gain;</li>
           <li>Disruptive tech startups today suffer a slow and painful death as tech-giants 
               exploit their seemingly unlimited supply of cash to copy new features - either
               that or accept being acquired;</li>
@@ -118,8 +118,8 @@
               hacks which occur several times a year;</li>
           <li>These architectures are also vulnerable to Denial of Service and Distributed 
               Denial of Service (DoS/DDoS) attacks;</li>
-          <li>Centralized servers are single points of failure, **when they fail, websites** 
-              **and applications that depend on them also fail**.</li>
+          <li>Centralized servers are single points of failure, <strong>when they fail, websites 
+              and applications that depend on them also fail</strong>.</li>
         </ol>
         <p>A decentralized version of the internet would solve many of the problems that the 
             current internet faces. Without a single point of failure, Web3.0 is resilient
@@ -137,13 +137,13 @@
             evolution theory for each system.
         </p>
         <h2>Decentralized File Sharing - IPFS</h2>
-        <p>IPFS, the **InterPlanetary File System**, is a hypermedia protocol created and released
-            in January 2015 by [Juan Benet](https://en.wikipedia.org/wiki/Juan_Benet_(computer_scientist)).
+        <p>IPFS, the <strong>InterPlanetary File System</strong>, is a hypermedia protocol created and released
+            in January 2015 by <a href="https://en.wikipedia.org/wiki/Juan_Benet_(computer_scientist">Juan Benet</a>.
             It's a synthesis of multiple peer-to-peer systems like DHTs, BitTorrent, Git, and SFS 
             simplified into one cohesive system that intends to evolve into the web itself, replacing
             the more commonly known HTTP protocol.
         </p>
-        <p>It's a network designed to create a `content-addressable`, `peer-to-peer` file 
+        <p>It's a network designed to create a <i>`content-addressable`, `peer-to-peer`</i> file 
             (<cite>text or video formats</cite>) storing and sharing protocol in a distributed file 
             system. By switching from the traditional location based addressing of the web, IPFS 
             makes it possible to distribute high volumes of data with high efficiency and zero duplication.
@@ -155,15 +155,15 @@
             their unique properties.
         </p>
         <p>Without going into a lot of the details that are comprehensively covered in the IPFS
-            [whitepaper](https://github.com/ipfs/papers/raw/master/ipfs-cap2pfs/ipfs-p2p-file-system.pdf),
+            <a href="https://github.com/ipfs/papers/raw/master/ipfs-cap2pfs/ipfs-p2p-file-system.pdf">whitepaper</a>,
             I'll highlight these subsystems with a short description of each:
         </p>
         <ul>
-          <li>**Identities & NodeId** - Using the S/Kademlia crypto puzzle, nodes are identified
+          <li><strong>Identities & NodeId</strong> - Using the S/Kademlia crypto puzzle, nodes are identified
               by a NodeId, the cryptographic hash of its public-key. Although new nodes can 
               be created for every new IPFS launch, users are incentived to maintain the same node;
           </li>
-          <li>**Network** - Nodes on IPFS communicate through several stack features like the use 
+          <li><strong>Network</strong> - Nodes on IPFS communicate through several stack features like the use 
             of ICE NAT traversal techniques. IPFS also stores addresses as `multiaddr` formatted 
             byte strings therefore able to function without reliance on or assumption of IP 
             addresses. For example;
@@ -173,23 +173,23 @@
                 /ip4/10.20.30.40/sctp/1234/
               ```
           </li>
-          <li>**Node Routing** - For nodes to find other peers' network addresses and serve 
+          <li><strong>Node Routing</strong> - For nodes to find other peers' network addresses and serve 
               objects, IPFS uses a *Distributed Hash Table* which enables any participating 
               node to efficiently retrieve the value associated with a given key.
           </li>
-          <li>**BitSwap Protocol** - In IPFS, data distribution happens through the block barter 
+          <li><strong>BitSwap Protocol</strong> - In IPFS, data distribution happens through the block barter 
               exchange. This is a BitTorrent inspired protocol where nodes have to provide direct 
-              value to each other in the form of blocks. In the marketplace each peer **is looking 
-              to acquire a set of blocks (`want_list`), and has another set of blocks to offer in 
-              exchange (`have_list`)**.
+              value to each other in the form of blocks. In the marketplace each peer <strong>is looking 
+              to acquire a set of blocks (<i>want_list</i>), and has another set of blocks to offer in 
+              exchange (<i>have_list</i>)</strong>.
           </li>
-          <li>**Merkle Forest** - This is a map of all network objects linked cryptographically
+          <li><strong>Merkle Forest</strong> - This is a map of all network objects linked cryptographically
               through the directed acyclic graph (DAG). The DAG intergration allows IFPS to a)
-              uniquely identify content by its `multihash` checksum, **including links** b) detect
+              uniquely identify content by its <strong>multihash</strong> checksum, <strong>including links</strong> b) detect
               content corruption using data checksum c) deduplicating content by equating objects
               to content and storing once.
           </li>
-          <li>**DNS Naming** - IPFS uses DNS TXT records to map a domain name to an IPFS address.
+          <li><strong>DNS Naming</strong> - IPFS uses DNS TXT records to map a domain name to an IPFS address.
               Users can edit DNS records, and use them to always point to the latest version of 
               an object in IPFS. Because DNSLink uses DNS records, the names it produces are also 
               usually easy to type and read.
@@ -210,39 +210,39 @@
         </p>
         <h2>Decentralized Money - Bitcoin</h2>
         <p>The next thing we can do to push Web Decntralization towards its natural next phase is much
-            much simpler. ***Investing in truly decentralized money***. 
+            much simpler. <i><strong>Investing in truly decentralized money</strong></i>. 
         </p>
-        <p>`Bitcoin`, by virtue of how it works, is not just a digital currency - it's the foundational 
+        <p><i>Bitcoin</i>, by virtue of how it works, is not just a digital currency - it's the foundational 
             open source network needed to decentralize economic activity both on the Web and real-world
             trade. This is because it has six primary features that differentiate it from the private 
             networks used by governments and traditional financial institutions:
         </p>
         <ol>
-          <li>It's **permissionless**;
-            * Anyone in the world can connect to the network. With resources like computing
+          <li>It's <strong>permissionless</strong>;
+            Anyone in the world can connect to the network. With resources like computing
             power and software users can participate in the validation of transactions.
           </li>
-          <li>It's **decentralized**;
-            * Through cryptographic breakthroughs, Bitcoin nodes are programmed to hold and 
+          <li>It's <strong>decentralized</strong>;
+            Through cryptographic breakthroughs, Bitcoin nodes are programmed to hold and 
             independently update the database in the network.
           </li>
-          <li>It's **trustless**;
-              * A central party isn't required to ensure transcations are valid. 
+          <li>It's <strong>trustless</strong>;
+            A central party isn't required to ensure transcations are valid. 
           </li>
-          <li>It's **transparent**;
-              * The network is a record of transactions between blockchain addresses. Anyone 
-                inspecting the network sees every transaction and its hash value.
+          <li>It's <strong>transparent</strong>;
+              The network is a record of transactions between blockchain addresses. Anyone 
+              inspecting the network sees every transaction and its hash value.
           </li>
-          <li>It's **censorship resistant**;
-              * A central party cannot invalidate a user's transactions or reverse changes. 
-                Also as there are nodes throughout the world it is virtually impossible for 
-                the entire network to be taken over by a single party.
+          <li>It's <strong>censorship resistant</strong>;
+              A central party cannot invalidate a user's transactions or reverse changes. 
+              Also as there are nodes throughout the world it is virtually impossible for 
+              the entire network to be taken over by a single party.
           </li>
-          <li>It's **programmable**;
-              * Bitcoin consists of individual behaviour specifications called protocols. The 
-                implementation of specific protocols essentially makes it a distributed, peer-to-peer 
-                and secured information database programmable to business logic and interoperable 
-                financial services.
+          <li>It's <strong>programmable</strong>;
+              Bitcoin consists of individual behaviour specifications called protocols. The 
+              implementation of specific protocols essentially makes it a distributed, peer-to-peer 
+              and secured information database programmable to business logic and interoperable 
+              financial services.
           </li>
         </ol>
         <p>The entrepreneurial benefits of decentralized money are only just now becoming more apparent 
@@ -253,7 +253,7 @@
           <li>costly intermediaries are scrapped. remittance fees are as low as 3%</li>
           <li>users have full custody of their wealth and can transact securely without validation</li>
           <li>with cryptograhic key management, wallets are secured using private keys for loss prevention</li>
-          <li><small>**Source** Token Economy </small></li>
+          <p><small>**Source** Token Economy </small></p>
         </ul>
         <p>I could go on because of countless other ways users have continued to benefit from decentralized 
             curriencies. They represent an evolving view of how information can change the world and the web.
@@ -274,8 +274,11 @@
             governments, lawyers, notaries and regulatory compliance officers.
         </p>
         <p>We've already seen use cases for decentralized data ledgers applied in industries like
-            [banking](https://www.r3.com/) and [insurance](https://www.everledger.io/). R3CEV tests blockchain applications 
-            for banking and aims to create a blockchain standard. In their own words, *it was born out of a common frustration with multiple generations of disparate legacy financial technology platforms that struggle to interoperate, causing inefficiencies, risk and spiraling costs*. On the other hand **Everledger** is using
+            <a href="https://www.r3.com/">banking</a> and <a href="https://www.everledger.io/">insurance</a>. 
+            R3CEV tests blockchain applications for banking and aims to create a blockchain standard. 
+            In their own words, <strong>it was born out of a common frustration with multiple generations of 
+            disparate legacy financial technology platforms that struggle to interoperate, causing 
+            inefficiencies, risk and spiraling costs</strong>. On the other hand <strong>Everledger</strong> is using
             distributed public ledger technology for tracking provenance in a way that’s more 
             robust and accessible than a paper trail.
         </p>
@@ -283,18 +286,18 @@
         <p>With decentralized ledgers, no one party like a bank controls its content, that is,
             which transactions get posted (the credits and debits), which modifications are made etc 
             as such, blockchain engineers write a series of functions to mediate transactions.
-            Member nodes in a blockchain network use a `consensus` protocol to agree on ledger 
-            content,`cryptographic hashes` and `digital signatures` to ensure the integrity of 
+            Member nodes in a blockchain network use a <i>consensus</i> protocol to agree on ledger 
+            content, <i>cryptographic hashes</i> and <i>digital signatures</i> to ensure the integrity of 
             transactions.
         </p>
-        <p>**Consensus** ensures that the shared ledgers are exact copies, and lowers the risk 
-            of fraudulent transactions. **Cryptographic hashes**, such as the SHA256 computational 
+        <p><strong>Consensus</strong> ensures that the shared ledgers are exact copies, and lowers the risk 
+            of fraudulent transactions. <strong>Cryptographic hashes</strong>, such as the SHA256 computational 
             algorithm, ensure that any alteration to transaction input results in a different 
-            hash value being computed. **Digital signatures** ensure that transactions originated 
+            hash value being computed. <strong>Digital signatures</strong> ensure that transactions originated 
             from senders (signed with private keys) and not imposters.
         </p>
         <p>The result of this programming is transactions that cannot be altered or reversed. This
-            is commonmly referred to network `immutability` because it requires the approval of 
+            is commonmly referred to network <i>immutability</i> because it requires the approval of 
             all network participating nodes to agree on data alterations or transaction reversals.
         </p>
         <h3>Enterprise Blockchain Utilization</h3>
@@ -307,19 +310,19 @@
             characters:
         </p>
         <ol>
-          <li>**Consensus Algorithm** - This is the core of every blockchain architecture.
+          <li><strong>Consensus Algorithm</strong> - This is the core of every blockchain architecture.
               It's responsible for trustless networks. Nodes might not trust each other, 
               but they can trust the algorithms that run at the core of it.
           </li>
-          <li>**Permissionless Ledgers** - Data kept in a perpetual state of forward 
+          <li><strong>Permissionless Ledgers</strong> - Data kept in a perpetual state of forward 
               momentum because of hashing power confirms new transactions that are 
               recorded in every participating node.
           </li>
-          <li>**Key Management** - This ensures tamper-proof address & wallet security, 
+          <li><strong>Key Management</strong> - This ensures tamper-proof address & wallet security, 
               authentication and integrity of user protection. Popular cryptographic 
               hash functions used include SHA256, Scrypt, ethash, x16 and more.
           </li>
-          <li>**Smart Contracts (Chaincode)** - These are self-executing contracts 
+          <li><strong>Smart Contracts (Chaincode)</strong> - These are self-executing contracts 
               converted to computer code, stored, replicated on the system and 
               supervised by the participating nodes.
 
@@ -347,13 +350,13 @@
             blockchains might need to look at, it will help in overcoming the adoption bottlenecks.
         </p>
         <ol>
-          <li>***Consensus mechanism***- a permissionless blockchain like Bitcoin works on the 
+          <li><i><strong>Consensus mechanism</strong></i>- a permissionless blockchain like Bitcoin works on the 
               principle of Proof-of-Work where the millions worth of hashing power is 
               required for node participation. This requires the consumption of a lot 
               of resources, thus, it’s a costly affair.
           </li>
-          <li>***Anonymity BadRep***- Identities of the trading parties remains anonymous in
-              most permissionless blockchains. Some critices of `Web Decentralization` 
+          <li><i><strong>Anonymity BadRep</strong></i>- Identities of the trading parties remains anonymous in
+              most permissionless blockchains. Some critices of <i>Web Decentralization</i> 
               argue that this anonymity feature results in blockchain use rising in 
               illicit activities. Its on us Web 3.0 enthusiasts to bring attention to the 
               millions of transactions happening daily done by ordinary citizens around 
@@ -365,21 +368,21 @@
             make permissionless blockchain a platform for offering enterprise solutions.
         </p>
         <h2>Summary</h2>
-        <p>There is a _lot_ to digest in this article. It ended up going way beyond the
+        <p>There is a lot to digest in this article. It ended up going way beyond the
             post I initially intended to write. To attempt to summarise my outlook on 
             Web3.0:
         </p>
         <ol>
-          <li>`Web Centralization` comes at a huge cost to users;</li>
-          <li>`Commercializing Web 3.0` will increase speed of adoption;</li>
-          <li>IPFS is leading the way to the `permanent web`;</li>
-          <li>Bitcoin is the epitome of `decentralized & distributed finance`</li>
-          <li>`Enterprise Blockchain Utilization` will be a multiple industry standard.</li>
+          <li><i>Web Centralization</i> comes at a huge cost to users;</li>
+          <li><i>Commercializing Web 3.0</i> will increase speed of adoption;</li>
+          <li>IPFS is leading the way to the <i>permanent web</i>;</li>
+          <li>Bitcoin is the epitome of <i>decentralized & distributed finance</i></li>
+          <li><i>Enterprise Blockchain Utilization</i> will be a multiple industry standard.</li>
         </ol>
         <h3>Conclusion</h3>
         <p>Thanks to cryptographic security, decentralized consensus and DLT, blockchain 
             technologies can profoundly change the way we organize our economic, social, 
-            political, and scientific activities. So let's do it **Lets' Decentralize The Web**
+            political, and scientific activities. So let's do it <i><strong>Lets' Decentralize The Web</strong></i>
         </p>
       </div>
       <div class="button-wrapper"><a class="button w-button" href="/blog/archive">←&nbsp;View all posts</a></div>
