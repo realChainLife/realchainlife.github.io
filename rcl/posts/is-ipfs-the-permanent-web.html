@@ -66,13 +66,13 @@
         </div>
       </div>
       <div class="body-copy w-richtext">
-        <p>[IPFS](https://ipfs.io) the **InterPlanetey File System** is a global, versioned, 
+        <p><a href="https://ipfs.io">IPFS</a> the <strong>InterPlanetey File System</strong> is a global, versioned, 
           peer-to-peer file system. It combines good ideas from Git, BitTorrent, Kademlia, 
           and SFS. You can think of it like a single BitTorrent swarm, exchanging Git objects, 
           making up the web. IPFS provides an interface much simpler than HTTP, but has 
           permanence built in.
         </p>
-        <p>Is claiming the IPFS is the permanent web a **fallacy of distributed computing** then?
+        <p>Is claiming the IPFS is the permanent web a <strong>fallacy of distributed computing</strong> then?
           Before diving into the detailed workings of IPFS we need to discuss the HTTP protocol - 
           the is the most commonly known Internet Protocol. Although, I strongly believe IPFS
           will replace HTTP, this position is met with alot of speculation. Replacing HTTP 
@@ -88,13 +88,13 @@
           intermediaries.
         </p>
         <h2>How HTTP Protocols Work</h2>
-        <p>The **Hypertext Transfer Protocol** (HTTP) has unified the entire world into a single 
+        <p>The <strong>Hypertext Transfer Protocol</strong> (HTTP) has unified the entire world into a single 
           global internet protocol, standardizing how we distribute and present information 
-          to each other. Traditionally, HTTP follows a simple `client-server` model. Basically,
-          files are accessed and retrieved based on their `server` location using a URL (Uniform 
+          to each other. Traditionally, HTTP follows a simple <i>client-server</i> model. Basically,
+          files are accessed and retrieved based on their <i>server</i> location using a URL (Uniform 
           Resource Locator).
         </p>
-        <p>When a `client` computer across the world request a file from this server irrespective 
+        <p>When a <i>client</i> computer across the world request a file from this server irrespective 
           of their location, the URL is used to find its location on a computer network and its
           retrieved and loaded on the client side server. But while HTTP has achieved many things, 
           it's usefulness as a foundation for the distribution of the sum of human knowledge is 
@@ -106,63 +106,63 @@
           are:
         </p>
         <ul>
-          <li>**HTTP Is Fragile** - If you've been using the internet for any given time then 
-            you've come across a `404 Error` or `Not Found Error`. These error occur when a 
+          <li><strong>HTTP Is Fragile</strong> - If you've been using the internet for any given time then 
+            you've come across a <i>404 Error</i> or <i>Not Found Error</i>. These error occur when a 
             HTTP web server connection to the client server fails. This can happen if web 
             servers have been powered down, if the links stopped working, if the server fails 
             or is no longer accessible at the same location, or even the worst possible flaw,
             the chain between the sites becomes permanently broken, and the ability to access 
             that content is lost forever.
-          
+
             All these factors point to the brittleness of HTTP web servers and hightlights 
-            the problem with HTTP: It `erodes`. When a site is no longer available on the 
+            the problem with HTTP: It <i>erodes</i>. When a site is no longer available on the 
             server at that linked location the content you're looking for is usually gone, 
-            and it has no way to help you find it. And unless the [Internet Archive](https://archive.org/) 
+            and it has no way to help you find it. And unless the <a href="https://archive.org/">Internet Archive</a> 
             backed it up, you'll never find it again. It becomes lost, forever.
-          
+
             Also, the older a web page is, the more likely it is you'll see 404 pages. HTTP 
             is inadequate for maintaining links between sites. While all the static content 
             stored with the site still loads, any links offsite or to dynamically served 
-            content are dead. Whether eroding content is `timelessly useful`, it's still our 
+            content are dead. Whether eroding content is <i>timelessly useful</i>, it's still our 
             history, and we're losing a lot of it everyday and we're losing it fast.
           </li>
-          <li>The web was originally designed to be 
+          <li><strong>HTTP Is Fragile</strong>The web was originally designed to be 
             decentralized how during the peak of internet commercialization billions of users 
             were left dependent on a small handful of services to use. While this commercialization 
             propagated a lot of new internet-based service solutions centralization didn't 
-            come without its challenges. 
-          
+            come without its challenges.
+
             Today, centralized web servers can be intercepted by multi-parties for various 
             reasons all affecting customer security and protection. Centralization makes it 
-            easy for governments to `censor content` at their borders by blocking the access 
+            easy for governments to <i>censor content</i> at their borders by blocking the access 
             to centralized sites. It also puts our communications at risk of being interrupted 
-            by `DDoS attacks`. Customers also face the risk of `data breaches` through hackers 
+            by <i>DDoS attacks</i>. Customers also face the risk of <i>data breaches</i> through hackers 
             who can extort money for stolen data or even make it available on the black market.
-          
+
             Distributing the web would make it less malleable by a small handful of powerful 
             organizations, and that improves both our freedom and our independence. It also 
-            reduces the risk of the *"one giant shutdown"* that takes a massive amount of data 
+            reduces the risk of the <i>"one giant shutdown"</i> that takes a massive amount of data 
             with it.
           </li>
-          <li>**HTTP Is Cost Inefficient** - HTTP lowered the price of publishing, but it still 
+          <li><strong>HTTP Is Cost Inefficient</strong> - HTTP lowered the price of publishing, but it still 
             costs money, and these costs can really add up. Distributing a lot of data from 
             central datacenters is potentially very expensive if not done at economies of scale. 
             Latency and Bandwidth are the two keys to protocol performance. Latency is a measure 
             of the fixed costs of a transaction and does not change as documents get bigger or 
             smaller. Bandwidth is a measure of how long it takes to send data.
-          
+
             If, for example, I had a file sized 117 Megabytes distributed and downloaded 2,344,327,696
             times, that means (at most) 274,286,340,432 Megabytes, or 274.3 Petabytes of data for the 
             file alone has been sent since it was published. If we assume a total expense of 1 
             cent per gigabyte (this would include bandwidth and all of the server costs), $2,742,860 
             has been spent on distributing this one file so far.
-          
+
             The cost of opening a new connection for each transaction or to serve this much data 
             would be astronomical, especially when bandwidth rates for small players start around 
             $0.12 per gigabyte and go as high a $0.20 in Asia. We need options for less expensive 
             bandwidth to ensure we can keep running our infrastructure at low cost.
           </li>
-          <li>**HTTP Creates Overdependence on The Internet Backbone** - Not only has web server 
+          <li><strong>HTTP Creates Overdependence on The Internet Backbone</strong> - Not only has web server 
             centralization made it highly dependent on the datacenter functionality model it has 
             also made it easy for governments to block and censor content. Even with redundancies,
             major architectural network backbones get damaged or go haywire each with drastic
@@ -173,7 +173,7 @@
             for example.
           </li>
         </ul>
-        <p>[HTTP/2](https://http2.github.io/) is a welcome improvement, but it's a conservative update to 
+        <p><a href="https://http2.github.io/">HTTP/2</a> is a welcome improvement, but it's a conservative update to 
           a technology that's beginning to show its age. To have a better future for the web, we need more 
           than a spiced up version of HTTP, we need a new foundation. And per the governance model of 
           cyberspace, that means we need a new protocol. IPFS, I'm strongly hoping, becomes that new protocol.
@@ -184,18 +184,18 @@
           <div><img src="/blog/blog-img/what-is-ipfs.png" alt=""></div>
           <figcaption>Illustration: What Is IPFS?</figcaption>
         </figure>
-        <p>To understand why I'm keen on `replacing` HTTP with IPFS as the protocol
+        <p>To understand why I'm keen on <i>replacing</i> HTTP with IPFS as the protocol
           of the decentralized web, we first need to understand what it is, how it works,
           and how it addresses all the critical flaws currently limiting HTTP. 
         </p>
         <p>IPFS envisions a world where any resource is available via a locally mounted 
           filesystem at paths like:
         </p>
-        <p>**a mutable path**</p>
+        <p><strong>a mutable path</strong></p>
         <pre>
           /ipns/my.host.com/some/file.txt
         </pre>
-        <p>**or a permanent path**</p>
+        <p><strong>or a permanent path</strong></p>
         <pre>
           /ipfs/Qmc8vVBLPjc9CXaKtFK3wiq9zoXvuB4XDeY5Xra2LmhMKg/some/file.txt
         </pre>
@@ -204,21 +204,21 @@
           namespace have:
         </p>
         <ol>
-          <li>**High availability** - Files can be fetched from any host that stores 
+          <li><strong>High availability</strong> - Files can be fetched from any host that stores 
             and is willing to provide the data.</li>
-          <li>**Easy Access** - The /ipns and /ipfs filesystems are usable as local 
+          <li><strong>Easy Access</strong> - The /ipns and /ipfs filesystems are usable as local 
             storage instead of remote servers, as in HTTP. In fact, nodes 
             chose which files they store locally.</li>
-          <li>**Trustless** - Like in git where you can trust files in a commit if you 
+          <li><strong>Trustless</strong> - Like in git where you can trust files in a commit if you 
             trust the commit ID.</li>
-          <li>**Signature** - Files can be signed and publishers can be linked to %PATH%
+          <li><strong>Signature</strong> - Files can be signed and publishers can be linked to %PATH%
             of publication.</li>
-          <li>**Merkle-linking** - You can version and back up files using the merkle-dag.
+          <li><strong>Merkle-linking</strong> - You can version and back up files using the merkle-dag.
             Creating a merkle forest of linked data structures.</li>
         </ol>
         <p>To achieve these, IPFS integrates several successful techniques from the last 
-          15 years of distributed systems research. Central to the IPFS design is the `Merkle` 
-          `DAG`, a data structure that represents all the files. It’s like Git’s blob, tree, 
+          15 years of distributed systems research. Central to the IPFS design is the <i>Merkle DAG</i>, 
+          a data structure that represents all the files. It’s like Git’s blob, tree, 
           and commit, except IPFS has a more flexible model: you can define what your link 
           structure is and how it works. This means you can implement Git on top, or a 
           Blockchain like Bitcoin, or linked web pages.
@@ -237,13 +237,13 @@
         <p>The IPFS network becomes a finely-grained, trustless, distributed, easily federated 
           Content Delivery Network (CDN). This encrypted, integrity-checked CDN can be used for 
           large static files including: images, video streaming, distributed databases, entire 
-          operating systems, blockchains, and most important for us, **static web sites.**
+          operating systems, blockchains, and most important for us, <strong>static web sites.</strong>
         </p>
         <p>IPFS files can also be special IPFS directory objects, which allow you to use human 
           readable filenames (which transparently link to other IPFS hashes). Using 
           directory objects, IPFS allows you to make static web sites exactly the same way 
           you make them today. It's a single command to add your web site to an IPFS node: 
-          `ipfs add -r yoursitedirectory`. After that, it's available from any IPFS node without 
+          <i>ipfs add -r yoursitedirectory</i>. After that, it's available from any IPFS node without 
           requiring you to link to any hashes in the HTML.
         </p>
         <p>IPFS has alot more features and functions that can be listed as use cases including:</p>
@@ -265,28 +265,28 @@
           initialize the network and we'll add your first file to IPFS.
         </p>
         <h2>How It Works: IPFS Deep Dive</h2>
-        <p>To get started you need to [download IPFS for your platform](https://dist.ipfs.io/#go-ipfs), 
-          by clicking `download go-ipfs`. This is a prebuilt package for the Go Implementation of the 
+        <p>To get started you need to <a href="https://dist.ipfs.io/#go-ipfs">download IPFS for your platform</a>, 
+          by clicking <i>download go-ipfs</i>. This is a prebuilt package for the Go Implementation of the 
           IPFS.
         </p>
         <p>Once the executible files have been downloaded they need to be moved to the proper location:</p>
-        <p>**On Mac/Linux:**</p>
-        <p>Unpack the archived folder, and move the `ipfs` file somewhere in your `$PATH`. To do this 
+        <p><strong>On Mac/Linux:</strong></p>
+        <p>Unpack the archived folder, and move the <i>ipfs</i> file somewhere in your <i>$PATH</i>. To do this 
           via Terminal:
         </p>
         <pre>
           sudo mv ipfs /usr/local/bin/ipfs
         </pre>
-        <p>**On Windows:**</p>
-        <p>Unzip the archive, and then cut `ipfs.exe` and paste somewhere in your `%PATH%`. To do this 
+        <p><strong>On Windows:</strong></p>
+        <p>Unzip the archive, and then cut <i>ipfs.exe</i> and paste somewhere in your <i>%PATH%</i>. To do this 
           via Command Prompt: Run Command Prompt as Administrator
         </p>
         <pre>
           C:\..>move .\go-ipfs\ipfs.exe C:\Windows
         </pre>
         <h3>Environment Setup</h3>
-        <p>Before using IPFS for the first time you'll need to `initialize` the repository with the 
-          **ipfs init** command:
+        <p>Before using IPFS for the first time you'll need to <i>initialize</i> the repository with the 
+          <strong>ipfs init</strong> command:
         </p>
         <pre>
           ipfs init
@@ -297,14 +297,13 @@
 
             ipfs cat /ipfs/QmqaxZwuMiUhyvYycToWiUfMtowAPMcX9Ba8nUH4Jz3Xf2/readme
         </pre>
-        <p>The `repository` is a directory that's used by ipfs to stores all its settings and internal 
+        <p>The <i>repository</i> is a directory that's used by ipfs to stores all its settings and internal 
           data. Run the suggested output command:
         </p>
         <pre>
           ipfs cat /ipfs/QmqaxZwuMiUhyvYycToWiUfMtowAPMcX9Ba8nUH4Jz3Xf2/readme
         </pre>
-        <p>The output should look something like this, notifying you that you have **successfully**
-          **installed IPFS.**
+        <p>The output should look something like this, notifying you that you have <strong>successfully installed IPFS.</strong>
         </p>
         <figure data-rt-type="image" data-rt-align="center" data-rt-max-width="60" class="w-richtext-align-center" 
           style="max-width: 60%;" data-rt-max-height="33.75">
@@ -316,9 +315,9 @@
           ipfs cat /ipfs/QmqaxZwuMiUhyvYycToWiUfMtowAPMcX9Ba8nUH4Jz3Xf2/quick-start
         </pre>
         <h3>Add Files To IPFS</h3>
-        <p>Once `ipfs init` is completed successfully, we are ready to run a daemon and start running
-          things online; but first we'll start by creating a directory *ipfsdirectory* and writing a 
-          simple *hello.txt* file with the content *Hello World* 
+        <p>Once <i>ipfs init</i> is completed successfully, we are ready to run a daemon and start running
+          things online; but first we'll start by creating a directory <i>ipfsdirectory</i> and writing a 
+          simple <i>hello.txt</i> file with the content <i>Hello World</i> 
         </p>
         <pre>
           $ mkdir ipfsdirectory
@@ -342,7 +341,7 @@
         <p>Now the file no-longer exists only on our local machine.</p>
         <h3>Connect IPFS Node to the IPFS Network</h3>
         <p>By this point we have successfully downloaded, initialized, added and pinned a file on the 
-          IPFS, however we are yet to introduce our `node` to the IPFS network. This allows other nodes/
+          IPFS, however we are yet to introduce our <i>node</i> to the IPFS network. This allows other nodes/
           participants on the network to listen to our machine and retrieve files from our machine, 
           and vice versa.
         </p>
@@ -374,28 +373,28 @@
         <p>IPFS has a number of bootstrapping nodes that are actively looking for new content placed 
           on the network. This will be your initial connections. From here, we can access any one 
           of our files from their website, where they have mounted the IPFS system on their HTTP 
-          URL: `https://ipfs.io/ipfs/[yourHash]`. In my case to check the file *hello.txt* we'll run:
+          URL: <i>https://ipfs.io/ipfs/[yourHash]</i>. In my case to check the file <i>hello.txt</i> we'll run:
         </p>
         <p>`https://ipfs.io/ipfs/QmqaxZwuMiUhyvYycToWiUfMtowAPMcX9Ba8nUH4Jz3Xf2`.</p>
         <p>Best not to forget to kill the daemon if you want to disconnect from the network. This is 
-          pretty easy. Go to the terminal where daemon is running and press `CTRL+C`. IPFS allows 
+          pretty easy. Go to the terminal where daemon is running and press <i>CTRL+C</i>. IPFS allows 
           users to create new hashes with every new network launch but nodes are incentivized to remain 
           the same. 
         </p>
         <h2>Getting Involved With The IPFS</h2>
         <p>IPFS is an open-source, MIT-licensed project. Now that you've been introduced to the IPFS 
-          basics I encourage you to `buidl` different new solutions with IPFS. It's still early, and 
+          basics I encourage you to <i>buidl</i> different new solutions with IPFS. It's still early, and 
           there's much work to do before IPFS can replace HTTP without needing to describe the idea 
           as crazy. But there's no time like the present to plan for the future. It's time for us 
-          to get to work and build the permanent & distributed web. **Let's Decentralize The Web**
+          to get to work and build the permanent & distributed web. <strong>Let's Decentralize The Web.</strong>
         </p>
         <p>The easiest way to start is to watch or star these repositories on GitHub to follow along:</p>
         <ul>
-          <li>[ipfs protocol](https://github.com/ipfs/ipfs)</li>
-          <li>[go-ipfs](https://github.com/ipfs/go-ipfs)</li>
-          <li>[js-ipfs](https://github.com/ipfs/js-ipfs)</li>
+          <li><a href="https://github.com/ipfs/ipfs">ipfs protocol</a></li>
+          <li><a href="https://github.com/ipfs/go-ipfs">go-ipfs</a></li>
+          <li><a href="https://github.com/ipfs/js-ipfs">js-ipfs</a></li>
         </ul>
-        <p>Also, you can read more [IPFS docs](https://github.com/ipfs/docs) or join #ipfs on irc.freenode.org.</p>
+        <p>Also, you can read more <a href="https://github.com/ipfs/docs">IPFS docs</a> or join #ipfs on irc.freenode.org.</p>
         <h2>Quick Summary</h2>
         <p>IPFS is a protocol:</p>
         <ul>
@@ -434,8 +433,8 @@
           <li>caching-friendly (content-hash naming)</li>
           <li>bittorrent-based bandwidth distribution</li>
         </ul>
-        <p>To learn even more about the Permanent Web check out Juan Benet's https://www.youtube.com/watch?v=skMTdSEaCtA&t=2s 
-          talk at Sourcegraph.
+        <p>To learn even more about the Permanent Web check out <a href="https://www.youtube.com/watch?v=skMTdSEaCtA&t=2s">Juan Benet's  
+          talk</a>  at Sourcegraph.
         </p>
       </div>
       <div class="button-wrapper"><a class="button w-button" href="/blog/archive">←&nbsp;View all posts</a></div>
