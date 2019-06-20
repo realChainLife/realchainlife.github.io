@@ -89,14 +89,14 @@
         <p>IPLD is a hash-linked data structure that models everything as a series of linked objects.</p>
         <p>An IPLD oject consists of:</p>
         <ul>
-          <li>`Data` — blob of unstructured binary data of size 256 kB.</li>
-          <li>`Links` — array of Link structures. These are links to other IPFS objects.</li>
+          <li><strong>Data</strong> — blob of unstructured binary data of size 256 kB.</li>
+          <li><strong>Links</strong> — array of Link structures. These are links to other IPFS objects.</li>
         </ul>
         <p>A Link structure has three data fields:</p>
         <ul>
-          <li>`Name` — name of the Link</li>
-          <li>`Hash` — hash of the linked IPFS object</li>
-          <li>`Size` — cumulative size of linked IPFS object, including following its links</li>
+          <li><strong>Name</strong> — name of the Link</li>
+          <li><strong>Hash</strong> — hash of the linked IPFS object</li>
+          <li><strong>Size</strong> — cumulative size of linked IPFS object, including following its links</li>
         </ul>
         <p> An IPLD object looks something like this:</p>
         <pre>
@@ -118,7 +118,7 @@
         <p>To truly apprecite IPLD, we are going to learn the basics using simple IPFS command 
           line tools. Initial IPLD support has been released in ipfs, install or update IPFS 
           before following along on the rest of this guide. Once you’re ready, we’ll take a quick 
-          look at the object structure for a simple hello.txt file using the [jq tool](https://stedolan.github.io/jq/).
+          look at the object structure for a simple hello.txt file using the <a href="https://stedolan.github.io/jq/">jq tool</a>.
         </p>
         <p>Start with the following command, which pipes (|) the result from getting the IPFS 
           object to the jq command.
@@ -150,8 +150,8 @@
               ├── *test_file.txt
               └── *test.txt
         </pre>
-        <p>Here, we assume that all three files with an asterisk (*) — `hello.txt`, `test_file.txt`, 
-          and `test.txt`— contain the same text: `“Hello World!/n”`. Now let’s add them to IPFS:
+        <p>Here, we assume that all three files with an asterisk (*) — <strong>hello.txt, test_file.txt</strong>, 
+          and <strong>test.txt</strong>— contain the same text: <strong>“Hello World!/n”</strong>. Now let’s add them to IPFS:
         </p>
         <pre>
           ipfs add -r test_directory/
@@ -165,26 +165,27 @@
         <p>As illustrated above, the benefits of using a DAG to represent data in IPFS is very clear, 
           depending on the actual contents of the files in your directory, you end up with a series 
           of objects, linked via their CIDs. This is pretty cool and since we are referencing the
-          same content we get `deduplication` for free!
+          same content we get <i>deduplication</i> for free!
         </p>
         <p>Important to note our bigfile.js, been chunked into three smaller pieces, each of which has 
           its own CID, which together form the larger file. Following all of these CIDs up the tree, 
-          will give you a CID that describes the contents below it. This is **the genius of IPLD.**
+          will give you a CID that describes the contents below it. This is <strong>the genius of IPLD.</strong>
         </p>
         <p>This collection of Data and Links across the IPFS network creates a graph-like object 
-          structure - commonly referred to as the **Merkle Forest** by **Juan Benet**. This data structure
-          is highly tamper proof, because all content its `hash-verified` And since we are hashing the 
-          contents of the objects, we have no duplication, because in the Merkle DAG, all objects that 
-          hold the same content are considered equal and therefore stored only once because their hash 
-          values are the same.
+          structure - commonly referred to as the <strong>merkle forest</strong> by <strong>Juan Benet</strong>. 
+          This data structure is highly tamper proof, because all content its `hash-verified` And since 
+          we are hashing the contents of the objects, we have no duplication, because in the Merkle DAG, 
+          all objects that hold the same content are considered equal and therefore stored only once because 
+          their hash values are the same.
         </p>
-        <p>We can demonstrate this further by using [Matt Zumwalt's](https://github.com/flyingzumwalt/decentralized-web-primer/tree/master/samples) building out files-as-dags lesson tutorial. We will `ipfs cat` the cosmos.jpg file 
-          from the command line:
+        <p>We can demonstrate this further by using <a href="https://github.com/flyingzumwalt/decentralized-web-primer/tree/master/samples">Matt Zumwalt's</a> 
+          building out files-as-dags lesson tutorial. We will `ipfs cat` the cosmos.jpg file from the command 
+          line:
         </p>
         <pre>
           ipfs cat QmWNj1pTSjbauDHpdyg5HQ26vYcNWnubg1JehmwAE9NnU9 > cosmos.jpg
         </pre>
-        <p>Now you can add it locally, and if you `cat`’d it initially, make sure the hashes match 
+        <p>Now you can add it locally, and if you <i>cat</i>’d it initially, make sure the hashes match 
           then assign the returned hash to the env variable hash:
         </p>
         <pre>
@@ -216,7 +217,7 @@
           Check out the git example for a fun one. Or even better, explore the above DAG object.
         </p>
         <p>Now, just to show you that the above four chunks do indeed make up the single image, you can 
-          use the following code to ‘manually’ join the chunks together to create the image file — which 
+          use the following code to <i>manually</i> join the chunks together to create the image file — which 
           is essentially what cat is doing in the background when you reference the base CID:
         </p>
         <pre>
@@ -240,7 +241,7 @@
           namespace for all hash-inspired protocols. Through IPLD, links can be traversed across protocols, 
           allowing you explore data regardless of the underlying protocol. We can use it to 
           referencea large data files using only the base CID, and you actually have a verified reference 
-          to the whole object. With the simple `ipfs add` command a new merkle DAG is created from data
+          to the whole object. With the simple <pre>ipfs add</pre> command a new merkle DAG is created from data
           in the files, this command also creates the underlying IPNS objects you'll need to access your
           files.
         </p>
