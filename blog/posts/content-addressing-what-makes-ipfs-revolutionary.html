@@ -90,7 +90,7 @@
             & commit.
           </li>
           <li><strong>Naming</strong> - IPNS is the DNS for IPFS. IPNS assigns every user a 
-            mutable namespace at: <pre>/ipns/<NodeId></NodeId></pre> where a user can publish 
+            mutable namespace at: /ipns/<NodeId></NodeId> where a user can publish 
             an Object to this path signed by their private keys. 
           </li>
         </ol>
@@ -135,8 +135,8 @@
           <figcaption>Illustration: Distributed Hash Table</figcaption>
         </figure>
         <p>The DHT part of the IPFS comes from Kademlia DHT as used in BitTorrent while the “sloppy” 
-          in DSHT part comes from the Coral DSHT which relaxes the DHT API from <pre>get_value(key)</pre> to 
-          <pre>get_any_values(key)</pre>> and can work with single peer. In return, Coral can distribute only 
+          in DSHT part comes from the Coral DSHT which relaxes the DHT API from <i>get_value(key)</i> to 
+          <i>get_any_values(key)</i> and can work with single peer. In return, Coral can distribute only 
           subsets of the values to the “nearest” nodes, avoiding node hot-spots.
         </p>
         <p><strong>Data distribution,</strong> on the other hand, is based on a variant of BitTorrent called 
