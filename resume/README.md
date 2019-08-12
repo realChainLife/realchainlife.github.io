@@ -1,2 +1,0 @@
-# realchain.github.io
-Resume
