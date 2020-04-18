@@ -120,6 +120,31 @@
                                     enhances asynchronous communication and can significantly reduce network traffic and 
                                     bandwidth requirements.
                                 </p>
+                                <p>Despite the significant amount of related literature on the topic of pub/sub, very few 
+                                    systems have been tested to that level of scalability, while those that have were mostly 
+                                    cloud-based, managed, and structured. Instead, in the case of IPNS (and IPFS more in general), 
+                                    the network is entirely decentralised and therefore unmanaged. This poses new challenges 
+                                    to the pub/sub protocol, which we want to explore through this RFP.
+                                </p>
+                                <p>approaches that explore the scalability bounds of the existing pub/sub algorithms within 
+                                    libp2p, i.e. gossipsub and episub. IPFS already has hundreds of thousands of daily users 
+                                    and is expected to grow exponentially to multiple millions. ETH1.0 already has more than 
+                                    16,000 nodes and when ETH2.0 arrives this number is expected to rise by several orders of 
+                                    magnitude. A thorough evaluation of the scalability performance of the existing protocols 
+                                    or their redesign is essential before they get deployed at those scales.
+                                </p>
+                                <ul>
+                                    <li>Scalability - Support a higher number of active nodes in the network without degrading 
+                                        the quality of service.</li>
+                                    <li>Efficiency - Reduce aggregate computational and network load (e.g. CPU, memory, 
+                                        bandwidth overhead) across the network.</li>
+                                    <li>Load Balancing - Improve workload distribution so as to minimise inter-node load 
+                                        asymmetry (e.g. CPU, memory, bandwidth).</li>
+                                    <li>Resiliency - Support a broader range of node churn rates without compromising the 
+                                        system (e.g. be able to deal with churn from 10% to 80% per hour).</li>
+                                    <li>Latency - Achieve lower and more scalable propagation latency (e.g. keep latency 
+                                        below 1 second for up to 1M nodes and below 2 seconds for 5M nodes).</li>
+                                </ul>
                                 <figure data-rt-type="image" data-rt-align="center" data-rt-max-width="60" class="w-richtext-align-center" 
                                     style="max-width: 60%;" data-rt-max-height="33.75">
                                     <div><img src="/blog/blog-img/insert-image-link.png" alt=""></div>
