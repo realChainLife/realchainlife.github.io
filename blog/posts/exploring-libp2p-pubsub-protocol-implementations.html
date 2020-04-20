@@ -101,7 +101,7 @@
 							<div class="blog-wrap">
 								<span class="category text-center"><a href="">IPFS</a></span>
 								<h2 class="text-center"><a href="">Exploring Libp2p Pub/Sub Protocol Implementations</a></h2>
-								<span class="category text-center"><a href=""><i class="icon-calendar3"></i> April 20, 2020</a></span>
+								<span class="category text-center"><a href=""><i class="icon-calendar3"></i> April 30, 2020</a></span>
 							</div>
 							<div class="desc">
 
@@ -133,11 +133,29 @@
                                     enhances asynchronous communication and can significantly reduce network traffic and 
                                     bandwidth requirements.
                                 </p>
+                                <figure data-rt-type="image" data-rt-align="center" data-rt-max-width="60" class="w-richtext-align-center" 
+                                    style="max-width: 60%;" data-rt-max-height="33.75">
+                                    <div><img src="/blog/blog-img/insert-image-link.png" alt=""></div>
+                                    <figcaption>PubSub At Scale</figcaption>
+                                </figure>
                                 <p>Despite the significant amount of related literature on the topic of pub/sub, very few 
                                     systems have been tested to that level of scalability, while those that have were mostly 
                                     cloud-based, managed, and structured. Instead, in the case of IPNS (and IPFS more in general), 
                                     the network is entirely decentralised and therefore unmanaged. This poses new challenges 
                                     to the pub/sub protocol, which we want to explore through this RFP.
+                                </p>
+                                <h3>Within the libp2p Ecosystem</h3>
+                                <p>the three main versions of pubsub in libp2p. In particular, floodsub was initially implemented 
+                                    and used, but had poor scalability properties and bandwidth requirements. Gossipsub is 
+                                    currently been used and Episub is currently being implemented to improve performance by 
+                                    proximity aware epidemic broadcast.
+                                </p>
+                                <p>The initial pubsub experiment in libp2p was floodsub. It implements pubsub in the most basic 
+                                    manner, with two defining aspects: i) ambient peer discovery; and ii) most basic routing: 
+                                    flooding. In ambient peer discovery, the task of finding peers is not part of the protocol, 
+                                    but instead provided by external means, e.g., using the DHT. The system works well with 
+                                    floodsub when the network size is small. It can propagate messages with minimum latency, 
+                                    but it has got prohibitively high overehead.
                                 </p>
                                 <p>approaches that explore the scalability bounds of the existing pub/sub algorithms within 
                                     libp2p, i.e. gossipsub and episub. IPFS already has hundreds of thousands of daily users 
@@ -162,11 +180,13 @@
                                     <li>Latency - Achieve lower and more scalable propagation latency (e.g. keep latency 
                                         below 1 second for up to 1M nodes and below 2 seconds for 5M nodes).</li>
                                 </ul>
-                                <figure data-rt-type="image" data-rt-align="center" data-rt-max-width="60" class="w-richtext-align-center" 
-                                    style="max-width: 60%;" data-rt-max-height="33.75">
-                                    <div><img src="/blog/blog-img/insert-image-link.png" alt=""></div>
-                                    <figcaption>PubSub At Scale</figcaption>
-                                </figure>
+                                <p>There has been some discussion around the peer-base collaboration protocol. This protocol is 
+                                    building collaboration hashrings between nodes in the P2P overlay. It implements a simple way 
+                                    of building a membership base through gossip messages and adding/removing nodes from the 
+                                    hashring. Then there is the collaboration part of the protocol, which is composed of a push 
+                                    and a pull mode of operation. When a node initiates a connection, it is "pushing" information, 
+                                    whereas when a node is receiving a connection request it is "pulling" information.
+                                </p>
 							</div>
                         </article>
                         
