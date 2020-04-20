@@ -146,7 +146,8 @@
                                     proximity aware epidemic broadcast.
                                 </p>
                                 <p>The initial pubsub experiment in libp2p was floodsub. It implements pubsub in the most basic 
-                                    manner, with two defining aspects: i) ambient peer discovery; and ii) most basic routing: flooding. In ambient peer discovery, the task of finding peers is not part of the protocol, but instead provided by external means, e.g., using the DHT. The system works well with floodsub when the network size is small. It can propagate messages with minimum latency, but it has got prohibitively high overehead.</p>
+                                    manner, with two defining aspects: i) ambient peer discovery; and ii) most basic routing: 
+                                    flooding. In ambient peer discovery, the task of finding peers is not part of the protocol, but instead provided by external means, e.g., using the DHT. The system works well with floodsub when the network size is small. It can propagate messages with minimum latency, but it has got prohibitively high overehead.</p>
                                 <p>approaches that explore the scalability bounds of the existing pub/sub algorithms within 
                                     libp2p, i.e. gossipsub and episub. IPFS already has hundreds of thousands of daily users 
                                     and is expected to grow exponentially to multiple millions. ETH1.0 already has more than 
