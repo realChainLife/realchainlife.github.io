@@ -192,7 +192,12 @@
                                     and a pull mode of operation. When a node initiates a connection, it is "pushing" information, 
                                     whereas when a node is receiving a connection request it is "pulling" information.
                                 </p>
-                                <p></p>
+                                <p>The current implementation of pub/sub (i.e., gossipsub) has been shown to perform well and is 
+                                    expected to scale to millions of nodes. Gossipsub provides bounded degree and amplification 
+                                    factor with the meshsub construction and augments it using gossip propagation of metadata with 
+                                    the randomsub technique. A thorough performance evaluation is currently been carried out and 
+                                    results will be reported soon. 
+                                </p>
 							</div>
                         </article>
                         
