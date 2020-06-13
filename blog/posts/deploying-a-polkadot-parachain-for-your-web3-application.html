@@ -101,7 +101,7 @@
 							<div class="blog-wrap">
 								<span class="category text-center"><a href="">BLOCKCHAIN</a></span>
 								<h2 class="text-center"><a href="">Deploying A Polkadot Parachain For Your Web 3.0 Application</a></h2>
-								<span class="category text-center"><a href=""><i class="icon-calendar3"></i> Tuesday 09, 2020</a></span>
+								<span class="category text-center"><a href=""><i class="icon-calendar3"></i> June 13, 2020</a></span>
 							</div>
 							<div class="desc">
 
@@ -115,7 +115,76 @@
                                     layer to scale on-scale or off-chain apps and has a rigorous security model for the system. 
                                 </p>
                                 <h2>Parachains on Polkadot</h2>
-                                <p><a href="https://bitcoin.org/en/"><b>Bitcoin Network</b></a>
+                                <p>Parachains are extensible networks that are pligged into the Polkadot relay chain as validatable,
+                                    globally readable data structures. As parallel networks they lose the function of inality and 
+                                    gain the ability to communicate. They also retain the sovereignity of confirming their own 
+                                    transaction validity.
+                                </p>
+                                <p>These parachains incorporate various functions to gather and process transactions:</p>
+                                <ul>
+                                    <li><b>Validity Functions:</b> This is a piece of WASM that takes block headers or 
+                                        other proofs and stores them on-chain in the parachain registry.
+                                    </li>
+                                    <li><b>Collator Node:</b> This creates candidate blocks that satisfy the validity 
+                                        function. It evaluates the true/false nature of a block.
+                                    </li>
+                                    <li><b>Message Queues:</b> This builds interoperability by ensuring candidates 
+                                        process incoming & outgoing messages. 
+                                    </li>
+                                </ul>
+                                <p>For this post, we will deploying a parachain for the <a href="https://github.com/realChainLife/powerplay"><b>Powerplay Network</b></a> 
+                                    I submitted during the #buildPolkadot hackathon that was just concluded. Powerplay is a cross-chain 
+                                    network for the exchange of functions like money exchange or promises.
+                                </p>
+                                <h2>Building The Network</h2>
+                                <p>Powerplay is built on several technology stacks. Its written using the Rust programming language 
+                                    which makes it safe, secure & efficient. It runs with a WebAssembly (WASM) compiler that ensures 
+                                    the parachain is protable and well-supported. 
+                                </p>
+                                <p>To get started running and dploying your own instance of Powerplay, ensure you have Rust & WASM 
+                                    Compiler installed: 
+                                </p>
+                                <h4><b>Install Rust & Wasm Compiler</b></h4>
+                                <pre>curl https://sh.rustup.rs -sSf | sh </pre>
+                                <pre>rustup install nightly</pre>
+                                <pre>rustup target add wasm32-unknown-unknown --toolchain nightly</pre>
+                                <h4><b>Build From Source</b></h4>
+                                <pre>git clone https://github.com/realChainLife/powerplay</pre>
+                                <pre>cd powerplay</pre>
+                                <pre>cargo build</pre>
+                                <pre>cd collator</pre>
+                                <p>After you make changes in <i>src/lib.rs</i> and <i>collator/src/main.rs</i>, recompile the contract 
+                                    with:
+                                </p>
+                                <pre>cargo build</pre>
+                                <pre>cargo run</pre>
+                                <p>Download wasm binaries for the parachain to the local machine:</p>
+                                <pre>scp parachain:¬/powerplay/tests/res/powerplay.wasm ¬Downloads/adder.wasm --projects-development-225311</pre>
+                                <h2>Deploying The Parachain</h2>
+                                <p>Polkadot provides various JavaScript utilities and libraries for interacting with the network. The 
+                                    best way to deploy your parachain is through the <a href="https://polkadot.js.org/apps/#/explorer"><b>Polkadot Portal.</b></a>
+                                </p>
+                                <ul>
+                                    <li>Choose a network to deploy to - Polkadot (Live, hosted by Web3 Foundation) is recommended. 
+                                        You can also deploy to a custom end-point.
+                                    </li>
+                                    <li>Create your account and back up your keys (obviously)</li>
+                                    <li>On the <b><i>extrinsic</i></b> tab submit the registrar function</li>
+                                    <li>Select <b><i>registerPara(id, info, code, initial head data)</i></b></li>
+                                    <li>Add your <b><i>validationCode</i></b> and <b><i>HeadData</i></b>. Get this from your the <i>powerplay.wasm</i> file</li>
+                                    <li>Finally, <b><i>Submit Transaction</i></b> for parachain to be registered. This will cost about 10 Dot.</li>
+                                    <figure data-rt-type="image" data-rt-align="center" data-rt-max-width="60" class="w-richtext-align-center" 
+                                        style="max-width: 60%;" data-rt-max-height="33.75">
+                                        <div><img src="/blog/blog-img/registerpara.png" alt=""></div>
+                                        <figcaption>Source: Polkadot Portal</figcaption>
+                                    </figure>
+                                    <li>On the parachain tab, look for your deployed and published parachain</li>
+                                </ul>
+                                <h2>Conclusion</h2>
+                                <p>Parachains on Polkadot are unmetered state transmission functions. With PowerPlay, you can send 
+                                    asynchorous calls to other parachains to exchange value over the relay chain. This complex state 
+                                    transition functions can derive network security from Polkadot and can be deployed to the network 
+                                    through permissioned governance. 
                                 </p>
 							</div>
                         </article>
