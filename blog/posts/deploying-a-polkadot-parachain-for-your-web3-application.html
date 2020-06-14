@@ -132,34 +132,34 @@
                                         process incoming & outgoing messages. 
                                     </li>
                                 </ul>
-                                <p>For this post, we will deploying a parachain for the <a href="https://github.com/realChainLife/powerplay"><b>Powerplay Network</b></a> 
-                                    I submitted during the #buildPolkadot hackathon that was just concluded. Powerplay is a cross-chain 
-                                    network for the exchange of functions like money exchange or promises.
-                                </p>
                                 <h2>Building The Network</h2>
-                                <p>Powerplay is built on several technology stacks. Its written using the Rust programming language 
-                                    which makes it safe, secure & efficient. It runs with a WebAssembly (WASM) compiler that ensures 
-                                    the parachain is protable and well-supported. 
+                                <p>For this post, we will deploying a the Adder test parachain built by Polkadot. The parachain is 
+                                    built on several technology stacks. Its written using the Rust programming language which makes 
+                                    it safe, secure & efficient. It runs with a WebAssembly (WASM) compiler that ensures the parachain 
+                                    is protable and well-supported. 
                                 </p>
-                                <p>To get started running and dploying your own instance of Powerplay, ensure you have Rust & WASM 
+                                <p>To get started running and deploying your own instance of Adder, ensure you have Rust & WASM 
                                     Compiler installed: 
                                 </p>
                                 <h4><b>Install Rust & Wasm Compiler</b></h4>
                                 <pre>curl https://sh.rustup.rs -sSf | sh </pre>
                                 <pre>rustup install nightly</pre>
                                 <pre>rustup target add wasm32-unknown-unknown --toolchain nightly</pre>
+                                <h4><b>Install Support Software</b></h4>
+                                <pre>sudo apt install make clang pkg-config libssl-dev</pre>
                                 <h4><b>Build From Source</b></h4>
-                                <pre>git clone https://github.com/realChainLife/powerplay</pre>
-                                <pre>cd powerplay</pre>
+                                <pre>git clone https://github.com/paritytech/polkadot.git</pre>
+                                <pre>cd polkadot</pre>
+                                <pre>./scripts/init.sh</pre>
+                                <pre>cargo build --release</pre>
+                                <pre>cargo test --all</pre>
+                                <pre>cd parachain/test-parachains/</pre>
                                 <pre>cargo build</pre>
-                                <pre>cd collator</pre>
-                                <p>After you make changes in <i>src/lib.rs</i> and <i>collator/src/main.rs</i>, recompile the contract 
-                                    with:
-                                </p>
+                                <pre>cd adder/collator</pre>
                                 <pre>cargo build</pre>
                                 <pre>cargo run</pre>
                                 <p>Download wasm binaries for the parachain to the local machine:</p>
-                                <pre>scp parachain:¬/powerplay/tests/res/powerplay.wasm ¬Downloads/adder.wasm --projects-development-225311</pre>
+                                <pre>scp parachain:¬/polkadot/parachain/tests/res/adder.wasm ¬Downloads/adder.wasm --projects-development-225311</pre>
                                 <h2>Deploying The Parachain</h2>
                                 <p>Polkadot provides various JavaScript utilities and libraries for interacting with the network. The 
                                     best way to deploy your parachain is through the <a href="https://polkadot.js.org/apps/#/explorer"><b>Polkadot Portal.</b></a>
