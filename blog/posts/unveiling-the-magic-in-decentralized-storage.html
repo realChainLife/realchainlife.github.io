@@ -124,14 +124,33 @@
                                     traditional storage solutions. 
                                 </p>
                                 <h2>Limitations in Traditional Data Storage</h2>
-                                <p>Location addressing v.s. Content Addressing: resilient, censorship-resistant, and faster 
-                                    internet using content addressing.  How location addressing increases the load on a few 
-                                    servers, easy prey to DoS attacks, censorship. How content addressing uses hashes at its 
-                                    core which eliminates problems with an address change (resulting in 404 Err), content 
-                                    security as the same hash means the same content.
+                                <p>One of the major limitations of traditional data storage is the location based addressing 
+                                    system. Central servers keep a list, or directory of the location of data elements 
+                                    for example path and filenames of each data structure. These primary addresses are 
+                                    Uniform Resource Locators (URLs). Servers use this directories to locate data and 
+                                    retrieve it. Information at given locations can usually be altered or completely overwritten 
+                                    without modification trackers on the servers.
                                 </p>
-                                <p>Decentralized - scales with the number of users/nodes as opposed to centralized. (explain 
-                                    how retrieval time decreases and storage capacity increases)
+                                <p>With content addressing as its implemented on IPFS and Filecoin we have more resilience, 
+                                    as the networks use cryptographic hashes at its core which eliminiates problems linked
+                                    with address changes like 404 Err. Data on this system is secure from alterations which 
+                                    result in hashes changes. Traditional data storages also have several other limitations 
+                                    including:
+                                </P>
+                                <ul>
+                                    <li><b>System Vulnearabilities</b>: Vulnearabilities on these systems include 
+                                        limitations to network connectivity, and bottlenecks of high traffic. 
+                                    </li>
+                                    <li><b>Power Distribution</b>: Centralization cause unhealthy disparites in 
+                                        power distribution which can lead to censorship. 
+                                    </li>
+                                    <li><b>Fault Tolerance</b>: Without fault tolerance set up and back-up servers, 
+                                        data losses can happen in cases of hardware failures. 
+                                    </li>
+                                </ul>
+                                <p>On top addressing these issues, decentralized storage services like Filecoin scale with 
+                                    the number of users/nodes which reduces latency and retrieval time and simultaneously 
+                                    increases storage capacity. 
                                 </p>
                                 <h2>Economics of Decentralized Storage</h2>
                                 <p>The centralized storage market is a closed market...decentralized creates an open market; 
