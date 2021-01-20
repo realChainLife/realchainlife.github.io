@@ -1,0 +1,479 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Demystifying Consensus Algorithms | Blog</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Consensus Algorithms" />
+	<meta name="keywords" content="Go beyond the fancy titles and understand how voting mechanisms work" />
+	<meta name="author" content="" />
+
+  <!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+	
+	<link href="https://fonts.googleapis.com/css?family=Grand+Hotel" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Fira+Sans:100,200,300,400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="css/magnific-popup.css">
+
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="css/flexslider.css">
+
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+	
+	<!-- Flaticons  -->
+	<link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	</head>
+	<body>
+		
+	<div class="colorlib-loader"></div>
+
+	<div id="page">
+		<nav class="colorlib-nav" role="navigation">
+			<div class="top-menu">
+				<div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <div id="logo"><a href="/"><img src="/blog/blog-img/logo.png" alt=""></a></div>
+                        </div>
+                        <div class="col-xs-10 text-right menu-1">
+                            <ul>
+                                <li><a href="/">Home</a></li>
+                                <li class="has-dropdown">
+                                    <a href="/portfolio">Portfolio</a>
+                                    <ul class="dropdown">
+                                        <li><a href="/portfolio/development.html">System Development</a></li>
+                                        <li><a href="/portfolio/speaking.html">Speaking</a></li>
+                                        <li><a href="/portfolio/workshop.html">Workshops & Training</a></li>
+                                    </ul>
+                                </li>
+                                <li class="active"><a href="/blog">Blog</a></li>
+                                <li><a href="/resume">Resume</a></li>
+                                <li><a href="/contact">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+				</div>
+			</div>
+		</nav>
+
+		<div id="colorlib-container">
+			<div class="container">
+				<div class="row">
+					<div class="content">
+						<article class="blog-entry">
+							<div class="blog-wrap">
+								<span class="category text-center"><a href="">Cryptography</a></span>
+								<h2 class="text-center"><a href="">Demystifying Consensus Algorithms</a></h2>
+								<span class="category text-center"><a href=""><i class="icon-calendar3"></i> January 27, 2018</a></span>
+							</div>
+							<div class="desc">
+
+                                    <p>One of my absolute all time favourite topics to write about, <strong>Consensus Algorithms</strong>
+                                        Before diving into the definitions, types and differences between each consensus
+                                        algorithm, we need to know more about the technology that these scripts are written 
+                                        for and function within i.e. <i>blockchain technology</i>. 
+                                      </p>
+                                      <p><i>Blockchain</i> is an open, distributed ledger that can record transactions between 
+                                        two parties efficiently and in a verifiable and permanent way. Generally it is a 
+                                        system for maintaining distributed ledgers by using peer-to-peer protocols. 
+                                        Blockchain enables real-time transactions and securely shares tamper-proof data 
+                                        across a trusted business network.
+                                      </p>
+                                      <figure data-rt-type="image" data-rt-align="center" data-rt-max-width="60" class="w-richtext-align-center" 
+                                        style="max-width: 60%;" data-rt-max-height="33.75">
+                                        <div><img src="/blog/blog-img/commit-message-small.png" alt=""></div>
+                                        <figcaption>Source: Oracle</figcaption>
+                                      </figure>
+                                      <p>No consensus algorithm is perfect, they all have their pros and cons and for blockchain
+                                        networks, one of the major functions of a consensus algorithm is to prevent double
+                                        spend; another is to store transaction data in distributed ledgers. Depending on 
+                                        the algorithm - a network can build either a <i>permissioned</i> or <i>permissionless</i> 
+                                        distributed ledger.
+                                      </p>
+                                      <ul>
+                                        <li><strong>Permissioned</strong> networks are closed ecosystems where validators are vetted 
+                                            and selected by the network owner. This include <i>Hyperledger</i> and <i>Corda</i>.
+                                        </li>
+                                        <li><strong>Permissionless</strong> networks allow anyone with the computational resources 
+                                          to read the chain and write new blocks according to the consensus rules. 
+                                          It's also known by its widest description as a public blockchain and its
+                                          what we'll be covering alot of today.
+                                        </li>
+                                      </ul>
+                                      <p>Before we can delve into each of the algorithms we need to understand some
+                                        of the base functionalities and mechanisms of these consensus algorithms.
+                                        For instance to ensure transaction validation, protocols need to follow
+                                        a simple three-step process of <i>endorsing, ordering</i> and <i>validating</i>
+                                        transactions.
+                                      </p>
+                                      <p>Because blockchain is a decentralized peer-to-peer network - participants 
+                                        (developers, miners, exchanges, users) need a decision-making model that
+                                        is not only open or logical, it needs to be fair and balanced. This
+                                        model is what is referred to as a consensus <i>mechanism</i>.
+                                      </p>
+                                      <p>It usually covers 6 critical participant agreements on: <strong>collaboration,
+                                        co-operation, equal-rights, participation</strong> and <strong>activity</strong>. All
+                                        these will be covered in detail as we go through each algorithm starting
+                                        here with <i>Proof-Of-Work</i>.
+                                      </p>
+                                      <h2>Proof-Of-Work (PoW) Algorithm</h2>
+                                      <p>PoW or as commonly referred, the <i>Bitcoin algorithm</i>, works on a technological
+                                        principle that requires all nodes (<i>miners</i>) to confirm all of their transactions 
+                                        and produce relevant blocks to the network chain. New blocks come with a Hash 
+                                        Function, and the hash function of the previous block. This provides the 
+                                        network an added layer of protection and prevents any type of violations.
+                                      </p>
+                                      <p>In proof of work, miners compete to add the next block (a set of transactions)
+                                        in the chain by racing to solve a extremely difficult cryptographic puzzle. 
+                                        Once a miner solves the puzzle, a new block gets created, and the transaction 
+                                        is confirmed.
+                                      </p>
+                                      <p>Other cryptocurrencies such as Litecoin have adopted this model for their 
+                                        network and although a masterpiece in its own right, proof of work isn't
+                                        quite perfect.
+                                      </p>
+                                      <h3>Where The Proof of Work Consensus Algorithm Falls Short</h3>
+                                      <p>Far from what we can assume was Satoshi Nakamoto's vision, Bitcoin today has
+                                        evolved into a <i>datacenter-hosted style mining operation</i>. This is because of 
+                                        the high computational power required to solve cryptographic puzzles during
+                                        the creation of new blocks. As a result people and organizations that can 
+                                        afford faster and more powerful <i>ASICs</i> usually have better chances of mining 
+                                        than the others.
+                                      </p>
+                                      <p>While environmentalists argue that this level of energy consumptions is killing 
+                                        the planet as its slowing the migration to other sources of energy - the PoW
+                                        model is getting more <i>energy-efficient</i> as a result of technological innovation. 
+                                        Therefore, the energy consumption of bitcoin will only improve with time.
+                                      </p>
+                                      <p>Another challenge that has been noted as a result of the high computational 
+                                        resource requirement is the <i>centralization of miners</i> i.e. a small pool of
+                                        miners controling a large part of the network. Although it might seem this way,
+                                        bitcoin is used by millions across the world - and any changes to the network
+                                        will not be implementated as easily as it's often thought. It is also extremely
+                                        costly to implement changes on the network.
+                                      </p>
+                                      <h2>Proof-Of-Stake (PoS) Algorithm</h2>
+                                      <p>PoS is a new type of concept where every individual can mine or even validate 
+                                        new blocks only based on their coin possession. A user with a specific amount 
+                                        of coins stored previously in the wallet qualify to be a node on the network.
+                                      </p>
+                                      <p>To qualify to be a miner users are required to deposit a certain amount of coin, 
+                                        after a vote is held to choose the network validators. At the end the miners 
+                                        stake the minimum amount required for the special wallet staking.
+                                      </p>
+                                      <p>The tedious solving of cryptographic puzzles in PoW is replaced with a block
+                                        validation process that starts off with validators identifying blocks which 
+                                        they think will be added to the chain. They validate these block by placing
+                                        a <i>bet</i> on it. For every block staked, validators receive a reward proportionate 
+                                        to their <i>bets</i> for example a 10% stake is rewarded by validating 10% of new blocks.
+                                      </p>
+                                      <p>The major grep with this consensus algorithm is due to its seemingly <i>minimal</i>
+                                        requirements for validator roles - What is to discourage validators from creating 
+                                        two blocks and claiming two sets of transaction fees? And what is to discourage
+                                        a signer from signing both of those blocks? This has been called the 
+                                        <i>'nothing-at-stake'</i> problem and its yet to be addressed by common users of the
+                                        algorithm including Ethereum (which recently made the switch from PoW) or PIVX.
+                                      </p>
+                                      <h2>Proof-Of-Authority (PoA) Algorithm</h2>
+                                      <p>PoA was proposed by a group of developers in March 2017, and was first released as
+                                        new network named Kovan a primary test network available on Ethereum. Since its
+                                        release its been optimized and used a core governance model on new networks like
+                                        <i>VechainThor</i>.
+                                      </p>
+                                      <p>This model leverages identity as the form of stake where validators are pre-approved 
+                                        to validate transactions and blocks within the respective network. Originally it was
+                                        thought it worked best with a small number of validators (<i>less ~25</i>) but on Vechain
+                                        they increased the number of <i>Authority Masternodes</i> to 101.
+                                      </p>
+                                      <p>Like other consensus algorithms designed after PoW, PoA networks run on low requirement 
+                                          of computational power, no requirement of communication between nodes to reach consensus, 
+                                          and continuity of the network is independent of the number of the available nodes since 
+                                          they are pre-approved and verifiably trustable through cross verification.
+                                      </p>
+                                      <p>These characteristics feed into the fairly obvious advantages of the PoA algorithm. PoA
+                                        based networks enjoy increased efficiency in transaction times and overall network 
+                                        consensus. This model is also much more effective with decentralized applications
+                                        and is easily scalable compared to other decentralized networks.
+                                      </p>
+                                      <h2>Delegated Proof-Of-Stake (DPoS) Algorithm</h2>
+                                      <p>Developed by <a href="https://bytemaster.github.io/">Daniel Larimer</a> for use in the EOS network 
+                                        token hodlers don’t vote on the validity of the blocks themselves, but vote to elect 
+                                        delegates to do the validation on their behalf.
+                                      </p>
+                                      <p>The system is quite robust and adds a different form of flexibility to the whole equation.
+                                        By replacing miners or validators with delegates this system of block production ensures 
+                                        all levels of protection aganist regulatory problems. Blocks can also be produced at a
+                                        fraction of time significantly smaller that PoW networks.
+                                      </p>
+                                      <p>The partial centralized nature of this type of network is a major drawback for some users 
+                                        of decentralized systems.
+                                      </p>
+                                      <h2>Practical Byzantine Fault Tolerance (PBFT) Algorithm</h2>
+                                      <p>PBFT was made famous for it use in the <i>Hyperledger, Stellar</i> and <i>Ripple</i>
+                                        blockchains. It was designed as a solution to a problem presented by the
+                                        previous use of BGP (<i>Byzantine Generals Problem</i>). The algorithm is designed for 
+                                        asynchronous consensus where all the nodes inside the system get arranged 
+                                        in a specific order. One node is selected as the primary one, and others 
+                                        work as the backup plan. However, all the nodes inside the system work 
+                                        in harmony and communicate with one another.
+                                      </p>
+                                      <h3>PBFT & The Hyperledger Blockchain</h3>
+                                      <p>PBFT algorithms share some interesting facts with us. I will write an in-depth
+                                        article on how Hyperledger uses PBFT to run the network but for the moment I 
+                                        will highlight some of the benefits associated with PBFT and why it was the 
+                                        algorithm of choice for Hyperledger:
+                                      </p>
+                                      <ul>
+                                        <li><strong>Block Transaction Confirmation</strong>
+                                          PBFT uses a system of checks and balances during the lifecycle of a 
+                                          transaction including the usage of endorsement policies to dictate 
+                                          the members that must endorse a certain transaction class. Once 
+                                          nodes agree on a specific block, it gets finalized. This is due to 
+                                          the fact that, all the authentic nodes communicate with each other 
+                                          and come to an understanding of the specific block.
+                                        </li>
+                                        <li><strong>Higher Transaction Throughput</strong>
+                                          Hyperledger requires all participants to be authenticated, due to 
+                                          its permissioned implementation nature, as a result, the network 
+                                          tends to provide higher transaction throughput rates and performance.
+                                        </li>
+                                        <li><strong>Reduction in Energy Consumption</strong>
+                                          The PBFT algorithm offers a good amount of reduction in consumption 
+                                          of power than PoW. This is because not every miner is solving the 
+                                          typical hashing algorithmic puzzles. That’s why the system doesn’t 
+                                          require high computational resources.
+                                        </li>
+                                      </ul>
+                                      <p>One of my major drawbacks from PBFT, despite some of it's advantages and 
+                                        promising facts is its <i>communication gap</i>. Nodes running the PBFT algorithm
+                                        are required to make sure that the information they gather is solid. This forcibly
+                                        limits how many nodes can run on the network to retain a high quality communication
+                                        between them.
+                                      </p>
+                                      <h2>Directed Acyclic Graphs (DAGs) Algorithm</h2>
+                                      <p>Commonly known as the Blockchain Killers, DAGs are used in several blockchain
+                                        networks including IOTA, Hashgraph and Nano. Its also integrated in non-blockchain
+                                        networks like <i>IPFS</i>.
+                                      </p>
+                                      <figure data-rt-type="image" data-rt-align="center" data-rt-max-width="60" class="w-richtext-align-center" 
+                                        style="max-width: 60%;" data-rt-max-height="33.75">
+                                        <div><img src="/blog/blog-img/commit-message.png" alt=""></div>
+                                        <figcaption>Source: Hackernoon</figcaption>
+                                      </figure>
+                                      <p>Although I've listed it as a consensus algorithm, DAG is basically a form of data 
+                                        structure that <i>theoretically</i> handles infinite transactions per second mostly 
+                                        asynchronously. <strong>Tangle</strong> the DAG consensus algorithm used by Iota requires each
+                                        node to validate two previous transactions before sending one on the network. This
+                                        two-for-one consensus strenghens the validity of transactions the more transactions
+                                        are added to the network.
+                                      </p>
+                                      <p>Nodes on <strong>Hashgraph</strong> on the other hand, share their known transactions with other
+                                        nodes at random until eventually all the transactions are <i>gossiped</i> around to all of 
+                                        the network nodes. At 250,000+ transactions per second it is one of the fastest 
+                                        networks which makes it a great option for private networks. Despite its advantages
+                                        Hashgraph is still susceptible to <a href="https://en.wikipedia.org/wiki/Sybil_attack">sybil attacks</a>.
+                                      </p>
+                                      <h2>Conclusion</h2>
+                                      <p>Consensus algorithms make blockchain networks versatile and while there is no 
+                                        one perfect algorithm to implement the field is still wide open to innovation 
+                                        by creating variations of these implementations as well as new approaches to 
+                                        them. My brief write up covers what I've considered the most dominant in the 
+                                        market.
+                                      </p>
+                                      <p>The whole idea of the blockchain technology is decentralization and a fight 
+                                        against service centralization. I am eagerly waiting for the development of 
+                                        better and better consensus algorithms that will address issues like the
+                                        handling of potential attacks with ease. Join our consensus-building community 
+                                        if you're keen on developing the decentralized world further.
+                                      </p>
+                                      <p><small><i><strong>Disclaimer</strong></i>: The information is subject to my own opinion. Please 
+                                        do your `very own` market research before making any investment in cryptocurrencies.
+                                        Any financial loss caused as a result of this writing will be attributed to 
+                                        you alone. </small>
+                                      </p>
+                        </article>
+                        
+					</div>
+
+					<aside class="sidebar">
+                        <div class="side">
+                            <h2 class="sidebar-heading">About Me</h2>
+                            <p>Hi there, I’m Sonia aka realchainʕ •ᴥ•ʔ. I am an independent <b>Bot & Protocol Developer</b>, <b>writer</b> 
+                                and <b>speaker</b> from the Africa. I <a href="/blog/archive/">write</a>, <a href="https://twitter.com/realchainlife">tweet</a>, 
+                                <a href="/portfolio/speaking.html">speak</a> and <a href="http://github.com/realchainlife">share code</a> about building 
+                                decentralized systems. We can <a href="/contact/">work together</a>
+                            </p>
+                            <p>
+                                <ul class="colorlib-social-icons">
+                                    <li><a href="https://t.me/realchainlife"><i class="icon-telegram"></i></a></li>
+                                    <li><a href="https://reddit.com/u/realchainlife"><i class="icon-reddit"></i></a></li>
+                                    <li><a href="https://github.com/realchainlife"><i class="icon-github"></i></a></li>
+                                    <li><a href="https://twitter.com/realchainlife"><i class="icon-twitter"></i></a></li>
+                                </ul>
+                            </p>
+                            </div>
+                            <div class="side-wrap">
+                                <h2 class="sidebar-heading">Projects</h2>
+                                <ul class="[ list-ui  list-ui--small ]  mb">
+                                      <li><a href="http://playmakerchain.com"><strong>PlayMaker Chain ⚽️</strong></a> – coming soon…</li>
+                                      <li><a href="http://factory24.org"><strong>Afrolynk Factory24 📈</strong></a> – here now …</li>
+                                      <li><a href="http://realchainlife.github.io/portfolio/workshops.html"><strong>Nairobi IPFS</strong></a> – Here Now! </li>
+                                </ul>
+                            </div>
+                            <div class="side-wrap">
+                                <h2 class="sidebar-heading">Upcoming Events</h2>
+                                <ul class="[ list-ui  list-ui--small ]  mb">
+                                    <li><a href=""><strong>IPFS Meetup</strong></a> – Nairobi, (Kenya) July 2019</li>
+                                    <li><a href="https://africanwomenintech.com/"><strong>AWIT Conference</strong></a> – Nairobi, (Kenya) July 2019</li>
+                                    <li><a href="http://afrolynk.com"><strong>Afrolynk Conference</strong></a> – Berlin, (Germany) September 2019</li>
+                                    <li><a href="https://maltablockchainsummit.com/"><strong>AI & Blockchain Summit</strong></a> – Nairobi, (Kenya) July 2019</li>
+                                </ul>
+                            </div>
+                            <div class="side-wrap">
+                                <h2 class="sidebar-heading">Popular Posts</h2>
+                                <div class="f-entry">
+                                    <a href="#" class="featured-img" style="background-image: url(/blog/blog-img/screenshot-ff-import-blocked-by-js.png);"></a>
+                                    <div class="desc">
+                                        <span><i class="icon-calendar3"></i> March 20, 2018</span>
+                                        <h3><a href="#">Let's Decentralize The Web</a></h3>
+                                    </div>
+                                </div>
+                                <div class="f-entry">
+                                    <a href="#" class="featured-img" style="background-image: url(/blog/blog-img/what-is-ipfs.png);"></a>
+                                    <div class="desc">
+                                        <span><i class="icon-calendar3"></i> February 22, 2018</span>
+                                        <h3><a href="#">Is IPFS The Permanent Web</a></h3>
+                                    </div>
+                                </div>
+                                <div class="f-entry">
+                                    <a href="#" class="featured-img" style="background-image: url(/blog/blog-img/practical-byzantine-fault-tolerance.png);"></a>
+                                    <div class="desc">
+                                        <span><i class="icon-calendar3"></i> February 11, 2018</span>
+                                        <h3><a href="#">BFT and The Hyperledger Blockchain</a></h3>
+                                    </div>
+                                </div>
+                                <div class="f-entry">
+                                    <a href="#" class="featured-img" style="background-image: url(/blog/blog-img/commit-message-small.png);"></a>
+                                    <div class="desc">
+                                        <span><i class="icon-calendar3"></i> January 27, 2018</span>
+                                        <h3><a href="#">Demystifying Consensus Algorithms</a></h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="side-wrap">
+                                <h2 class="sidebar-heading">Blockquote</h2>
+                                <blockquote>
+                                    <p>Let's decentralize the web! <b>"Knowing Is Not Enough, We Must Apply"</b></p>
+                                </blockquote>
+                            </div>
+                            <div class="side">
+                                <h2 class="sidebar-heading">Subscribe To My Newsletter</h2>
+                                <div class="row">
+                                    <div class="col-md-12 col-md-offset-0">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-email text-center" id="email" placeholder="Enter your email">
+                                            <button type="submit" class="btn btn-primary btn-subscribe">Subscribe</button>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        <ul class="colorlib-social-icons text-center">
+                                            <li><a href="https://t.me/realchainlife"><i class="icon-telegram"></i></a></li>
+                                            <li><a href="https://reddit.com/u/realchainlife"><i class="icon-reddit"></i></a></li>
+                                            <li><a href="https://github.com/realchainlife"><i class="icon-github"></i></a></li>
+                                            <li><a href="https://twitter.com/realchainlife"><i class="icon-twitter"></i></a></li>
+                                        </ul>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="side-wrap">
+                                <h2 class="sidebar-heading">Video Post</h2>
+                                <p>Juan explains why the web is in danger and how the Interplanetary Files System (IPFS) is creating 
+                                    a new way of sharing knowledge.
+                                </p>
+                                <div class="video colorlib-video" style="background-image: url(/blog/blog-img/ipfs.webp);">
+                                    <a href="https://www.youtube.com/watch?v=2RCwZDRwk48" class="popup-vimeo"><i class="icon-play"></i></a>
+                                    <div class="overlay"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+				</div>
+			</div>
+		</div>
+
+		<footer id="colorlib-footer" role="contentinfo">
+                <div class="overlay"></div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-12 col-md-offset-2 slider-text">
+                            <div class="slider-text-inner text-center">
+                                <p>
+                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                    <small class="block">&copy; <script>document.write(new Date().getFullYear());</script> Sonia John</small>
+                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
+	</div>
+	
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<!-- Flexslider -->
+	<script src="js/jquery.flexslider-min.js"></script>
+	<!-- Owl carousel -->
+	<script src="js/owl.carousel.min.js"></script>
+	<!-- Magnific Popup -->
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/magnific-popup-options.js"></script>
+	<!-- Main -->
+	<script src="js/main.js"></script>
+
+	</body>
+</html>
+

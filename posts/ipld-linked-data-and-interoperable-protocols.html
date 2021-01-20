@@ -1,0 +1,423 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>IPLD: Linked Data & Interoperable Protocols | Blog</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Permanent Web" />
+	<meta name="keywords" content="Intro to IPLD Protocol" />
+	<meta name="author" content="" />
+
+  <!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+	
+	<link href="https://fonts.googleapis.com/css?family=Grand+Hotel" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Fira+Sans:100,200,300,400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="css/magnific-popup.css">
+
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="css/flexslider.css">
+
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+	
+	<!-- Flaticons  -->
+	<link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	</head>
+	<body>
+		
+	<div class="colorlib-loader"></div>
+
+	<div id="page">
+		<nav class="colorlib-nav" role="navigation">
+			<div class="top-menu">
+				<div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <div id="logo"><a href="/"><img src="/blog/blog-img/logo.png" alt=""></a></div>
+                        </div>
+                        <div class="col-xs-10 text-right menu-1">
+                            <ul>
+                                <li><a href="/">Home</a></li>
+                                <li class="has-dropdown">
+                                    <a href="/portfolio">Portfolio</a>
+                                    <ul class="dropdown">
+                                        <li><a href="/portfolio/development.html">System Development</a></li>
+                                        <li><a href="/portfolio/speaking.html">Speaking</a></li>
+                                        <li><a href="/portfolio/workshop.html">Workshops & Training</a></li>
+                                    </ul>
+                                </li>
+                                <li class="active"><a href="/blog">Blog</a></li>
+                                <li><a href="/resume">Resume</a></li>
+                                <li><a href="/contact">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+				</div>
+			</div>
+		</nav>
+
+		<div id="colorlib-container">
+			<div class="container">
+				<div class="row">
+					<div class="content">
+						<article class="blog-entry">
+							<div class="blog-wrap">
+								<span class="category text-center"><a href="blog.html">IPFS</a></span>
+								<h2 class="text-center"><a href="">IPLD: Linked Data & Interoperable Protocols</a></h2>
+								<span class="category text-center"><a href=""><i class="icon-calendar3"></i> August 20, 2018</a></span>
+							</div>
+							<div class="desc">
+
+                                <p>Interplanetary Linked Data (IPLD) is a data format for merkle-linked objects. Its 
+                                    purpose is to make it easy to build your own hash linked data structures and move 
+                                    them around with IPFS. IPLD objects are stored and moved around by IPFS encoded with 
+                                    CBOR, but can be written and operated on in JSON or any other schemaless serialization 
+                                    format.
+                                </p>
+                                <p>When an object is added to the IPFS it is chunked up into smaller parts (about 256k each), 
+                                    each part is hashed, a CID is created for each chunk, and then these chunks are combined 
+                                    into a hierarchical data structure, for which a single, base CID is computed. This data 
+                                    structure is essentially something called a Merkle DAG, or directed acyclic graph.
+                                </p>
+                                <figure data-rt-type="image" data-rt-align="center" data-rt-max-width="60" class="w-richtext-align-center" 
+                                    style="max-width: 60%;" data-rt-max-height="33.75">
+                                    <div><img src="/blog/blog-img/content-multi-hashing.png" alt=""></div>
+                                    <figcaption>Illustration: IPFS Content Hashing, Source: Textile</figcaption>
+                                </figure>
+                                <p>In the example above, a cat photo added to the ipfs is hashed and added into the Merkle
+                                    DAG. These Merkle DAGs are the core data structure for the IPLD structure.
+                                </p>
+                                <h3>Hash-Linked Data Structures</h3>
+                                <p>IPLD is a hash-linked data structure that models everything as a series of linked objects.</p>
+                                <p>An IPLD oject consists of:</p>
+                                <ul>
+                                    <li><strong>Data</strong> — blob of unstructured binary data of size 256 kB.</li>
+                                    <li><strong>Links</strong> — array of Link structures. These are links to other IPFS objects.</li>
+                                </ul>
+                                <p>A Link structure has three data fields:</p>
+                                <ul>
+                                    <li><strong>Name</strong> — name of the Link</li>
+                                    <li><strong>Hash</strong> — hash of the linked IPFS object</li>
+                                    <li><strong>Size</strong> — cumulative size of linked IPFS object, including following its links</li>
+                                </ul>
+                                <p> An IPLD object looks something like this:</p>
+                                <pre>
+                                { 
+                                    "hello": "world",
+                                    "foo": {"/": "QmTz3oc4gdpRMKP2sdGUPZTAGRngqjsi99BPoztyP53JMM"},
+                                    "baz": [
+                                        {"/": "QmWg1Ux3cb3xCToGBCmZBNaMvpcFhTEEjb74fruG9uVHja"}
+                                    ]
+                                }
+                                </pre>
+                                <p>The basic idea is that any valid CBOR object (and subsequently, any valid JSON object 
+                                    since they map 1-to-1) can be an IPLD object. On top of that, theres a special format 
+                                    for inserting merkle-links that is the real meat of IPLD. The strange objects with a 
+                                    key of '/' and a value of an IPFS hash are the links. These links are understood by 
+                                    IPFS and can be used to build path references across objects.
+                                </p>
+                                <h3>IPLD: Getting Started</h3>
+                                <p>To truly apprecite IPLD, we are going to learn the basics using simple IPFS command 
+                                    line tools. Initial IPLD support has been released in ipfs, install or update IPFS 
+                                    before following along on the rest of this guide. Once you’re ready, we’ll take a quick 
+                                    look at the object structure for a simple hello.txt file using the <a href="https://stedolan.github.io/jq/">jq tool</a>.
+                                </p>
+                                <p>Start with the following command, which pipes (|) the result from getting the IPFS 
+                                    object to the jq command.
+                                </p>
+                                <pre>ipfs object get QmJTB2qXtFCfLarActp7tDNikE4PdsgaTQW2WQi7j6c7Ug | jq</pre>
+                                <p>Producing the following output:</p>
+                                <pre>
+                                    {
+                                        "Links": [
+                                            {
+                                                "Name": "hello.txt",
+                                                "Hash": "Qm34sdwMe9USZ7nS1YhWrCiS4gz7Xiud286K6pohQcTKYq",
+                                                "Size": 181100
+                                            }
+                                        ],
+                                            "Data": "\b\u0001"
+                                    }
+                                </pre>
+                                <p>This is pretty cool, but let’s say you had the following directory structure, and you 
+                                    wanted to add it to IPFS:
+                                </p>
+                                <pre>
+                                    test_directory/
+                                        ├── bigfile.js
+                                        ├── *hello.txt
+                                        └── my_directory
+                                            ├── *test_file.txt
+                                            └── *test.txt
+                                </pre>
+                                <p>Here, we assume that all three files with an asterisk (*) — <strong>hello.txt, test_file.txt</strong>, 
+                                    and <strong>test.txt</strong>— contain the same text: <strong>“Hello World!/n”</strong>. Now let’s add them to IPFS:
+                                </p>
+                                <pre>ipfs add -r test_directory/</pre>
+                                <p>The newly created DAG for your upload will look similar to this:</p>
+                                <figure data-rt-type="image" data-rt-align="center" data-rt-max-width="60" class="w-richtext-align-center" 
+                                    style="max-width: 60%;" data-rt-max-height="33.75">
+                                    <div><img src="/blog/blog-img/new-dag.png" alt=""></div>
+                                    <figcaption>Illustration: IPFS Merkle DAG</figcaption>
+                                </figure>
+                                <p>As illustrated above, the benefits of using a DAG to represent data in IPFS is very clear, 
+                                    depending on the actual contents of the files in your directory, you end up with a series 
+                                    of objects, linked via their CIDs. This is pretty cool and since we are referencing the
+                                    same content we get <i>deduplication</i> for free!
+                                </p>
+                                <p>Important to note our bigfile.js, been chunked into three smaller pieces, each of which has 
+                                    its own CID, which together form the larger file. Following all of these CIDs up the tree, 
+                                    will give you a CID that describes the contents below it. This is <strong>the genius of IPLD.</strong>
+                                </p>
+                                <p>This collection of Data and Links across the IPFS network creates a graph-like object 
+                                    structure - commonly referred to as the <strong>merkle forest</strong> by <strong>Juan Benet</strong>. 
+                                    This data structure is highly tamper proof, because all content its `hash-verified` And since 
+                                    we are hashing the contents of the objects, we have no duplication, because in the Merkle DAG, 
+                                    all objects that hold the same content are considered equal and therefore stored only once because 
+                                    their hash values are the same.
+                                </p>
+                                <p>We can demonstrate this further by using <a href="https://github.com/flyingzumwalt/decentralized-web-primer/tree/master/samples">Matt Zumwalt's</a> 
+                                    building out files-as-dags lesson tutorial. We will `ipfs cat` the cosmos.jpg file from the command 
+                                    line:
+                                </p>
+                                <pre>ipfs cat QmWNj1pTSjbauDHpdyg5HQ26vYcNWnubg1JehmwAE9NnU9 > cosmos.jpg</pre>
+                                <p>Now you can add it locally, and if you <i>cat</i>’d it initially, make sure the hashes match 
+                                    then assign the returned hash to the env variable hash:
+                                </p>
+                                <pre>hash=`ipfs add -q cosmos.jpg`| echo $hash</pre>
+                                <p>The CID output should match the image hash like this:</p>
+                                <pre>QmWNj1pTSjbauDHpdyg5HQ26vYcNWnubg1JehmwAE9NnU9</pre>
+                                <p>Now, that the file has been chunked we can query all the ipfs objects for the image by 
+                                    running:
+                                </p>
+                                <pre>ipfs ls -v $hash</pre>
+                                <p>Each linked object is about 256k, together these chunks make up the whole image - and 
+                                    when a network request for this file is made, different peers share a different chunk of 
+                                    the image which is put together by the requesting peer.
+                                </p>
+                                <pre>
+                                    Hash                                           Size   Name
+                                    QmPHPs1P3JaWi53q5qqiNauPhiTqa3S1mbszcVPHKGNWRh 262158 
+                                    QmPCuqUTNb21VDqtp5b8VsNzKEMtUsZCCVsEUBrjhERRSR 262158 
+                                    QmS7zrNSHEt5GpcaKrwdbnv1nckBreUxWnLaV4qivjaNr3 262158 
+                                    QmQQhY1syuqo9Sq6wLFAupHBEeqfB8jNnzYUSgZGARJrYa 76151
+                                </pre>
+                                <p>You can also use this super new and fun tool to explore DAGs (IPLD obejcts) in the browser. 
+                                    Check out the git example for a fun one. Or even better, explore the above DAG object.
+                                </p>
+                                <p>Now, just to show you that the above four chunks do indeed make up the single image, you can 
+                                    use the following code to <i>manually</i> join the chunks together to create the image file — which 
+                                    is essentially what cat is doing in the background when you reference the base CID:
+                                </p>
+                                <pre>
+                                    ipfs cat \
+                                    QmPHPs1P3JaWi53q5qqiNauPhiTqa3S1mbszcVPHKGNWRh \
+                                    QmPCuqUTNb21VDqtp5b8VsNzKEMtUsZCCVsEUBrjhERRSR \
+                                    QmS7zrNSHEt5GpcaKrwdbnv1nckBreUxWnLaV4qivjaNr3 \
+                                    QmQQhY1syuqo9Sq6wLFAupHBEeqfB8jNnzYUSgZGARJrYa \
+                                    > cat-cosmos.jpg
+                                    open cat-cosmos.jpg
+                                </pre>
+                                <p>Alternatively, you could do this more succinctly using pipes again:</p>
+                                <pre>ipfs refs $hash | ipfs cat > test.jpg ; open test.jpg</pre>
+                                <p>There you go. It’s links all the way down. And on top of that we’ve learned a few many IPFS 
+                                    command-line tools to manipulate IPFS DAG objects. Handy!
+                                </p>
+                                <h2>Summary</h2>
+                                <p>The IPLD protocol is magic that runs on cryptography, math and networking. Its a single 
+                                    namespace for all hash-inspired protocols. Through IPLD, links can be traversed across protocols, 
+                                    allowing you explore data regardless of the underlying protocol. We can use it to 
+                                    referencea large data files using only the base CID, and you actually have a verified reference 
+                                    to the whole object. With the simple <strong>ipfs add</strong> command a new merkle DAG is created from data
+                                    in the files, this command also creates the underlying IPNS objects you'll need to access your
+                                    files.
+                                </p>
+                                <p>With such great technology, there's nothing stopping you from building great distributed web 
+                                    projects. If you're already work on one, I'd love to hear about it!
+                                </p>
+                        </article>
+                        
+					</div>
+
+					<aside class="sidebar">
+                        <div class="side">
+                            <h2 class="sidebar-heading">About Me</h2>
+                            <p>Hi there, I’m Sonia aka realchainʕ •ᴥ•ʔ. I am an independent <b>Bot & Protocol Developer</b>, <b>writer</b> 
+                                and <b>speaker</b> from the Africa. I <a href="/blog/archive/">write</a>, <a href="https://twitter.com/realchainlife">tweet</a>, 
+                                <a href="/portfolio/speaking.html">speak</a> and <a href="http://github.com/realchainlife">share code</a> about building 
+                                decentralized systems. We can <a href="/contact/">work together</a>
+                            </p>
+                            <p>
+                                <ul class="colorlib-social-icons">
+                                    <li><a href="https://t.me/realchainlife"><i class="icon-telegram"></i></a></li>
+                                    <li><a href="https://reddit.com/u/realchainlife"><i class="icon-reddit"></i></a></li>
+                                    <li><a href="https://github.com/realchainlife"><i class="icon-github"></i></a></li>
+                                    <li><a href="https://twitter.com/realchainlife"><i class="icon-twitter"></i></a></li>
+                                </ul>
+                            </p>
+                            </div>
+                            <div class="side-wrap">
+                                <h2 class="sidebar-heading">Projects</h2>
+                                <ul class="[ list-ui  list-ui--small ]  mb">
+                                      <li><a href="http://playmakerchain.com"><strong>PlayMaker Chain ⚽️</strong></a> – coming soon…</li>
+                                      <li><a href="http://factory24.org"><strong>Afrolynk Factory24 📈</strong></a> – here now …</li>
+                                      <li><a href="http://realchainlife.github.io/portfolio/workshops.html"><strong>Nairobi IPFS</strong></a> – Here Now! </li>
+                                </ul>
+                            </div>
+                            <div class="side-wrap">
+                                <h2 class="sidebar-heading">Upcoming Events</h2>
+                                <ul class="[ list-ui  list-ui--small ]  mb">
+                                    <li><a href=""><strong>IPFS Meetup</strong></a> – Nairobi, (Kenya) July 2019</li>
+                                    <li><a href="https://africanwomenintech.com/"><strong>AWIT Conference</strong></a> – Nairobi, (Kenya) July 2019</li>
+                                    <li><a href="http://afrolynk.com"><strong>Afrolynk Conference</strong></a> – Berlin, (Germany) September 2019</li>
+                                    <li><a href="https://maltablockchainsummit.com/"><strong>AI & Blockchain Summit</strong></a> – Nairobi, (Kenya) July 2019</li>
+                                </ul>
+                            </div>
+                            <div class="side-wrap">
+                                <h2 class="sidebar-heading">Popular Posts</h2>
+                                <div class="f-entry">
+                                    <a href="#" class="featured-img" style="background-image: url(/blog/blog-img/screenshot-ff-import-blocked-by-js.png);"></a>
+                                    <div class="desc">
+                                        <span><i class="icon-calendar3"></i> March 20, 2018</span>
+                                        <h3><a href="#">Let's Decentralize The Web</a></h3>
+                                    </div>
+                                </div>
+                                <div class="f-entry">
+                                    <a href="#" class="featured-img" style="background-image: url(/blog/blog-img/what-is-ipfs.png);"></a>
+                                    <div class="desc">
+                                        <span><i class="icon-calendar3"></i> February 22, 2018</span>
+                                        <h3><a href="#">Is IPFS The Permanent Web</a></h3>
+                                    </div>
+                                </div>
+                                <div class="f-entry">
+                                    <a href="#" class="featured-img" style="background-image: url(/blog/blog-img/practical-byzantine-fault-tolerance.png);"></a>
+                                    <div class="desc">
+                                        <span><i class="icon-calendar3"></i> February 11, 2018</span>
+                                        <h3><a href="#">BFT and The Hyperledger Blockchain</a></h3>
+                                    </div>
+                                </div>
+                                <div class="f-entry">
+                                    <a href="#" class="featured-img" style="background-image: url(/blog/blog-img/commit-message-small.png);"></a>
+                                    <div class="desc">
+                                        <span><i class="icon-calendar3"></i> January 27, 2018</span>
+                                        <h3><a href="#">Demystifying Consensus Algorithms</a></h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="side-wrap">
+                                <h2 class="sidebar-heading">Blockquote</h2>
+                                <blockquote>
+                                    <p>Let's decentralize the web! <b>"Knowing Is Not Enough, We Must Apply"</b></p>
+                                </blockquote>
+                            </div>
+                            <div class="side">
+                                <h2 class="sidebar-heading">Subscribe To My Newsletter</h2>
+                                <div class="row">
+                                    <div class="col-md-12 col-md-offset-0">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-email text-center" id="email" placeholder="Enter your email">
+                                            <button type="submit" class="btn btn-primary btn-subscribe">Subscribe</button>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        <ul class="colorlib-social-icons text-center">
+                                            <li><a href="https://t.me/realchainlife"><i class="icon-telegram"></i></a></li>
+                                            <li><a href="https://reddit.com/u/realchainlife"><i class="icon-reddit"></i></a></li>
+                                            <li><a href="https://github.com/realchainlife"><i class="icon-github"></i></a></li>
+                                            <li><a href="https://twitter.com/realchainlife"><i class="icon-twitter"></i></a></li>
+                                        </ul>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="side-wrap">
+                                <h2 class="sidebar-heading">Video Post</h2>
+                                <p>Juan explains why the web is in danger and how the Interplanetary Files System (IPFS) is creating 
+                                    a new way of sharing knowledge.
+                                </p>
+                                <div class="video colorlib-video" style="background-image: url(/blog/blog-img/ipfs.webp);">
+                                    <a href="https://www.youtube.com/watch?v=2RCwZDRwk48" class="popup-vimeo"><i class="icon-play"></i></a>
+                                    <div class="overlay"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+				</div>
+			</div>
+		</div>
+
+		<footer id="colorlib-footer" role="contentinfo">
+                <div class="overlay"></div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-12 col-md-offset-2 slider-text">
+                            <div class="slider-text-inner text-center">
+                                <p>
+                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                    <small class="block">&copy; <script>document.write(new Date().getFullYear());</script> Sonia John</small>
+                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
+	</div>
+	
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<!-- Flexslider -->
+	<script src="js/jquery.flexslider-min.js"></script>
+	<!-- Owl carousel -->
+	<script src="js/owl.carousel.min.js"></script>
+	<!-- Magnific Popup -->
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/magnific-popup-options.js"></script>
+	<!-- Main -->
+	<script src="js/main.js"></script>
+
+	</body>
+</html>
+

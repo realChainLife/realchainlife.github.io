@@ -1,0 +1,370 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Simplifying The LibraBFT Consensus Protocol | Blog</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Decentralized Web" />
+	<meta name="keywords" content="An introduction to building Dapps" />
+	<meta name="author" content="Sonia John" />
+
+  <!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+	
+	<link href="https://fonts.googleapis.com/css?family=Grand+Hotel" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Fira+Sans:100,200,300,400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="css/magnific-popup.css">
+
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="css/flexslider.css">
+
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+	
+	<!-- Flaticons  -->
+	<link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	</head>
+	<body>
+		
+	<div class="colorlib-loader"></div>
+
+	<div id="page">
+		<nav class="colorlib-nav" role="navigation">
+			<div class="top-menu">
+				<div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <div id="logo"><a href="/"><img src="/blog/blog-img/logo.png" alt=""></a></div>
+                        </div>
+                        <div class="col-xs-10 text-right menu-1">
+                            <ul>
+                                <li><a href="/">Home</a></li>
+                                <li class="has-dropdown">
+                                    <a href="/portfolio">Portfolio</a>
+                                    <ul class="dropdown">
+                                        <li><a href="/portfolio/development.html">System Development</a></li>
+                                        <li><a href="/portfolio/speaking.html">Speaking</a></li>
+                                        <li><a href="/portfolio/workshop.html">Workshops & Training</a></li>
+                                    </ul>
+                                </li>
+                                <li class="has-dropdown">
+                                    <a href="/blog">Blog</a>
+                                    <ul class="dropdown">
+                                        <li><a href="/blog/archive">Archive</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="/contact">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+				</div>
+			</div>
+		</nav>
+
+		<div id="colorlib-container">
+			<div class="container">
+				<div class="row">
+					<div class="content">
+						<article class="blog-entry">
+							<div class="blog-wrap">
+								<span class="category text-center"><a href="">BLOCKCHAIN</a></span>
+								<h2 class="text-center"><a href="">Simplifying The LibraBFT Consensus Protocol</a></h2>
+								<span class="category text-center"><a href=""><i class="icon-calendar3"></i> August 05, 2019</a></span>
+							</div>
+							<div class="desc">
+
+                                <p>When Facebook announced the Libra Blockchain, I was keen to learn about the consensus protocol 
+                                    that would power their cryptocurrency and distributed infrastructure. Having extensively gone 
+                                    through their released developer documentation, I'd like to present in this post a technical 
+                                    simplification of the LibraBFT consensus algorithm. 
+                                </p>
+                                <p>Before we can delve into the analysis of LibraBFT algorithm, we need to understand why the 
+                                    choice of a consensus algorithm is a critical decision for protocol developers to make. On 
+                                    any open distributed ledger network a consensus mechanism functions to:
+                                </p>
+                                <ul>
+                                    <li>Prevent double spend and even store transaction data in distributed ledgers.</li>
+                                    <li>Ensure transaction validation by endorsing, ordering and validating transactions.</li>
+                                    <li>Facilitate the decision-making model between network participants (developers, 
+                                        miners, exchanges, users)
+                                    </li>
+                                </ul>
+                                <p>Each networks consensus mechanism ensures critical participant agreements on collaboration, 
+                                    co-operation, equal-rights, participation and activity are written in the consensus 
+                                    algorithm of choice.
+                                </p>
+                                <h2>LibraBFT Algorithm</h2>
+                                <p>Similar to all Byzantine Fault Tolerance (BFT) based networks LibraBFT nodes called Validators, 
+                                    are entities in the Libra network that collectively decide which transactions will be added 
+                                    to the Libra Blockchain. Validator processes each have a designated validator called a Leader 
+                                    responsible for proposing new blocks and obtaining signed votes from the other validators 
+                                    on their proposals.
+                                </p>
+                                <p>These Validator nodes use a consensus algorithm that can tolerate the presence of malicious 
+                                    (Byzantine) validators by maintaining the history of all the transactions on the blockchain, 
+                                    they also keep the current state to execute transactions and to calculate the next state.
+                                </p>
+                                <blockquote><i>The Libra protocol uses a variant of the <a href="https://arxiv.org/pdf/1803.05069.pdf"><b>HotStuff consensus protocol</b></a>, 
+                                    a recent Byzantine fault-tolerant (BFT) consensus protocol, called LibraBFT. It provides 
+                                    safety (all honest validators agree on commits and execution) and liveness (commits are 
+                                    continually produced) in the partial synchrony model defined in the paper "Consensus in 
+                                    the Presence of Partial Synchrony" by Dwork, Lynch, and Stockmeyer (DLS) and mentioned 
+                                    in the paper "Practical Byzantine Fault Tolerance" (PBFT) by Castro and Liskov, as well 
+                                    as newer protocols such as Tendermint.
+                                    <a href="https://developers.libra.org/docs/crates/consensus"><b>Consenus Overview</b></a>, 
+                                    Libra Technical Whitepaper</i>
+                                </blockquote>
+                                <p>The HotStuff consensus algorithm is a leader-based Byzantine fault-tolerant replication protocol. 
+                                    It was proposed by VMware Research in March 2018 and is being officially published at the 2019 
+                                    ACM Symposium on Principles of Distributed Computing.
+                                </p>
+                                <p>HotStuff attempts to address the complexity of practical BFT. To maintain its liveness property, 
+                                    non-faulty replicas run commands identically and produce similar responses for each command. In 
+                                    this model, N ≥ 3f + 1 (3 honest, 1 faulty nodes) is required for non-faulty replicas to agree 
+                                    on the same commands in the same order and progress can be ensured deterministically.
+                                </p>
+                                <p>LibraBFT assumes that at any point in time 3f + 1 votes are distributed among a set of validators 
+                                    that may be honest or Byzantine (faulty). LibraBFT remains safe, preventing attacks such as double 
+                                    spends and forks when at most f (one) votes are controlled by malicious validators — also implying 
+                                    that the total amount of malicious nodes on the network doesn't exceed more than 1/3 of the total 
+                                    number of network nodes in the system.
+                                </p>
+                                <p>LibraBFT remains live, committing transactions from clients, as long as there exists a global 
+                                    stabilization time (GST), after which all messages between honest validators are delivered to 
+                                    other honest validators within a maximal network delay. In addition to traditional guarantees, 
+                                    LibraBFT maintains safety during its block generation and confirmation following more of a 
+                                    “Commander and Lieutenant” format. When a client sends a request to the primary node the 
+                                    request is processed as follows:
+                                </p>
+                                <ol>
+                                    <li>Leader block proposals are organized into a chain using cryptographic hashes.</li>
+                                    <li>If the proposal is valid and timely, each honest node will sign it and send 
+                                        a vote back to the leader.</li>
+                                    <li>After the leader has received enough votes to reach a quorum, it aggregates 
+                                        the votes into a Quorum Certificate (QC) that extends the same chain again.</li>
+                                    <li>The QC is broadcast to every node.</li>
+                                    <li>If the leader fails to assemble a QC, participants will timeout and move to 
+                                        the next round.</li>
+                                    <li>Eventually, enough blocks and QCs will extend the chain in a timely manner, 
+                                        and a block will match the commit rule of the protocol.</li>
+                                    <li>When this happens, the chain of uncommitted blocks up to the matching block 
+                                        become committed.</li>
+                                </ol>
+                                <p>According to the Libra whitepaper, the choice for the HotStuff protocol as the basis for 
+                                    LibraBFT is based on: (i) simplicity and modularity; (ii) ability to easily integrate 
+                                    consensus with execution; and (iii) promising performance in early experiments. The 
+                                    HotStuff protocol decomposes into modules for safety (voting and commit rules) and 
+                                    liveness (pacemaker). This decoupling provides the ability to develop and experiment 
+                                    independently and on different modules in parallel.
+                                </p>
+                                <h2>Conclusion</h2>
+                                <p>Many blockchain projects use BFT consensus protocols today, for example, Hyperledger's 
+                                    pBFT consensus protocol. I hope this short article has helped you understand how HotStuff 
+                                    and its LibraBFT implementation will be deployed to secure the LIbra Network. Although its 
+                                    a solid project, Facebook has yet to get the green light from regulators to launch this 
+                                    project as projected in 2020.
+                                </p>
+                                <p>To read more:</p>
+                                <ul>
+                                    <li><b>LibraBFT</b> —  https://developers.libra.org/docs/assets/papers/libra-consensus-state-machine-replication-in-the-libra-blockchain.pdf </li>
+                                    <li><b>HotStuff BFT consensus</b> —  https://arxiv.org/pdf/1803.05069.pdf </li>
+                                    <li><b>Practical Byzantine Fault Tolerance —  http://pmg.csail.mit.edu/papers/osdi99.pdf </b></li>
+                                    <li><b>Tendermint consensus algorithm</b> —  https://arxiv.org/pdf/1807.04938.pdf </li>
+                                </ul>
+                                <ul type="square">
+                                    <li>use of secure programming languages for protocols & smart contracts</li>
+                                    <li>development of satellite, radio and alternative means of transport/relay</li>
+                                    <li>adoption of off-the-shelf devices for cryptocurrency purposes</li>
+                                    <li>design of non-custodial services offered by trusted or centralized third party</li>
+                                </ul>
+                                <p>Overall, expect the distributed and decentralized protocol industry to continue to grow as new methods of security 
+                                    engineering, risk management and crypto-economics are developed. 
+                                </p>
+							</div>
+                        </article>
+                        
+					</div>
+
+					<aside class="sidebar">
+                        <div class="side">
+                            <h2 class="sidebar-heading">About Me</h2>
+                            <p>Hi there, I’m Sonia John. I am an independent <b>Bot & Protocol Developer</b>, <b>writer</b> 
+                                and <b>speaker</b> from the Africa. I <a href="/blog/archive/">write</a>, <a href="https://twitter.com/realchainlife">tweet</a>, 
+                                <a href="/portfolio/speaking.html">speak</a> and <a href="http://github.com/realchainlife">share code</a> about building 
+                                decentralized systems. We can <a href="/contact/">work together</a>
+                            </p>
+                            <p>
+                                <ul class="colorlib-social-icons">
+                                    <li><a href="https://t.me/realchainlife"><i class="icon-telegram"></i></a></li>
+                                    <li><a href="https://reddit.com/u/realchainlife"><i class="icon-reddit"></i></a></li>
+                                    <li><a href="https://github.com/realchainlife"><i class="icon-github"></i></a></li>
+                                    <li><a href="https://twitter.com/realchainlife"><i class="icon-twitter"></i></a></li>
+                                </ul>
+                            </p>
+                            </div>
+                            <div class="side-wrap">
+                                <h2 class="sidebar-heading">Projects</h2>
+                                <ul class="[ list-ui  list-ui--small ]  mb">
+                                      <li><a href="http://factory24.org"><strong>Afrolynk Factory24 📈</strong></a> – here now …</li>
+                                      <li><a href="http://realchainlife.github.io/portfolio/workshops.html"><strong>Nairobi IPFS</strong></a> – Here Now! </li>
+                                </ul>
+                            </div>
+                            <div class="side-wrap">
+                                <h2 class="sidebar-heading">2019 Events</h2>
+                                <ul class="[ list-ui  list-ui--small ]  mb">
+                                    <li><a href=""><strong>IPFS Meetup</strong></a> – Nairobi, July 2019</li>
+                                    <li><a href="https://africanwomenintech.com/"><strong>AWIT Conference</strong></a> – Nairobi, July 2019</li>
+                                    <li><a href="http://afrolynk.com"><strong>Afrolynk Conference</strong></a> – Berlin, September 2019</li>
+                                    <li><a href="https://europe-2019.flink-forward.org/"><strong>Flink Forward</strong></a> – Berlin, October 2019</li>
+                                    <li><a href="https://maltablockchainsummit.com/"><strong>AI & Blockchain Summit</strong></a> – Malta, November 2019</li>
+                                    <li><a href="https://githubuniverse.com/"><strong>Github Universe</strong></a> – San Francisco, November 2019</li>
+                                </ul>
+                            </div>
+                            <div class="side-wrap">
+                                <h2 class="sidebar-heading">Popular Posts</h2>
+                                <div class="f-entry">
+                                    <a href="#" class="featured-img" style="background-image: url(/blog/blog-img/blog_01.png);"></a>
+                                    <div class="desc">
+                                        <span><i class="icon-calendar3"> December 16, 2019</i> </span>
+                                        <h3><a href="/blog/posts/2020-outlook-for-decentralised-and-distributed-protocols.html">2020 Outlook For Distributed Protocols</a></h3>
+                                    </div>
+                                </div>
+                                <div class="f-entry">
+                                    <a href="#" class="featured-img" style="background-image: url(/blog/blog-img/open-source-ecosystem.png);"></a>
+                                    <div class="desc">
+                                        <span><i class="icon-calendar3"></i> October 15, 2019</span>
+                                        <h3><a href="/blog/posts/economic-models-for-open-source-in-africa.html">Economic Models for Open Source in Africa</a></h3>
+                                    </div>
+                                </div>
+                                <div class="f-entry">
+                                    <a href="#" class="featured-img" style="background-image: url(/blog/blog-img/factory24.png);"></a>
+                                    <div class="desc">
+                                        <span><i class="icon-calendar3"></i> May 26, 2019</span>
+                                        <h3><a href="/blog/posts/introducing-afrolynk-factory24.html">Introducing Afrolynk's Factory24</a></h3>
+                                    </div>
+                                </div>
+                                <div class="f-entry">
+                                    <a href="#" class="featured-img" style="background-image: url(/blog/blog-img/screenshot-ff-import-blocked-by-js.png);"></a>
+                                    <div class="desc">
+                                        <span><i class="icon-calendar3"></i> March 18, 2018</span>
+                                    </span>
+                                        <h3><a href="/blog/posts/lets-decentralize-the-web.html">Let's Decentralize The Web</a></h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="side-wrap">
+                                <h2 class="sidebar-heading">Blockquote</h2>
+                                <blockquote>
+                                    <p>Let's decentralize the web! <b>"Knowing Is Not Enough, We Must Apply"</b></p>
+                                </blockquote>
+                            </div>
+                            <div class="side">
+                                <h2 class="sidebar-heading">Subscribe To My Newsletter</h2>
+                                <div class="row">
+                                    <div class="col-md-12 col-md-offset-0">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-email text-center" id="email" placeholder="Enter your email">
+                                            <button type="submit" class="btn btn-primary btn-subscribe">Subscribe</button>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        <ul class="colorlib-social-icons text-center">
+                                            <li><a href="https://t.me/realchainlife"><i class="icon-telegram"></i></a></li>
+                                            <li><a href="https://reddit.com/u/realchainlife"><i class="icon-reddit"></i></a></li>
+                                            <li><a href="https://github.com/realchainlife"><i class="icon-github"></i></a></li>
+                                            <li><a href="https://twitter.com/realchainlife"><i class="icon-twitter"></i></a></li>
+                                        </ul>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="side-wrap">
+                                <h2 class="sidebar-heading">Video Post</h2>
+                                <p>Juan explains why the web is in danger and how the Interplanetary Files System (IPFS) is creating 
+                                    a new way of sharing knowledge.
+                                </p>
+                                <div class="video colorlib-video" style="background-image: url(/blog/blog-img/ipfs.webp);">
+                                    <a href="https://www.youtube.com/watch?v=2RCwZDRwk48" class="popup-vimeo"><i class="icon-play"></i></a>
+                                    <div class="overlay"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+				</div>
+			</div>
+		</div>
+
+		<footer id="colorlib-footer" role="contentinfo">
+                <div class="overlay"></div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-12 col-md-offset-2 slider-text">
+                            <div class="slider-text-inner text-center">
+                                <p>
+                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                    <small class="block">&copy; <script>document.write(new Date().getFullYear());</script> Sonia John</small>
+                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
+	</div>
+	
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<!-- Flexslider -->
+	<script src="js/jquery.flexslider-min.js"></script>
+	<!-- Owl carousel -->
+	<script src="js/owl.carousel.min.js"></script>
+	<!-- Magnific Popup -->
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/magnific-popup-options.js"></script>
+	<!-- Main -->
+	<script src="js/main.js"></script>
+
+	</body>
+</html>
+

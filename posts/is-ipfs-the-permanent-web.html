@@ -1,0 +1,621 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Is IPFS The Permanent Web | Blog</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Decentralized Web" />
+	<meta name="keywords" content="Is Claiming The IPFS is the Permanent Web a Fallacies of Distributed Computing?" />
+	<meta name="author" content="" />
+
+  <!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+	
+	<link href="https://fonts.googleapis.com/css?family=Grand+Hotel" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Fira+Sans:100,200,300,400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="css/magnific-popup.css">
+
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="css/flexslider.css">
+
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+	
+	<!-- Flaticons  -->
+	<link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	</head>
+	<body>
+		
+	<div class="colorlib-loader"></div>
+
+	<div id="page">
+		<nav class="colorlib-nav" role="navigation">
+			<div class="top-menu">
+				<div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <div id="logo"><a href="/"><img src="/blog/blog-img/logo.png" alt=""></a></div>
+                        </div>
+                        <div class="col-xs-10 text-right menu-1">
+                            <ul>
+                                <li><a href="/">Home</a></li>
+                                <li class="has-dropdown">
+                                    <a href="/portfolio">Portfolio</a>
+                                    <ul class="dropdown">
+                                        <li><a href="/portfolio/development.html">System Development</a></li>
+                                        <li><a href="/portfolio/speaking.html">Speaking</a></li>
+                                        <li><a href="/portfolio/workshop.html">Workshops & Training</a></li>
+                                    </ul>
+                                </li>
+                                <li class="active"><a href="/blog">Blog</a></li>
+                                <li><a href="/resume">Resume</a></li>
+                                <li><a href="/contact">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+				</div>
+			</div>
+		</nav>
+
+		<div id="colorlib-container">
+			<div class="container">
+				<div class="row">
+					<div class="content">
+						<article class="blog-entry">
+							<div class="blog-wrap">
+								<span class="category text-center"><a href="">IPFS</a></span>
+								<h2 class="text-center"><a href="">Is IPFS The Permanent Web</a></h2>
+								<span class="category text-center"><a href=""><i class="icon-calendar3"></i> February 22, 2018</a></span>
+							</div>
+							<div class="desc">
+
+                                <p><a href="https://ipfs.io">IPFS</a> the <strong>InterPlanetey File System</strong> is a global, versioned, 
+                                    peer-to-peer file system. It combines good ideas from Git, BitTorrent, Kademlia, 
+                                    and SFS. You can think of it like a single BitTorrent swarm, exchanging Git objects, 
+                                    making up the web. IPFS provides an interface much simpler than HTTP, but has 
+                                    permanence built in.
+                                </p>
+                                <p>Is claiming the IPFS is the permanent web a <strong>fallacy of distributed computing</strong> then?
+                                    Before diving into the detailed workings of IPFS we need to discuss the HTTP protocol - 
+                                    the is the most commonly known Internet Protocol. Although, I strongly believe IPFS
+                                    will replace HTTP, this position is met with alot of speculation. Replacing HTTP 
+                                    sounds like a ball-out-of-the-park idea yet alot of us concur the current internet
+                                    model is broken and needs us to apply state of the art technology to the distribution 
+                                    problem, and design a better protocol for the web.
+                                </p>
+                                <p>In this post, I want to focus on three thing in relation to the web design: how HTTP 
+                                    works, the problems with HTTP design models and how IPFS solves this problems. Whether
+                                    we realise it or not, we’re in the business of distributed computing: you probably want 
+                                    that internet service you're building to make its way from one computer (a server) to 
+                                    another computer (a user’s phone) over some kind of network (the internet) with minimal
+                                    intermediaries.
+                                </p>
+                                <h2>How HTTP Protocols Work</h2>
+                                <p>The <strong>Hypertext Transfer Protocol</strong> (HTTP) has unified the entire world into a single 
+                                    global internet protocol, standardizing how we distribute and present information 
+                                    to each other. Traditionally, HTTP follows a simple <i>client-server</i> model. Basically,
+                                    files are accessed and retrieved based on their <i>server</i> location using a URL (Uniform 
+                                    Resource Locator).
+                                </p>
+                                      <p>When a <i>client</i> computer across the world request a file from this server irrespective 
+                                        of their location, the URL is used to find its location on a computer network and its
+                                        retrieved and loaded on the client side server. But while HTTP has achieved many things, 
+                                        it's usefulness as a foundation for the distribution of the sum of human knowledge is 
+                                        crumbling to pieces right in front of us; For example, HTTP does not work in the offline 
+                                        case or in scenarios with limited bandwidth.
+                                      </p>
+                                      <p>Also, the way HTTP distributes content is fundamentally flawed, and no amount of performance 
+                                        tuneups or forcing broken CA SSL or anything else is going to fix that. Some of these flaws 
+                                        are:
+                                      </p>
+                                      <ul>
+                                        <li><strong>HTTP Is Fragile</strong> - If you've been using the internet for any given time then 
+                                          you've come across a <i>404 Error</i> or <i>Not Found Error</i>. These error occur when a 
+                                          HTTP web server connection to the client server fails. This can happen if web 
+                                          servers have been powered down, if the links stopped working, if the server fails 
+                                          or is no longer accessible at the same location, or even the worst possible flaw,
+                                          the chain between the sites becomes permanently broken, and the ability to access 
+                                          that content is lost forever.
+                                          
+                                          <p>All these factors point to the brittleness of HTTP web servers and hightlights 
+                                            the problem with HTTP: It <i>erodes</i>. When a site is no longer available on the 
+                                            server at that linked location the content you're looking for is usually gone, 
+                                            and it has no way to help you find it. And unless the <a href="https://archive.org/">Internet Archive</a> 
+                                            backed it up, you'll never find it again. It becomes lost, forever.
+                                          </p>
+                              
+                                          <p>Also, the older a web page is, the more likely it is you'll see 404 pages. HTTP 
+                                            is inadequate for maintaining links between sites. While all the static content 
+                                            stored with the site still loads, any links offsite or to dynamically served 
+                                            content are dead. Whether eroding content is <i>timelessly useful</i>, it's still our 
+                                            history, and we're losing a lot of it everyday and we're losing it fast.
+                                          </p>
+                                        </li>
+                                        <li><strong>HTTP Is Fragile</strong>The web was originally designed to be 
+                                          decentralized how during the peak of internet commercialization billions of users 
+                                          were left dependent on a small handful of services to use. While this commercialization 
+                                          propagated a lot of new internet-based service solutions centralization didn't 
+                                          come without its challenges.
+                              
+                                          <p>Today, centralized web servers can be intercepted by multi-parties for various 
+                                            reasons all affecting customer security and protection. Centralization makes it 
+                                            easy for governments to <i>censor content</i> at their borders by blocking the access 
+                                            to centralized sites. It also puts our communications at risk of being interrupted 
+                                            by <i>DDoS attacks</i>. Customers also face the risk of <i>data breaches</i> through hackers 
+                                            who can extort money for stolen data or even make it available on the black market.
+                                          </p>
+                              
+                                          <p>Distributing the web would make it less malleable by a small handful of powerful 
+                                            organizations, and that improves both our freedom and our independence. It also 
+                                            reduces the risk of the <i>"one giant shutdown"</i> that takes a massive amount of data 
+                                            with it.
+                                          </p>
+                                        </li>
+                                        <li><strong>HTTP Is Cost Inefficient</strong> - HTTP lowered the price of publishing, but it still 
+                                          costs money, and these costs can really add up. Distributing a lot of data from 
+                                          central datacenters is potentially very expensive if not done at economies of scale. 
+                                          Latency and Bandwidth are the two keys to protocol performance. Latency is a measure 
+                                          of the fixed costs of a transaction and does not change as documents get bigger or 
+                                          smaller. Bandwidth is a measure of how long it takes to send data.
+                              
+                                          <p>If, for example, I had a file sized 117 Megabytes distributed and downloaded 2,344,327,696
+                                            times, that means (at most) 274,286,340,432 Megabytes, or 274.3 Petabytes of data for the 
+                                            file alone has been sent since it was published. If we assume a total expense of 1 
+                                            cent per gigabyte (this would include bandwidth and all of the server costs), $2,742,860 
+                                            has been spent on distributing this one file so far.
+                                          </p>
+                              
+                                          <p>The cost of opening a new connection for each transaction or to serve this much data 
+                                            would be astronomical, especially when bandwidth rates for small players start around 
+                                            $0.12 per gigabyte and go as high a $0.20 in Asia. We need options for less expensive 
+                                            bandwidth to ensure we can keep running our infrastructure at low cost.
+                                          </p>
+                                        </li>
+                                        <li><strong>HTTP Creates Overdependence on The Internet Backbone</strong> - Not only has web server 
+                                          centralization made it highly dependent on the datacenter functionality model it has 
+                                          also made it easy for governments to block and censor content. Even with redundancies,
+                                          major architectural network backbones get damaged or go haywire each with drastic
+                                          consequences to customers.
+                                          
+                                          <p>The point is, this architectural network design isn't perfect, it's easy to attack it, 
+                                            and it's easy for services to get affected by a few important fiber lines getting cut 
+                                            for example.
+                                          </p>
+                                        </li>
+                                      </ul>
+                                      <p><a href="https://http2.github.io/">HTTP/2</a> is a welcome improvement, but it's a conservative update to 
+                                        a technology that's beginning to show its age. To have a better future for the web, we need more 
+                                        than a spiced up version of HTTP, we need a new foundation. And per the governance model of 
+                                        cyberspace, that means we need a new protocol. IPFS, I'm strongly hoping, becomes that new protocol.
+                                      </p>
+                                      <h2>IPFS: A Suitable HTTP Replacement</h2>
+                                      <figure data-rt-type="image" data-rt-align="center" data-rt-max-width="60" class="w-richtext-align-center" 
+                                        style="max-width: 60%;" data-rt-max-height="33.75">
+                                        <div><img src="/blog/blog-img/what-is-ipfs.png" alt=""></div>
+                                        <figcaption>Illustration: What Is IPFS?</figcaption>
+                                      </figure>
+                                      <p>To understand why I'm keen on <i>replacing</i> HTTP with IPFS as the protocol
+                                        of the decentralized web, we first need to understand what it is, how it works,
+                                        and how it addresses all the critical flaws currently limiting HTTP. 
+                                      </p>
+                                      <p>IPFS envisions a world where any resource is available via a locally mounted 
+                                        filesystem at paths like:
+                                      </p>
+                                      <p><strong>a mutable path</strong></p>
+                                      <pre>/ipns/my.host.com/some/file.txt</pre>
+                                      <p><strong>or a permanent path</strong></p>
+                                      <pre>/ipfs/Qmc8vVBLPjc9CXaKtFK3wiq9zoXvuB4XDeY5Xra2LmhMKg/some/file.txt</pre>
+                                      <p>Files don't necessarily have to reside on the local machine to be accessible if 
+                                        they exist on the IPFS, a global distributed storage system. IPFS Files in this 
+                                        namespace have:
+                                      </p>
+                                      <ol>
+                                        <li><strong>High availability</strong> - Files can be fetched from any host that stores 
+                                          and is willing to provide the data.</li>
+                                        <li><strong>Easy Access</strong> - The /ipns and /ipfs filesystems are usable as local 
+                                          storage instead of remote servers, as in HTTP. In fact, nodes 
+                                          chose which files they store locally.</li>
+                                        <li><strong>Trustless</strong> - Like in git where you can trust files in a commit if you 
+                                          trust the commit ID.</li>
+                                        <li><strong>Signature</strong> - Files can be signed and publishers can be linked to %PATH%
+                                          of publication.</li>
+                                        <li><strong>Merkle-linking</strong> - You can version and back up files using the merkle-dag.
+                                          Creating a merkle forest of linked data structures.</li>
+                                      </ol>
+                                      <p>To achieve these, IPFS integrates several successful techniques from the last 
+                                        15 years of distributed systems research. Central to the IPFS design is the <i>Merkle DAG</i>, 
+                                        a data structure that represents all the files. It’s like Git’s blob, tree, 
+                                        and commit, except IPFS has a more flexible model: you can define what your link 
+                                        structure is and how it works. This means you can implement Git on top, or a 
+                                        Blockchain like Bitcoin, or linked web pages.
+                                      </p>
+                                      <p>IPFS is general purpose, and has little in the way of storage limitations. It can 
+                                        serve files that are large or small. It automatically breaks up larger files into 
+                                        smaller chunks, allowing IPFS nodes to download (or stream) files from not just 
+                                        one server like with HTTP, but hundreds of them simultaneously. 
+                                      </p>
+                                      <blockquote class="pull-quote  pull-quote--context">
+                                        <p>IPFS is The Permanent Web, where links do not die</p>
+                                        <b class="pull-quote__source">
+                                          <a href="">realChainʕ •ᴥ•ʔ</a>
+                                        </b>
+                                      </blockquote>
+                                      <p>The IPFS network becomes a finely-grained, trustless, distributed, easily federated 
+                                        Content Delivery Network (CDN). This encrypted, integrity-checked CDN can be used for 
+                                        large static files including: images, video streaming, distributed databases, entire 
+                                        operating systems, blockchains, and most important for us, <strong>static web sites.</strong>
+                                      </p>
+                                      <p>IPFS files can also be special IPFS directory objects, which allow you to use human 
+                                        readable filenames (which transparently link to other IPFS hashes). Using 
+                                        directory objects, IPFS allows you to make static web sites exactly the same way 
+                                        you make them today. It's a single command to add your web site to an IPFS node: 
+                                        <i>ipfs add -r yoursitedirectory</i>. After that, it's available from any IPFS node without 
+                                        requiring you to link to any hashes in the HTML.
+                                      </p>
+                                      <p>IPFS has alot more features and functions that can be listed as use cases including:</p>
+                                      <ol>
+                                        <li>A mounted global filesystem, under /ipfs (permanent) and /ipns (mutable);</li>
+                                        <li>A mounted personal sync folder that automatically versions, publishes, 
+                                          and backs up any writes (like a versioned, distributed Dropbox);</li>
+                                        <li>Encrypted file or data sharing system;</li>
+                                        <li>Distributed mutable content (BitTorrent + Git);</li>
+                                        <li>Distributed data structures;</li>
+                                        <li>Versioned package manager for all software;</li>
+                                        <li>Booting a virtual machine from the network;</li>
+                                        <li>Booting a VM from a hash;</li>
+                                        <li>Merkle DAG database model for versioning, caching, and distribution;</li>
+                                        <li>Linked (and encrypted) communications platform</li>
+                                      </ol>
+                                      <p>To get started with IPFS, stick around. In the next section we'll take a deep technical 
+                                        dive into IPFS. I'll show you how to set up IPFS on Windows, Mac & Linux. We'll also 
+                                        initialize the network and we'll add your first file to IPFS.
+                                      </p>
+                                      <h2>How It Works: IPFS Deep Dive</h2>
+                                      <p>To get started you need to <a href="https://dist.ipfs.io/#go-ipfs">download IPFS for your platform</a>, 
+                                        by clicking <i>download go-ipfs</i>. This is a prebuilt package for the Go Implementation of the 
+                                        IPFS.
+                                      </p>
+                                      <p>Once the executible files have been downloaded they need to be moved to the proper location:</p>
+                                      <p><strong>On Mac/Linux:</strong></p>
+                                      <p>Unpack the archived folder, and move the <i>ipfs</i> file somewhere in your <i>$PATH</i>. To do this 
+                                        via Terminal:
+                                      </p>
+                                      <pre>sudo mv ipfs /usr/local/bin/ipfs</pre>
+                                      <p><strong>On Windows:</strong></p>
+                                      <p>Unzip the archive, and then cut <i>ipfs.exe</i> and paste somewhere in your <i>%PATH%</i>. To do this 
+                                        via Command Prompt: Run Command Prompt as Administrator
+                                      </p>
+                                      <pre>C:\..>move .\go-ipfs\ipfs.exe C:\Windows</pre>
+                                      <h3>Environment Setup</h3>
+                                      <p>Before using IPFS for the first time you'll need to <i>initialize</i> the repository with the 
+                                        <strong>ipfs init</strong> command:
+                                      </p>
+                                      <pre>
+                                        ipfs init
+                                        initializing ipfs node at /Users/realchainlife/.go-ipfs
+                                        generating 2048-bit RSA keypair...done
+                                        peer identity: QmU6vXuNb6P7H8hwrbNPWiLBikrdf1d6Q9kLAhEK4Kcmub
+                                        to get started, enter:
+                              
+                                          ipfs cat /ipfs/QmqaxZwuMiUhyvYycToWiUfMtowAPMcX9Ba8nUH4Jz3Xf2/readme
+                                      </pre>
+                                      <p>The <i>repository</i> is a directory that's used by ipfs to stores all its settings and internal 
+                                        data. Run the suggested output command:
+                                      </p>
+                                      <pre>ipfs cat /ipfs/QmqaxZwuMiUhyvYycToWiUfMtowAPMcX9Ba8nUH4Jz3Xf2/readme</pre>
+                                      <p>The output should look something like this, notifying you that you have <strong>successfully installed IPFS.</strong>
+                                      </p>
+                                      <figure data-rt-type="image" data-rt-align="center" data-rt-max-width="60" class="w-richtext-align-center" 
+                                        style="max-width: 60%;" data-rt-max-height="33.75">
+                                        <div><img src="/blog/blog-img/successful.png" alt=""></div>
+                                        <figcaption>Output: Successfully Installed IPFS</figcaption>
+                                      </figure>
+                                      <p>You can explore other objects in there. In particular, check out quick-start:</p>
+                                      <pre>ipfs cat /ipfs/QmqaxZwuMiUhyvYycToWiUfMtowAPMcX9Ba8nUH4Jz3Xf2/quick-start</pre>
+                                      <h3>Add Files To IPFS</h3>
+                                      <p>Once <i>ipfs init</i> is completed successfully, we are ready to run a daemon and start running
+                                        things online; but first we'll start by creating a directory <i>ipfsdirectory</i> and writing a 
+                                        simple <i>hello.txt</i> file with the content <i>Hello World</i> 
+                                      </p>
+                                      <pre>
+                                        $ mkdir ipfsdirectory
+                                        $ cd ipfsdirectory
+                                        $ touch hello.txt
+                                      </pre>
+                                      <p>Now we can add this file to the IPFS:</p>
+                                      <pre>
+                                        $ ipfs add hello.txt 
+                                
+                                        added QmqaxZwuMiUhyvYycToWiUfMtowAPMcX9Ba8nUH4Jz3Xf2 hello.txt
+                                      </pre>
+                                      <p>For other nodes on the IPFS network to know they can access the file from our machine, we 
+                                        need to pin the file we just added:
+                                      </p>
+                                      <pre>
+                                        $ ipfs pin add QmqaxZwuMiUhyvYycToWiUfMtowAPMcX9Ba8nUH4Jz3Xf2
+                              
+                                        pinned QmqaxZwuMiUhyvYycToWiUfMtowAPMcX9Ba8nUH4Jz3Xf2 recursively
+                                      </pre>
+                                      <p>Now the file no-longer exists only on our local machine.</p>
+                                      <h3>Connect IPFS Node to the IPFS Network</h3>
+                                      <p>By this point we have successfully downloaded, initialized, added and pinned a file on the 
+                                        IPFS, however we are yet to introduce our <i>node</i> to the IPFS network. This allows other nodes/
+                                        participants on the network to listen to our machine and retrieve files from our machine, 
+                                        and vice versa.
+                                      </p>
+                                      <p>To do this, run:</p>
+                                      <pre>
+                                        $ ipfs daemon
+                                      </pre>
+                                      <p>and expect an output similar to this:</p>
+                                      <pre>
+                                        Initializing daemon...
+                                        Adjusting current ulimit to 2048...
+                                        Successfully raised file descriptor limit to 2048.
+                                        Swarm listening on /ip4/127.0.0.1/tcp/4001
+                                        Swarm listening on /ip4/192.168.0.101/tcp/4001
+                                        Swarm listening on /ip6/::1/tcp/4001
+                                        Swarm listening on /p2p-circuit/ipfs/QmqaxZwuMiUhyvYycToWiUfMtowAPMcX9Ba8nUH4Jz3Xf2
+                                        Swarm announcing /ip4/127.0.0.1/tcp/4001
+                                        Swarm announcing /ip4/192.168.0.101/tcp/4001
+                                        Swarm announcing /ip4/71.75.18.38/tcp/23917
+                                        Swarm announcing /ip6/::1/tcp/4001
+                                        API server listening on /ip4/127.0.0.1/tcp/5001
+                                        Gateway (readonly) server listening on /ip4/127.0.0.1/tcp/8080
+                                        Daemon is ready
+                                      </pre>
+                                      <p>Once you’re connected to the network, you can search peer connections when you run:</p>
+                                      <pre>
+                                        $ ipfs swarm peers
+                                      </pre>
+                                      <p>IPFS has a number of bootstrapping nodes that are actively looking for new content placed 
+                                        on the network. This will be your initial connections. From here, we can access any one 
+                                        of our files from their website, where they have mounted the IPFS system on their HTTP 
+                                        URL: <i>https://ipfs.io/ipfs/[yourHash]</i>. In my case to check the file <i>hello.txt</i> we'll run:
+                                      </p>
+                                      <p>`https://ipfs.io/ipfs/QmqaxZwuMiUhyvYycToWiUfMtowAPMcX9Ba8nUH4Jz3Xf2`.</p>
+                                      <p>Best not to forget to kill the daemon if you want to disconnect from the network. This is 
+                                        pretty easy. Go to the terminal where daemon is running and press <i>CTRL+C</i>. IPFS allows 
+                                        users to create new hashes with every new network launch but nodes are incentivized to remain 
+                                        the same. 
+                                      </p>
+                                      <h2>Getting Involved With The IPFS</h2>
+                                      <p>IPFS is an open-source, MIT-licensed project. Now that you've been introduced to the IPFS 
+                                        basics I encourage you to <i>buidl</i> different new solutions with IPFS. It's still early, and 
+                                        there's much work to do before IPFS can replace HTTP without needing to describe the idea 
+                                        as crazy. But there's no time like the present to plan for the future. It's time for us 
+                                        to get to work and build the permanent & distributed web. <strong>Let's Decentralize The Web.</strong>
+                                      </p>
+                                      <p>The easiest way to start is to watch or star these repositories on GitHub to follow along:</p>
+                                      <ul>
+                                        <li><a href="https://github.com/ipfs/ipfs">ipfs protocol</a></li>
+                                        <li><a href="https://github.com/ipfs/go-ipfs">go-ipfs</a></li>
+                                        <li><a href="https://github.com/ipfs/js-ipfs">js-ipfs</a></li>
+                                      </ul>
+                                      <p>Also, you can read more <a href="https://github.com/ipfs/docs">IPFS docs</a> or join #ipfs on irc.freenode.org.</p>
+                                      <h2>Quick Summary</h2>
+                                      <p>IPFS is a protocol:</p>
+                                      <ul>
+                                        <li>defines a content-addressed file system</li>
+                                        <li>coordinates content delivery</li>
+                                        <li>combines Kademlia + BitTorrent + Git</li>
+                                      </ul>
+                                      <p>IPFS is a filesystem:</p>
+                                      <ul>
+                                        <li>has directories and files</li>
+                                        <li>mountable filesystem (via FUSE)</li>
+                                      </ul>
+                                      <p>IPFS is a web:</p>
+                                      <ul>
+                                        <li>can be used to view documents like the web</li>
+                                        <li>files accessible via HTTP at http://ipfs.io/</li>
+                                        <li>browsers or extensions can learn to use the ipfs:/ or fs:/ URI schemes directly</li>
+                                        <li>hash-addressed content guarantees authenticity</li>
+                                      </ul>
+                                      <p>IPFS uses crypto:</p>
+                                      <ul>
+                                        <li>cryptographic-hash content addressing</li>
+                                        <li>block-level deduplication</li>
+                                        <li>file integrity + versioning</li>
+                                        <li>filesystem-level encryption + signing support</li>
+                                      </ul>
+                                      <p>IPFS is p2p:</p>
+                                      <ul>
+                                        <li>worldwide peer-to-peer file transfers</li>
+                                        <li>completely decentralized architecture</li>
+                                        <li>no central point of failure</li>
+                                      </ul>
+                                      <p>IPFS is a cdn:</p>
+                                      <ul>
+                                        <li>add a file to the filesystem locally, and it's now available to the world</li>
+                                        <li>caching-friendly (content-hash naming)</li>
+                                        <li>bittorrent-based bandwidth distribution</li>
+                                      </ul>
+                                      <p>To learn even more about the Permanent Web check out <a href="https://www.youtube.com/watch?v=skMTdSEaCtA&t=2s">Juan Benet's  
+                                        talk</a>  at Sourcegraph.
+                                      </p>
+                        </article>
+                        
+					</div>
+
+					<aside class="sidebar">
+                        <div class="side">
+                            <h2 class="sidebar-heading">About Me</h2>
+                            <p>Hi there, I’m Sonia aka realchainʕ •ᴥ•ʔ. I am an independent <b>Bot & Protocol Developer</b>, <b>writer</b> 
+                                and <b>speaker</b> from the Africa. I <a href="/blog/archive/">write</a>, <a href="https://twitter.com/realchainlife">tweet</a>, 
+                                <a href="/portfolio/speaking.html">speak</a> and <a href="http://github.com/realchainlife">share code</a> about building 
+                                decentralized systems. We can <a href="/contact/">work together</a>
+                            </p>
+                            <p>
+                                <ul class="colorlib-social-icons">
+                                    <li><a href="https://t.me/realchainlife"><i class="icon-telegram"></i></a></li>
+                                    <li><a href="https://reddit.com/u/realchainlife"><i class="icon-reddit"></i></a></li>
+                                    <li><a href="https://github.com/realchainlife"><i class="icon-github"></i></a></li>
+                                    <li><a href="https://twitter.com/realchainlife"><i class="icon-twitter"></i></a></li>
+                                </ul>
+                            </p>
+                            </div>
+                            <div class="side-wrap">
+                                <h2 class="sidebar-heading">Projects</h2>
+                                <ul class="[ list-ui  list-ui--small ]  mb">
+                                      <li><a href="http://playmakerchain.com"><strong>PlayMaker Chain ⚽️</strong></a> – coming soon…</li>
+                                      <li><a href="http://factory24.org"><strong>Afrolynk Factory24 📈</strong></a> – here now …</li>
+                                      <li><a href="http://realchainlife.github.io/portfolio/workshops.html"><strong>Nairobi IPFS</strong></a> – Here Now! </li>
+                                </ul>
+                            </div>
+                            <div class="side-wrap">
+                                <h2 class="sidebar-heading">Upcoming Events</h2>
+                                <ul class="[ list-ui  list-ui--small ]  mb">
+                                    <li><a href=""><strong>IPFS Meetup</strong></a> – Nairobi, (Kenya) July 2019</li>
+                                    <li><a href="https://africanwomenintech.com/"><strong>AWIT Conference</strong></a> – Nairobi, (Kenya) July 2019</li>
+                                    <li><a href="http://afrolynk.com"><strong>Afrolynk Conference</strong></a> – Berlin, (Germany) September 2019</li>
+                                    <li><a href="https://maltablockchainsummit.com/"><strong>AI & Blockchain Summit</strong></a> – Nairobi, (Kenya) July 2019</li>
+                                </ul>
+                            </div>
+                            <div class="side-wrap">
+                                <h2 class="sidebar-heading">Popular Posts</h2>
+                                <div class="f-entry">
+                                    <a href="#" class="featured-img" style="background-image: url(/blog/blog-img/screenshot-ff-import-blocked-by-js.png);"></a>
+                                    <div class="desc">
+                                        <span><i class="icon-calendar3"></i> March 20, 2018</span>
+                                        <h3><a href="#">Let's Decentralize The Web</a></h3>
+                                    </div>
+                                </div>
+                                <div class="f-entry">
+                                    <a href="#" class="featured-img" style="background-image: url(/blog/blog-img/what-is-ipfs.png);"></a>
+                                    <div class="desc">
+                                        <span><i class="icon-calendar3"></i> February 22, 2018</span>
+                                        <h3><a href="#">Is IPFS The Permanent Web</a></h3>
+                                    </div>
+                                </div>
+                                <div class="f-entry">
+                                    <a href="#" class="featured-img" style="background-image: url(/blog/blog-img/practical-byzantine-fault-tolerance.png);"></a>
+                                    <div class="desc">
+                                        <span><i class="icon-calendar3"></i> February 11, 2018</span>
+                                        <h3><a href="#">BFT and The Hyperledger Blockchain</a></h3>
+                                    </div>
+                                </div>
+                                <div class="f-entry">
+                                    <a href="#" class="featured-img" style="background-image: url(/blog/blog-img/commit-message-small.png);"></a>
+                                    <div class="desc">
+                                        <span><i class="icon-calendar3"></i> January 27, 2018</span>
+                                        <h3><a href="#">Demystifying Consensus Algorithms</a></h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="side-wrap">
+                                <h2 class="sidebar-heading">Blockquote</h2>
+                                <blockquote>
+                                    <p>Let's decentralize the web! <b>"Knowing Is Not Enough, We Must Apply"</b></p>
+                                </blockquote>
+                            </div>
+                            <div class="side">
+                                <h2 class="sidebar-heading">Subscribe To My Newsletter</h2>
+                                <div class="row">
+                                    <div class="col-md-12 col-md-offset-0">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-email text-center" id="email" placeholder="Enter your email">
+                                            <button type="submit" class="btn btn-primary btn-subscribe">Subscribe</button>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        <ul class="colorlib-social-icons text-center">
+                                            <li><a href="https://t.me/realchainlife"><i class="icon-telegram"></i></a></li>
+                                            <li><a href="https://reddit.com/u/realchainlife"><i class="icon-reddit"></i></a></li>
+                                            <li><a href="https://github.com/realchainlife"><i class="icon-github"></i></a></li>
+                                            <li><a href="https://twitter.com/realchainlife"><i class="icon-twitter"></i></a></li>
+                                        </ul>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="side-wrap">
+                                <h2 class="sidebar-heading">Video Post</h2>
+                                <p>Juan explains why the web is in danger and how the Interplanetary Files System (IPFS) is creating 
+                                    a new way of sharing knowledge.
+                                </p>
+                                <div class="video colorlib-video" style="background-image: url(/blog/blog-img/ipfs.webp);">
+                                    <a href="https://www.youtube.com/watch?v=2RCwZDRwk48" class="popup-vimeo"><i class="icon-play"></i></a>
+                                    <div class="overlay"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+				</div>
+			</div>
+		</div>
+
+		<footer id="colorlib-footer" role="contentinfo">
+                <div class="overlay"></div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-12 col-md-offset-2 slider-text">
+                            <div class="slider-text-inner text-center">
+                                <p>
+                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                    <small class="block">&copy; <script>document.write(new Date().getFullYear());</script> Sonia John</small>
+                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
+	</div>
+	
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<!-- Flexslider -->
+	<script src="js/jquery.flexslider-min.js"></script>
+	<!-- Owl carousel -->
+	<script src="js/owl.carousel.min.js"></script>
+	<!-- Magnific Popup -->
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/magnific-popup-options.js"></script>
+	<!-- Main -->
+	<script src="js/main.js"></script>
+
+	</body>
+</html>
+
