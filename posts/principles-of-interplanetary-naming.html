@@ -105,46 +105,125 @@
 							</div>
 							<div class="desc">
 
-                                <p>IPFS uses [content-based addressing](/concepts/content-addressing/) to create an address of an object added on the network. This address or CID, a long string of seemingly random numbers and letters, is generated from the content of the object. If you were to share the IPFS address `/ipfs/QmbezGequPwcsWo8UL4wDF6a8hYwM1hmbzYv2mnKkEWaUp` with someone, not only is it hard to read, but you need to give the person a new link everytime you update the content.
+                                <p>IPFS uses content-based addressing to create an address of an object added on 
+                                    the network. This address or CID, a long string of seemingly random numbers 
+                                    and letters, is generated from the content of the object. If you were to share 
+                                    the IPFS address <code>/ipfs/QmbezGequPwcsWo8UL4wDF6a8hYwM1hmbzYv2mnKkEWaUp</code> 
+                                    with someone, not only is it hard to read, but you need to give the person a 
+                                    new link everytime you update the content.
                                 </p>
-                                <p>The InterPlanetary Naming System (IPNS) solves these issues by creating, reading, and updating mutable addresses. IPNS consists of a public/private asymmetric cryptographic key pair, a record type and a protocol. The protocol involves a routing layer that is used for the distribution and discovery of new or updated IPNS records.
+                                <p>The <b>InterPlanetary Naming System</b> (IPNS) solves these issues by creating, 
+                                    reading, and updating mutable addresses. IPNS consists of a public/private 
+                                    asymmetric cryptographic key pair, a record type and a protocol. The protocol 
+                                    involves a routing layer that is used for the distribution and discovery of new 
+                                    or updated IPNS records.
                                 </p>
                                 <h2>Structure of an IPNS Record</h2>
                                 <p>An IPNS record is a data structure containing the following fields: 
                                 </p>
                                 <ul type="square">
-                                    <li>`privateKey (PrivKey RSA Instance)`: is the key to be used for cryptographic operations.</li>
-                                    <li>`value (string)`: the ipfs path of the object to be published.</li>
-                                    <li>`sequenceNumber (Number)`: is the number representing the current version of the record.</li>
-                                    <li>`lifetime (string)`: is the lifetime of the record (in milliseconds).</li>
-                                    <li>`expiration (Date)`: is the date object for the record's End-of-Life/EOL.</li>
-                                    <li>`publicKey (PubKey RSA Instance)`: key to be used for cryptographic operations.</li>
+                                    <li><b>privateKey (PrivKey RSA Instance)</b>: is the key to be used for cryptographic operations.</li>
+                                    <li><b>value (string)</b>: the ipfs path of the object to be published.</li>
+                                    <li><b>sequenceNumber (Number)</b>: is the number representing the current version of the record.</li>
+                                    <li><b>lifetime (string)</b>: is the lifetime of the record (in milliseconds).</li>
+                                    <li><b>expiration (Date)</b>: is the date object for the record's End-of-Life/EOL.</li>
+                                    <li><b>publicKey (PubKey RSA Instance)</b>: key to be used for cryptographic operations.</li>
                                 </ul>
-                                <p>These records are stored locally, as well as republished by peers other than the peer that originated the record. This implies that as long as a peer has an IPNS record it can be made available to other peers. 
+                                <p>These records are stored locally, as well as republished by peers other than the 
+                                    peer that originated the record. This implies that as long as a peer has an IPNS 
+                                    record it can be made available to other peers. 
                                 </p>
-                                <p>Currently you can create two types of IPNS records, a _lifetime_ record or a record _with expiration_. On the IPNS node module for example, a lifetime record is created using the function:</p>
-                                <code>
-                                    ipns.create(privateKey, value, sequenceNumber, lifetime, [callback])
-                                </code>
+                                <p>Currently you can create two types of IPNS records, <i>a _lifetime_ record</i> or 
+                                    a <i>record _with_expiration</i>. On the IPNS node module for example, a lifetime 
+                                    record is created using the function:
+                                </p>
+                                <pre>ipns.create(privateKey, value, sequenceNumber, lifetime, [callback])</pre>
                                 <p>while an IPNS record with expiration is created using the function:</p>
-                                <code>
-                                    ipns.createWithExpiration(rsa, value, sequenceNumber, expiration, [callback])
-                                </code>
-                                <p>where the `callback (function)` is the operation result.</p>
+                                <pre>ipns.createWithExpiration(rsa, value, sequenceNumber, expiration, [callback])</pre>
+                                <p>where the <code>callback (function)</code> is the operation result.</p>
                                 <p>IPNS can also validate a record using the function:</p>
-                                <code>
-                                    ipns.validate(publicKey, ipnsEntry, [callback])
-                                </code>
-                                <p>where `ipnsEntry (Object)` is the ipns entry record (obtained using the create function) and `callback (function)` is the operation result.</p>
-                                <p>This structured data is stored using [Protocol Buffers](https://github.com/google/protobuf) which is a language-neutral, platform neutral extensible mechanism for serializing structured data.</p>
-                                <h2>Working with IPNS</h2>
-                                <p>IPNS provides a transport-agnostic and self-certifying way to resolve a _`name`_ to the most recent content published. A name in IPNS is the [hash](https://docs.ipfs.io/concepts/hashing) of a public key. It is associated with a record containing information about the hash it links to that is signed by the corresponding private key. New records can be signed and published at any time. 
+                                <pre>ipns.validate(publicKey, ipnsEntry, [callback])</pre>
+                                <p>where <code>ipnsEntry (Object)</code> is the ipns entry record (obtained using the 
+                                    create function) and `callback (function)` is the operation result.
                                 </p>
-                                <p>In both `publish` and `resolve`, the default name used is the node's own `PeerID`, which is the hash of its public key.</p>
+                                <p>This structured data is stored using Protocol Buffers which is a language-neutral, 
+                                    platform neutral extensible mechanism for serializing structured data.
+                                </p>
+                                <h2>Working with IPNS</h2>
+                                <p>IPNS provides a transport-agnostic and self-certifying way to resolve a <code>name</code> 
+                                    to the most recent content published. A name in IPNS is the hash of a public key. 
+                                    It is associated with a record containing information about the hash it links to 
+                                    that is signed by the corresponding private key. New records can be signed and 
+                                    published at any time. 
+                                </p>
+                                <p>In both <code>publish</code> and <code>resolve</code>, the default name used is 
+                                    the node's own <code>PeerID</code>, which is the hash of its public key.
+                                </p>
                                 <h2>Publish with IPNS</h2>
-                                <p>IPNS is accessible through the IPFS CLI, the command to publish an object takes the format `ipfs name publish <ipfs-path>` which returns the output `Published to <peer-id>: /ipfs/<ipfs-path>`. For instance if you want to publish an object `mysite` with the CID `QmatmE9msSfkKxof9Bud6YoPab52vpyfpHwNLNKgwZG8eT` run the command: </p>
-                                <code>ipfs name publish QmatmE9msSfkKxof9Bud6YoPab52vpyfpHwNLNKgwZG8eT</code>
-                                <p></p>
+                                <p>IPNS is accessible through the IPFS CLI, the command to publish an object takes 
+                                    the format <code>ipfs name publish _ipfs-path_</code> which returns the output 
+                                    <code>Published to _peer-id_: /ipfs/_ipfs-path_</code>. For instance if you want 
+                                    to publish an object <code>mysite</code> with the CID <code>QmatmE9msSfkKxof9Bud6YoPab52vpyfpHwNLNKgwZG8eT</code> 
+                                    run the command: 
+                                </p>
+                                <pre>ipfs name publish QmatmE9msSfkKxof9Bud6YoPab52vpyfpHwNLNKgwZG8eT</pre>
+                                <p>this will run for a few minutes and return:</p>
+                                <pre>Published to QmSrPmbaUKA3ZodhzPWZnpFgcPMFWF4QsxXbkWfEptTBJd: /ipfs/QmatmE9msSfkKxof9Bud6YoPab52vpyfpHwNLNKgwZG8eT</pre>
+                                <h2>Resolve using IPNS</h2>
+                                <p>If you need to change or update the content on your site, add the new site version 
+                                    to ipfs and publish it again. You can do this by running:
+                                </p>
+                                <pre>ipfs add -r my-site/ </pre>
+                                <pre>ipfs name publish _new-cid_</pre>
+                                <p>You can check the current CID linked to your peerID by running the command:</p>
+                                <pre>ipfs name resolve QmSrPmbaUKA3ZodhzPWZnpFgcPMFWF4QsxXbkWfEptTBJd</pre>
+                                <p>which returns the link to your latest published site with the format</p>
+                                <pre>/ipfs/QmSiTko9JZyabH56y2fussEt1A5oDqsFXB3CkvAqraFryz</pre>
+                                <p>You can also resolve the value of other names or PeerIDs using the same command 
+                                    <code>ipfs name resolve _peerId_</code>.
+                                </p>
+                                <p>When looking up an IPNS address, use the <code>/ipns/</code> prefix, for instance:</p>
+                                <pre>/ipns/QmSrPmbaUKA3ZodhzPWZnpFgcPMFWF4QsxXbkWfEptTBJd</pre>
+                                <p>In the same way, you can republish a new version of your website under the same address. 
+                                    By default, <code>ipfs name publish</code> will use the Peer ID for updating the IPNS 
+                                    record.
+                                </p>
+                                <p>IPNS can also resolve IPFS sites mapped to domains like <code>.eth</code>, <code>.crypto</code>, 
+                                    and <code>.zil</code>. To resolve a site mapped on .eth for instance, simply run:
+                                </p>
+                                <pre>ipfs resolve -r /ipns/RandomPlanetFacts.eth</pre>
+                                <pre>> /ipfs/QmW7S5HRLkP4XtPNyT1vQSjP3eRdtZaVtF6FAPvUfduMjA</pre>
+                                <h2>Using IPFS Key</h2>
+                                <p>You can also use different keys for different content and/or contexts. For example, 
+                                    you could publish a website using one key, and a blog using another. Use the 
+                                    <code>ipfs key</code> command to list and generate more names and their respective keys.
+                                </p>
+                                <p>To generate a new key for an object, <code>myblog</code> run the command:</p>
+                                <pre>ipfs key gen --type=rsa --size=2048 myblog</pre>
+                                <p>This will generate a 2048 bit RSA keypair and the resulting hash will be associated 
+                                    with the object to publish.
+                                </p>
+                                <p>You can publish the object <code>myblog</code> using the command:</p>
+                                <pre>ipfs name publish --key=myblog _cid-to-myblog_</pre>
+                                <p>Example:</p>
+                                <pre>
+                                    $ ipfs key gen --type=rsa --size=2048 myblog
+                                    $ ipfs name publish --key=myblog /ipfs/QmatmE9msSfkKxoffpHwNLNKgwZG8eT9Bud6YoPab52vpy
+                                    Published to QmSrPmbaUKA3ZodhzPWZnpFgcPMFWF4QsxXbkWfEptTBJd: /ipfs/QmatmE9msSfkKxoffpHwNLNKgwZG8eT9Bud6YoPab52vpy
+                                </pre>
+                                <h2>Alternatives to IPNS</h2>
+                                <p>IPNS is not the only way to create mutable addresses on IPFS. Work is still going on 
+                                    to optimize naming in IPFS and enable browsing of <code>/ipfs</code> and <code>/ipns</code> 
+                                    paths. Some services have already launched efforts to bridge this gap.
+                                </p>
+                                <p>Opera for Android has added built-in default support for IPFS with a native handler for 
+                                    <code>ipfs://</code> addresses that redirects to the HTTP gateway of your choosing.
+                                    You can register decentralized domain names that map to IPFS addresses using services 
+                                    like Unstoppable Domains or the Ethereum Name System (ENS).
+                                </p>
+                                <p>You can also use DNSLink, which is currently much faster than IPNS and also uses more 
+                                    human-readable names.
+                                </p>
 							</div>
                         </article>
                         
@@ -153,15 +232,14 @@
 					<aside class="sidebar">
                         <div class="side">
                             <h2 class="sidebar-heading">About Me</h2>
-                            <p>Hi there, I’m Sonia John. I am an independent <b>Dapp & Protocol Developer</b>, <b>writer</b> 
-                                and <b>speaker</b> from the Africa. I <a href="/blog/archive/">write</a>, <a href="https://twitter.com/realchainlife">tweet</a>, 
-                                <a href="/portfolio/speaking.html">speak</a> and <a href="http://github.com/realchainlife">share code</a> about building 
-                                decentralized systems. We can <a href="/contact/">work together</a>
-                            </p>
+                            <p>Hi there, I’m Sonia John. I'm a <b>blockchain developer</b>, <b>writer</b> 
+								and <b>speaker</b> from the Africa. I <a href="/archive/">write</a>, <a href="https://twitter.com/realchainlife">tweet</a>, 
+								speak and <a href="http://github.com/realchainlife">share code</a> about building 
+								decentralized systems. We can work together!
+							</p>
                             <p>
                                 <ul class="colorlib-social-icons">
                                     <li><a href="https://t.me/realchainlife"><i class="icon-telegram"></i></a></li>
-                                    <li><a href="https://reddit.com/u/realchainlife"><i class="icon-reddit"></i></a></li>
                                     <li><a href="https://github.com/realchainlife"><i class="icon-github"></i></a></li>
                                     <li><a href="https://twitter.com/realchainlife"><i class="icon-twitter"></i></a></li>
                                 </ul>
@@ -183,41 +261,39 @@
                                     <li><a href=""><strong>Kernel, by Gitcoin</strong></a> – Remote, July 2020</li>
                                     <li><a href=""><strong>IPFS Meetup</strong></a> – Harare, August 2020</li>
                                     <li><a href=""><strong>Apollo, by Gitcoin & PL</strong></a> – Remote, September 2020</li>
-                                    <li><a href=""><strong>Grant For The Web</strong></a> – Remote, October 2020</li>
                                 </ul>
                             </div>
-                            <div class="side-wrap">
-                                <h2 class="sidebar-heading">Popular Posts</h2>
-                                <div class="f-entry">
-                                    <a href="#" class="featured-img" style="background-image: url(/blog/blog-img/blog_01.png);"></a>
-                                    <div class="desc">
-                                        <span><i class="icon-calendar3"> December 16, 2019</i> </span>
-                                        <h3><a href="/blog/posts/2020-outlook-for-decentralised-and-distributed-protocols.html">2020 Outlook For Distributed Protocols</a></h3>
-                                    </div>
-                                </div>
-                                <div class="f-entry">
-                                    <a href="#" class="featured-img" style="background-image: url(/blog/blog-img/open-source-ecosystem.png);"></a>
-                                    <div class="desc">
-                                        <span><i class="icon-calendar3"></i> October 15, 2019</span>
-                                        <h3><a href="/blog/posts/economic-models-for-open-source-in-africa.html">Economic Models for Open Source in Africa</a></h3>
-                                    </div>
-                                </div>
-                                <div class="f-entry">
-                                    <a href="#" class="featured-img" style="background-image: url(/blog/blog-img/factory24.png);"></a>
-                                    <div class="desc">
-                                        <span><i class="icon-calendar3"></i> May 26, 2019</span>
-                                        <h3><a href="/blog/posts/introducing-afrolynk-factory24.html">Introducing Afrolynk's Factory24</a></h3>
-                                    </div>
-                                </div>
-                                <div class="f-entry">
-                                    <a href="#" class="featured-img" style="background-image: url(/blog/blog-img/screenshot-ff-import-blocked-by-js.png);"></a>
-                                    <div class="desc">
-                                        <span><i class="icon-calendar3"></i> March 18, 2018</span>
-                                    </span>
-                                        <h3><a href="/blog/posts/lets-decentralize-the-web.html">Let's Decentralize The Web</a></h3>
-                                    </div>
-                                </div>
-                            </div>
+							<div class="side-wrap">
+							<h2 class="sidebar-heading">Popular Posts</h2>
+							<div class="f-entry">
+								<a href="#" class="featured-img" style="background-image: url(/blog-img/code.jpeg);"></a>
+								<div class="desc">
+									<span><i class="icon-calendar3"> December 10, 2020</i> </span>
+									<h3><a href="/posts/learning-to-code.html">Learning to Code: the Good, the Hard & the Exhilarating</a></h3>
+								</div>
+							</div>
+							<div class="f-entry">
+								<a href="#" class="featured-img" style="background-image: url(/blog-img/hero.jpg);"></a>
+								<div class="desc">
+									<span><i class="icon-calendar3"></i> August 21, 2020</span>
+									<h3><a href="https://github.com/readme/sonia-john">Me, My Computer and the Will to Act</a></h3>
+								</div>
+							</div>
+							<div class="f-entry">
+								<a href="#" class="featured-img" style="background-image: url(/blog-img/libp2p.jpg);"></a>
+								<div class="desc">
+									<span><i class="icon-calendar3"></i> May 12, 2020</span>
+									<h3><a href="https://hackernoon.com/exploring-libp2p-pubsub-protocol-implementations-891i32jq">Exploring Libp2p PubSub Protocol Implementations</a></h3>
+								</div>
+							</div>
+							<div class="f-entry">
+								<a href="#" class="featured-img" style="background-image: url(/blog-img/cybersecurity.jpeg);"></a>
+								<div class="desc">
+									<span><i class="icon-calendar3"></i> January 27, 2020</span>
+								</span>
+									<h3><a href="https://hackernoon.com/mapping-cybersecurity-for-the-distributed-web-h64y339x">Mapping Cybersecurity For The Distributed Web</a></h3>
+								</div>
+							</div>
                             <div class="side-wrap">
                                 <h2 class="sidebar-heading">Blockquote</h2>
                                 <blockquote>
