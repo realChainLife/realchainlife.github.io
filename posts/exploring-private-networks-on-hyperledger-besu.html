@@ -104,6 +104,21 @@
                                     involves a routing layer that is used for the distribution and discovery of new 
                                     or updated IPNS records.
                                 </p>
+                                <p>In this post we will cover how to run a four-validator private network on 
+                                    Hyperledger Besu. We'll start by setting up the dev-environment, install 
+                                    Besu, and use IBFT 2.0 (<i>Proof-of-authority</i>) to create the private 
+                                    network.
+                                </p>
+                                <h2>Set up environment</h2>
+                                <h4>Install HomeBrew</h4>
+                                <pre>
+                                    $ sudo apt-get install build-essential curl file git
+                                    $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+                                    $ test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
+                                    $ test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+                                    $ test -r ~/.bash_profile && echo eval" ($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
+                                    $ echo "eval $($(brew --prefix)/bin/brew shellenv)" >>~/.profile
+                                </pre>
                                 <h2>Structure of an IPNS Record</h2>
                                 <p>An IPNS record is a data structure containing the following fields: 
                                 </p>
