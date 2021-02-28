@@ -66,7 +66,7 @@
 				<div class="container-fluid">
                     <div class="row">
                         <div class="col-xs-2">
-                            <div id="logo"><a href="/"><img src="/blog/blog-img/logo.png" alt=""></a></div>
+                            <div id="logo"><a href="/"><img src="/blog-img/logo.png" alt=""></a></div>
                         </div>
                         <div class="col-xs-10 text-right menu-1">
 							<ul>
@@ -92,7 +92,7 @@
 							<div class="desc">
 
                                 <p>The Hyperledger suite of products has been developed over the years to become 
-                                    the multiple inudtry standard for enterprise blockchain utilization. 
+                                    the multiple industry standard for enterprise blockchain utilization. 
                                 </p>
                                 <p>In this post we will cover how to run a four-validator private network on 
                                     Hyperledger Besu. We'll start by setting up the dev-environment, install 
@@ -100,122 +100,159 @@
                                     network.
                                 </p>
                                 <h2>Set up environment</h2>
-                                <h4>Install HomeBrew</h4>
+                                <h4><b>Install HomeBrew</b></h4>
                                 <pre>
-                                    $ sudo apt-get install build-essential curl file git
-                                    $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-                                    $ test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
-                                    $ test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-                                    $ test -r ~/.bash_profile && echo eval" ($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
-                                    $ echo "eval $($(brew --prefix)/bin/brew shellenv)" >>~/.profile
-                                </pre>
-                                <h2>Structure of an IPNS Record</h2>
-                                <p>An IPNS record is a data structure containing the following fields: 
+$ sudo apt-get install build-essential curl file git
+$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+$ test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
+$ test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+$ test -r ~/.bash_profile && echo eval" ($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
+$ echo "eval $($(brew --prefix)/bin/brew shellenv)" >>~/.profile</pre>
+                                <h4><b>Install Java JDK</b></h4>
+                                <pre>
+$ sudo apt install openjdk-11-jdk
+$ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+$ echo $JAVA_HOME
+$ export PATH=$PATH:$JAVA_HOME/bin
+$ echo $PATH
+$ java -version</pre>
+                                <h2>Install Hyperledger Besu using Homebrew</h2>
+                                <pre>
+$ brew tap hyperledger/besu 
+$ brew install hyperledger/besu/besu</pre>
+                                <h2>Create a Private Network using the IBFT 2.0</h2>
+                                <h4><b>Create Directories</b></h4>
+                                <pre>
+IBFT-Network/
+  ├── Node-1
+  │   ├── data
+  ├── Node-2
+  │   ├── data
+  ├── Node-3
+  │   ├── data
+  └── Node-4
+      ├── data</pre>
+                                <h4><b>Create a configuration file <code>ibftConfigFile.json</b></code></h4>
+                                <pre>
+{
+    "genesis": {
+        "config": {
+            "chainId": 2018,
+            "muirglacierblock": 0,
+            "ibft2": {
+                "blockperiodseconds": 2,
+                "epochlength": 30000,
+                "requesttimeoutseconds": 4
+            }
+        },
+        "nonce": "0x0",
+        "timestamp": "0x58ee40ba",
+        "gasLimit": "0x47b760",
+        "difficulty": "0x1",
+        "mixHash": "0x63746963616c2062797a616e74696e65206661756c7420746f6c6572616e6365",
+        "coinbase": "0x0000000000000000000000000000000000000000",
+        "alloc": {
+            "fe3b557e8fb62b89f4916b721be55ceb828dbd73": {
+                "privateKey": "8f2a55949038a9610f50fb23b5883af3b4ecb3c3bb792cbcefbd1542c692be63",
+                "comment": "private key and this comment are ignored.  In a real chain, the private key should NOT be stored",
+                "balance": "0xad78ebc5ac6200000"
+            },
+            "627306090abaB3A6e1400e9345bC60c78a8BEf57": {
+                "privateKey": "c87509a1c067bbde78beb793e6fa76530b6382a4c0241e5e4a9ec0a0f44dc0d3",
+                "comment": "private key and this comment are ignored.  In a real chain, the private key should NOT be stored",
+                "balance": "90000000000000000000000"
+            },
+            "f17f52151EbEF6C7334FAD080c5704D77216b732": {
+                "privateKey": "ae6ae8e5ccbfb04590405997ee2d52d2b330726137b875053c36d94e974d162f",
+                "comment": "private key and this comment are ignored.  In a real chain, the private key should NOT be stored",
+                "balance": "90000000000000000000000"
+            }
+        }
+    },
+    "blockchain": {
+        "nodes": {
+          "generate": true,
+            "count": 4
+        }
+    }
+}</pre>
+                                <h4><b>Generate node keys and a genesis file</b></h4>
+                                <pre>besu operator generate-blockchain-config --config-file=ibftConfigFile.json --to=networkFiles --private-key-file-name=key</pre>
+                                <p>Copy the genesis file, <code>genesis.json</code> to the <code>IBFT-Network</code> 
+                                    directory.</p>
+                                <p>Copy the node private keys to the node directory. For each node, copy the key 
+                                    files to the <code>data</code> directory for each node.</p>
+                                <pre>
+IBFT-Network/
+├── genesis.json
+├── Node-1
+│   ├── data
+│   │    ├── key
+│   │    ├── key.pub
+├── Node-2
+│   ├── data
+│   │    ├── key
+│   │    ├── key.pub
+├── Node-3
+│   ├── data
+│   │    ├── key
+│   │    ├── key.pub
+├── Node-4
+│   ├── data
+│   │    ├── key
+│   │    ├── key.pub</pre>
+                                <h4><b>Start <code>Node-1</code> as the bootnode</b></h4>
+                                <pre>besu --data-path=data --genesis-file=../genesis.json --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all"</pre>
+                                <p>When the node starts, copy the <code>enode URL</code> which we will use 
+                                    to specify Node-1 as the bootnode for the next steps.
+                                </p>
+                                <figure data-rt-type="image" data-rt-align="center" data-rt-max-width="60" class="w-richtext-align-center" 
+                                    style="max-width: 60%;" data-rt-max-height="33.75">
+                                    <div><img src="/blog-img/start-node-1.png" alt=""></div>
+                                    <figcaption></figcaption>
+                                </figure>
+                                <h4><b>Start Node-2</b></h4>
+                                <pre>besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546</pre>
+                                <figure data-rt-type="image" data-rt-align="center" data-rt-max-width="60" class="w-richtext-align-center" 
+                                    style="max-width: 60%;" data-rt-max-height="33.75">
+                                    <div><img src="/blog-img/start-node-2.png" alt=""></div>
+                                    <figcaption></figcaption>
+                                </figure>
+                                <h4><b>Start Node-3</b></h4>
+                                <pre>besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547</pre>
+                                <h4><b>Start Node-4</b></h4>
+                                <pre>besu --data-path=data --genesis-file=../genesis.json --bootnodes=<Node-1 Enode URL> --p2p-port=30306 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8548</pre>
+                                <figure data-rt-type="image" data-rt-align="center" data-rt-max-width="60" class="w-richtext-align-center" 
+                                    style="max-width: 60%;" data-rt-max-height="33.75">
+                                    <div><img src="/blog-img/start-node-3-and-4.png" alt=""></div>
+                                    <figcaption></figcaption>
+                                </figure> 
+                                <h4><b>Confirm the Private Network is working</b></h4>
+                                <pre>curl -X POST --data '{"jsonrpc":"2.0","method":"ibft_getValidatorsByBlockNumber","params":["latest"], "id":1}' localhost:8545</pre>
+                                <p>The result displays the four validators:</p>
+                                <pre>
+{
+    "jsonrpc" : "2.0",
+    "id" : 1,
+     "result" : [ "0x1e326b6da177ede2d3eb6d7247bd9f6901d40234", "0x4aaac297fefe4466ebcb0b23ab90c5f466b11556", "0xa267ead2e91e1673e0943b925176b51d9cd4f6d2", "0xe3e680bc0ff485d1d415a384721f19e0db65fea7" ]
+}</pre>
+                                <P>In these simple to follow steps you've created a private network that can send 
+                                    transactions over the Ethereum Network. To test this out, you can use this 
+                                    guide on sending transactions with <a href="https://besu.hyperledger.org/en/stable/Tutorials/Examples/Private-Network-Example/#create-a-transaction-using-metamask"><b>MetaMask</b></a>.
+                                </P>
+                                <p>Besides its high-performance transaction processing capacity, with Hyperledger 
+                                    Besu entreprises can leverage more benefits including: 
                                 </p>
                                 <ul type="square">
-                                    <li><b>privateKey (PrivKey RSA Instance)</b>: is the key to be used for cryptographic operations.</li>
-                                    <li><b>value (string)</b>: the ipfs path of the object to be published.</li>
-                                    <li><b>sequenceNumber (Number)</b>: is the number representing the current version of the record.</li>
-                                    <li><b>lifetime (string)</b>: is the lifetime of the record (in milliseconds).</li>
-                                    <li><b>expiration (Date)</b>: is the date object for the record's End-of-Life/EOL.</li>
-                                    <li><b>publicKey (PubKey RSA Instance)</b>: key to be used for cryptographic operations.</li>
+                                    <li>Secure application (Dapp) development, </li>
+                                    <li>Enterprise privacy and permissioning, </li>
+                                    <li>Ether mining, & smart contract development.</li>
                                 </ul>
-                                <p>These records are stored locally, as well as republished by peers other than the 
-                                    peer that originated the record. This implies that as long as a peer has an IPNS 
-                                    record it can be made available to other peers. 
+                                <p>Additionally, Besu also supports tools like <code>Truffle</code>, <code>Remix</code>, 
+                                     <code>Web3j</code> and JSON-RPC API methods such as <code>eth</code>, <code>web3</code>, 
+                                     <code>debug</code>, and <code>miner</code>. 
                                 </p>
-                                <p>Currently you can create two types of IPNS records, <i>a _lifetime_ record</i> or 
-                                    a <i>record _with_expiration</i>. On the IPNS node module for example, a lifetime 
-                                    record is created using the function:
-                                </p>
-                                <pre>ipns.create(privateKey, value, sequenceNumber, lifetime, [callback])</pre>
-                                <p>while an IPNS record with expiration is created using the function:</p>
-                                <pre>ipns.createWithExpiration(rsa, value, sequenceNumber, expiration, [callback])</pre>
-                                <p>where the <code>callback (function)</code> is the operation result.</p>
-                                <p>IPNS can also validate a record using the function:</p>
-                                <pre>ipns.validate(publicKey, ipnsEntry, [callback])</pre>
-                                <p>where <code>ipnsEntry (Object)</code> is the ipns entry record (obtained using the 
-                                    create function) and `callback (function)` is the operation result.
-                                </p>
-                                <p>This structured data is stored using Protocol Buffers which is a language-neutral, 
-                                    platform neutral extensible mechanism for serializing structured data.
-                                </p>
-                                <h2>Working with IPNS</h2>
-                                <p>IPNS provides a transport-agnostic and self-certifying way to resolve a <code>name</code> 
-                                    to the most recent content published. A name in IPNS is the hash of a public key. 
-                                    It is associated with a record containing information about the hash it links to 
-                                    that is signed by the corresponding private key. New records can be signed and 
-                                    published at any time. 
-                                </p>
-                                <p>In both <code>publish</code> and <code>resolve</code>, the default name used is 
-                                    the node's own <code>PeerID</code>, which is the hash of its public key.
-                                </p>
-                                <h2>Publish with IPNS</h2>
-                                <p>IPNS is accessible through the IPFS CLI, the command to publish an object takes 
-                                    the format <code>ipfs name publish _ipfs-path_</code> which returns the output 
-                                    <code>Published to _peer-id_: /ipfs/_ipfs-path_</code>. For instance if you want 
-                                    to publish an object <code>mysite</code> with the CID <code>QmatmE9msSfkKxof9Bud6YoPab52vpyfpHwNLNKgwZG8eT</code> 
-                                    run the command: 
-                                </p>
-                                <pre>ipfs name publish QmatmE9msSfkKxof9Bud6YoPab52vpyfpHwNLNKgwZG8eT</pre>
-                                <p>this will run for a few minutes and return:</p>
-                                <pre>Published to QmSrPmbaUKA3ZodhzPWZnpFgcPMFWF4QsxXbkWfEptTBJd: /ipfs/QmatmE9msSfkKxof9Bud6YoPab52vpyfpHwNLNKgwZG8eT</pre>
-                                <h2>Resolve using IPNS</h2>
-                                <p>If you need to change or update the content on your site, add the new site version 
-                                    to ipfs and publish it again. You can do this by running:
-                                </p>
-                                <pre>ipfs add -r my-site/ </pre>
-                                <pre>ipfs name publish _new-cid_</pre>
-                                <p>You can check the current CID linked to your peerID by running the command:</p>
-                                <pre>ipfs name resolve QmSrPmbaUKA3ZodhzPWZnpFgcPMFWF4QsxXbkWfEptTBJd</pre>
-                                <p>which returns the link to your latest published site with the format</p>
-                                <pre>/ipfs/QmSiTko9JZyabH56y2fussEt1A5oDqsFXB3CkvAqraFryz</pre>
-                                <p>You can also resolve the value of other names or PeerIDs using the same command 
-                                    <code>ipfs name resolve _peerId_</code>.
-                                </p>
-                                <p>When looking up an IPNS address, use the <code>/ipns/</code> prefix, for instance:</p>
-                                <pre>/ipns/QmSrPmbaUKA3ZodhzPWZnpFgcPMFWF4QsxXbkWfEptTBJd</pre>
-                                <p>In the same way, you can republish a new version of your website under the same address. 
-                                    By default, <code>ipfs name publish</code> will use the Peer ID for updating the IPNS 
-                                    record.
-                                </p>
-                                <p>IPNS can also resolve IPFS sites mapped to domains like <code>.eth</code>, <code>.crypto</code>, 
-                                    and <code>.zil</code>. To resolve a site mapped on .eth for instance, simply run:
-                                </p>
-                                <pre>ipfs resolve -r /ipns/RandomPlanetFacts.eth</pre>
-                                <pre>> /ipfs/QmW7S5HRLkP4XtPNyT1vQSjP3eRdtZaVtF6FAPvUfduMjA</pre>
-                                <h2>Using IPFS Key</h2>
-                                <p>You can also use different keys for different content and/or contexts. For example, 
-                                    you could publish a website using one key, and a blog using another. Use the 
-                                    <code>ipfs key</code> command to list and generate more names and their respective keys.
-                                </p>
-                                <p>To generate a new key for an object, <code>myblog</code> run the command:</p>
-                                <pre>ipfs key gen --type=rsa --size=2048 myblog</pre>
-                                <p>This will generate a 2048 bit RSA keypair and the resulting hash will be associated 
-                                    with the object to publish.
-                                </p>
-                                <p>You can publish the object <code>myblog</code> using the command:</p>
-                                <pre>ipfs name publish --key=myblog _cid-to-myblog_</pre>
-                                <p>Example:</p>
-                                <pre>
-                                    $ ipfs key gen --type=rsa --size=2048 myblog
-                                    $ ipfs name publish --key=myblog /ipfs/QmatmE9msSfkKxoffpHwNLNKgwZG8eT9Bud6YoPab52vpy
-                                    Published to QmSrPmbaUKA3ZodhzPWZnpFgcPMFWF4QsxXbkWfEptTBJd: /ipfs/QmatmE9msSfkKxoffpHwNLNKgwZG8eT9Bud6YoPab52vpy
-                                </pre>
-                                <h2>Alternatives to IPNS</h2>
-                                <p>IPNS is not the only way to create mutable addresses on IPFS. Work is still going on 
-                                    to optimize naming in IPFS and enable browsing of <code>/ipfs</code> and <code>/ipns</code> 
-                                    paths. Some services have already launched efforts to bridge this gap.
-                                </p>
-                                <p>Opera for Android has added built-in default support for IPFS with a native handler for 
-                                    <code>ipfs://</code> addresses that redirects to the HTTP gateway of your choosing.
-                                    You can register decentralized domain names that map to IPFS addresses using services 
-                                    like Unstoppable Domains or the Ethereum Name System (ENS).
-                                </p>
-                                <p>You can also use DNSLink, which is currently much faster than IPNS and also uses more 
-                                    human-readable names.
-                                </p>
-							</div>
+                            </div>
                         </article>
                         
 					</div>
