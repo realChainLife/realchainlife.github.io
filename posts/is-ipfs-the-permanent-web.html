@@ -259,7 +259,7 @@
                                       <blockquote class="pull-quote  pull-quote--context">
                                         <p>IPFS is The Permanent Web, where links do not die</p>
                                         <b class="pull-quote__source">
-                                          <a href="">realChainʕ •ᴥ•ʔ</a>
+                                          <a href="">Isaac Newton, probably</a>
                                         </b>
                                       </blockquote>
                                       <p>The IPFS network becomes a finely-grained, trustless, distributed, easily federated 
@@ -312,15 +312,15 @@
                                       <p>Before using IPFS for the first time you'll need to <i>initialize</i> the repository with the 
                                         <strong>ipfs init</strong> command:
                                       </p>
-                                      <pre>
-                                        ipfs init
-                                        initializing ipfs node at /Users/realchainlife/.go-ipfs
-                                        generating 2048-bit RSA keypair...done
-                                        peer identity: QmU6vXuNb6P7H8hwrbNPWiLBikrdf1d6Q9kLAhEK4Kcmub
-                                        to get started, enter:
+<pre>
+    ipfs init
+    initializing ipfs node at /Users/realchainlife/.go-ipfs
+    generating 2048-bit RSA keypair...done
+    peer identity: QmU6vXuNb6P7H8hwrbNPWiLBikrdf1d6Q9kLAhEK4Kcmub
+    to get started, enter:
                               
-                                          ipfs cat /ipfs/QmqaxZwuMiUhyvYycToWiUfMtowAPMcX9Ba8nUH4Jz3Xf2/readme
-                                      </pre>
+      ipfs cat /ipfs/QmqaxZwuMiUhyvYycToWiUfMtowAPMcX9Ba8nUH4Jz3Xf2/readme
+</pre>
                                       <p>The <i>repository</i> is a directory that's used by ipfs to stores all its settings and internal 
                                         data. Run the suggested output command:
                                       </p>
@@ -339,25 +339,25 @@
                                         things online; but first we'll start by creating a directory <i>ipfsdirectory</i> and writing a 
                                         simple <i>hello.txt</i> file with the content <i>Hello World</i> 
                                       </p>
-                                      <pre>
-                                        $ mkdir ipfsdirectory
-                                        $ cd ipfsdirectory
-                                        $ touch hello.txt
-                                      </pre>
+<pre>
+    $ mkdir ipfsdirectory
+    $ cd ipfsdirectory
+    $ touch hello.txt
+</pre>
                                       <p>Now we can add this file to the IPFS:</p>
-                                      <pre>
-                                        $ ipfs add hello.txt 
+<pre>
+    $ ipfs add hello.txt 
                                 
-                                        added QmqaxZwuMiUhyvYycToWiUfMtowAPMcX9Ba8nUH4Jz3Xf2 hello.txt
-                                      </pre>
+     added QmqaxZwuMiUhyvYycToWiUfMtowAPMcX9Ba8nUH4Jz3Xf2 hello.txt
+</pre>
                                       <p>For other nodes on the IPFS network to know they can access the file from our machine, we 
                                         need to pin the file we just added:
                                       </p>
-                                      <pre>
-                                        $ ipfs pin add QmqaxZwuMiUhyvYycToWiUfMtowAPMcX9Ba8nUH4Jz3Xf2
+<pre>
+    $ ipfs pin add QmqaxZwuMiUhyvYycToWiUfMtowAPMcX9Ba8nUH4Jz3Xf2
                               
-                                        pinned QmqaxZwuMiUhyvYycToWiUfMtowAPMcX9Ba8nUH4Jz3Xf2 recursively
-                                      </pre>
+    pinned QmqaxZwuMiUhyvYycToWiUfMtowAPMcX9Ba8nUH4Jz3Xf2 recursively
+</pre>
                                       <p>Now the file no-longer exists only on our local machine.</p>
                                       <h3>Connect IPFS Node to the IPFS Network</h3>
                                       <p>By this point we have successfully downloaded, initialized, added and pinned a file on the 
@@ -370,22 +370,22 @@
                                         $ ipfs daemon
                                       </pre>
                                       <p>and expect an output similar to this:</p>
-                                      <pre>
-                                        Initializing daemon...
-                                        Adjusting current ulimit to 2048...
-                                        Successfully raised file descriptor limit to 2048.
-                                        Swarm listening on /ip4/127.0.0.1/tcp/4001
-                                        Swarm listening on /ip4/192.168.0.101/tcp/4001
-                                        Swarm listening on /ip6/::1/tcp/4001
-                                        Swarm listening on /p2p-circuit/ipfs/QmqaxZwuMiUhyvYycToWiUfMtowAPMcX9Ba8nUH4Jz3Xf2
-                                        Swarm announcing /ip4/127.0.0.1/tcp/4001
-                                        Swarm announcing /ip4/192.168.0.101/tcp/4001
-                                        Swarm announcing /ip4/71.75.18.38/tcp/23917
-                                        Swarm announcing /ip6/::1/tcp/4001
-                                        API server listening on /ip4/127.0.0.1/tcp/5001
-                                        Gateway (readonly) server listening on /ip4/127.0.0.1/tcp/8080
-                                        Daemon is ready
-                                      </pre>
+<pre>
+    Initializing daemon...
+    Adjusting current ulimit to 2048...
+    Successfully raised file descriptor limit to 2048.
+    Swarm listening on /ip4/127.0.0.1/tcp/4001
+    Swarm listening on /ip4/192.168.0.101/tcp/4001
+    Swarm listening on /ip6/::1/tcp/4001
+    Swarm listening on /p2p-circuit/ipfs/QmqaxZwuMiUhyvYycToWiUfMtowAPMcX9Ba8nUH4Jz3Xf2
+    Swarm announcing /ip4/127.0.0.1/tcp/4001
+    Swarm announcing /ip4/192.168.0.101/tcp/4001
+    Swarm announcing /ip4/71.75.18.38/tcp/23917
+    Swarm announcing /ip6/::1/tcp/4001
+    API server listening on /ip4/127.0.0.1/tcp/5001
+    Gateway (readonly) server listening on /ip4/127.0.0.1/tcp/8080
+    Daemon is ready
+</pre>
                                       <p>Once you’re connected to the network, you can search peer connections when you run:</p>
                                       <pre>
                                         $ ipfs swarm peers
