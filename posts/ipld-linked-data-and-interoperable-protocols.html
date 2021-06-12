@@ -180,7 +180,7 @@
                                 <p>The newly created DAG for your upload will look similar to this:</p>
                                 <figure data-rt-type="image" data-rt-align="center" data-rt-max-width="60" class="w-richtext-align-center" 
                                     style="max-width: 60%;" data-rt-max-height="33.75">
-                                    <div><img src="/blog/blog-img/new-dag.png" alt=""></div>
+                                    <div><img src="/blog-img/new-dag.png" alt=""></div>
                                     <figcaption>Illustration: IPFS Merkle DAG</figcaption>
                                 </figure>
                                 <p>As illustrated above, the benefits of using a DAG to represent data in IPFS is very clear, 
@@ -218,13 +218,13 @@
                                     when a network request for this file is made, different peers share a different chunk of 
                                     the image which is put together by the requesting peer.
                                 </p>
-                                <pre>
-                                    Hash                                           Size   Name
-                                    QmPHPs1P3JaWi53q5qqiNauPhiTqa3S1mbszcVPHKGNWRh 262158 
-                                    QmPCuqUTNb21VDqtp5b8VsNzKEMtUsZCCVsEUBrjhERRSR 262158 
-                                    QmS7zrNSHEt5GpcaKrwdbnv1nckBreUxWnLaV4qivjaNr3 262158 
-                                    QmQQhY1syuqo9Sq6wLFAupHBEeqfB8jNnzYUSgZGARJrYa 76151
-                                </pre>
+<pre>
+    Hash                                           Size   Name
+    QmPHPs1P3JaWi53q5qqiNauPhiTqa3S1mbszcVPHKGNWRh 262158 
+    QmPCuqUTNb21VDqtp5b8VsNzKEMtUsZCCVsEUBrjhERRSR 262158 
+    QmS7zrNSHEt5GpcaKrwdbnv1nckBreUxWnLaV4qivjaNr3 262158 
+    QmQQhY1syuqo9Sq6wLFAupHBEeqfB8jNnzYUSgZGARJrYa 76151
+</pre>
                                 <p>You can also use this super new and fun tool to explore DAGs (IPLD obejcts) in the browser. 
                                     Check out the git example for a fun one. Or even better, explore the above DAG object.
                                 </p>
@@ -232,15 +232,15 @@
                                     use the following code to <i>manually</i> join the chunks together to create the image file — which 
                                     is essentially what cat is doing in the background when you reference the base CID:
                                 </p>
-                                <pre>
-                                    ipfs cat \
-                                    QmPHPs1P3JaWi53q5qqiNauPhiTqa3S1mbszcVPHKGNWRh \
-                                    QmPCuqUTNb21VDqtp5b8VsNzKEMtUsZCCVsEUBrjhERRSR \
-                                    QmS7zrNSHEt5GpcaKrwdbnv1nckBreUxWnLaV4qivjaNr3 \
-                                    QmQQhY1syuqo9Sq6wLFAupHBEeqfB8jNnzYUSgZGARJrYa \
-                                    > cat-cosmos.jpg
-                                    open cat-cosmos.jpg
-                                </pre>
+<pre>
+    ipfs cat \
+    QmPHPs1P3JaWi53q5qqiNauPhiTqa3S1mbszcVPHKGNWRh \
+    QmPCuqUTNb21VDqtp5b8VsNzKEMtUsZCCVsEUBrjhERRSR \
+    QmS7zrNSHEt5GpcaKrwdbnv1nckBreUxWnLaV4qivjaNr3 \
+    QmQQhY1syuqo9Sq6wLFAupHBEeqfB8jNnzYUSgZGARJrYa \
+    > cat-cosmos.jpg
+      open cat-cosmos.jpg
+</pre>
                                 <p>Alternatively, you could do this more succinctly using pipes again:</p>
                                 <pre>ipfs refs $hash | ipfs cat > test.jpg ; open test.jpg</pre>
                                 <p>There you go. It’s links all the way down. And on top of that we’ve learned a few many IPFS 
