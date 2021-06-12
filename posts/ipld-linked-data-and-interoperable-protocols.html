@@ -104,7 +104,7 @@
                                 </p>
                                 <figure data-rt-type="image" data-rt-align="center" data-rt-max-width="60" class="w-richtext-align-center" 
                                     style="max-width: 60%;" data-rt-max-height="33.75">
-                                    <div><img src="/blog/blog-img/content-multi-hashing.png" alt=""></div>
+                                    <div><img src="/blog-img/content-multi-hashing.png" alt=""></div>
                                     <figcaption>Illustration: IPFS Content Hashing, Source: Textile</figcaption>
                                 </figure>
                                 <p>In the example above, a cat photo added to the ipfs is hashed and added into the Merkle
@@ -124,14 +124,14 @@
                                     <li><strong>Size</strong> — cumulative size of linked IPFS object, including following its links</li>
                                 </ul>
                                 <p> An IPLD object looks something like this:</p>
-                                <pre>
-                                { 
-                                    "hello": "world",
-                                    "foo": {"/": "QmTz3oc4gdpRMKP2sdGUPZTAGRngqjsi99BPoztyP53JMM"},
-                                    "baz": [
-                                        {"/": "QmWg1Ux3cb3xCToGBCmZBNaMvpcFhTEEjb74fruG9uVHja"}
-                                    ]
-                                }
+<pre>
+{ 
+    "hello": "world",
+    "foo": {"/": "QmTz3oc4gdpRMKP2sdGUPZTAGRngqjsi99BPoztyP53JMM"},
+    "baz": [
+        {"/": "QmWg1Ux3cb3xCToGBCmZBNaMvpcFhTEEjb74fruG9uVHja"}
+    ]
+}
                                 </pre>
                                 <p>The basic idea is that any valid CBOR object (and subsequently, any valid JSON object 
                                     since they map 1-to-1) can be an IPLD object. On top of that, theres a special format 
