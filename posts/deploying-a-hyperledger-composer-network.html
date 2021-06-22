@@ -66,24 +66,14 @@
 				<div class="container-fluid">
                     <div class="row">
                         <div class="col-xs-2">
-                            <div id="logo"><a href="/"><img src="/blog/blog-img/logo.png" alt=""></a></div>
+                            <div id="logo"><a href="/"><img src="/blog-img/logo.png" alt=""></a></div>
                         </div>
                         <div class="col-xs-10 text-right menu-1">
-                            <ul>
-                                <li><a href="/">Home</a></li>
-                                <li class="has-dropdown">
-                                    <a href="/portfolio">Portfolio</a>
-                                    <ul class="dropdown">
-                                        <li><a href="/portfolio/development.html">System Development</a></li>
-                                        <li><a href="/portfolio/speaking.html">Speaking</a></li>
-                                        <li><a href="/portfolio/workshop.html">Workshops & Training</a></li>
-                                    </ul>
-                                </li>
-                                <li class="active"><a href="/blog">Blog</a></li>
-                                <li><a href="/resume">Resume</a></li>
-                                <li><a href="/contact">Contact</a></li>
-                            </ul>
-                        </div>
+							<ul>
+								<li><a href="/">Home</a></li>
+								<li><a href="">Decentralize The Web</a></li>
+							</ul>
+						</div>
                     </div>
 				</div>
 			</div>
@@ -121,8 +111,10 @@
                                 <p>Before getting started with our pre-requisite installation its important to note the following: 
                                     <b>avoid installing or running this program as root.</b> Run prereqs-ubuntu.sh as a normal user. 
                                 </p>
-                                <pre>curl -O https://hyperledger.github.io/composer/latest/prereqs-ubuntu.sh </pre>
-                                <pre>chmod u+x prereqs-ubuntu.sh</pre>
+<pre>
+    curl -O https://hyperledger.github.io/composer/latest/prereqs-ubuntu.sh
+    chmod u+x prereqs-ubuntu.sh
+</pre>
                                 <p>Next run the script - you may be prompted for a password for the execution of the script functions. 
                                 </p>
                                 <pre>./prereqs-ubuntu.sh</pre>
@@ -151,15 +143,17 @@
                                     <li>First, we'll create a directory ~/fabric-dev-servers, get the .tar.gz file that contains the tools to 
                                         install Hyperledger Fabric:
                                     </li>
-                                    <pre>mkdir ~/fabric-dev-servers && cd ~/fabric-dev-servers</pre>
-                                    <pre>curl -O https://raw.githubusercontent.com/hyperledger/composer-tools/master/packages/fabric-dev-servers/fabric-dev-servers.tar.gz</pre>
-                                    <pre>tar -xvf fabric-dev-servers.tar.gz</pre>
+<pre>
+    mkdir ~/fabric-dev-servers && cd ~/fabric-dev-servers
+    curl -O https://raw.githubusercontent.com/hyperledger/composer-tools/master/packages/fabric-dev-servers/fabric-dev-servers.tar.gz
+    tar -xvf fabric-dev-servers.tar.gz
+</pre>
                                     <li>With the scripts you just downloaded and extracted, download a local Hyperledger Fabric v1.2 runtime:</li>
-                                    <pre>
-                                        cd ~/fabric-dev-servers
-                                        export FABRIC_VERSION=hlfv12
-                                        ./downloadFabric.sh
-                                    </pre>
+<pre>
+    cd ~/fabric-dev-servers
+    export FABRIC_VERSION=hlfv12
+    ./downloadFabric.sh
+</pre>
                                 </ol>
                                 <p>With this two easy steps, you've now installed everything required for the typical Developer Environment. To 
                                     develop and test your blockchain business network Hyperledger composer gives user three options. 
@@ -174,12 +168,12 @@
                                 <p>With your environment set up, we can now start up a new runtime by running a start script that generates a 
                                     PeerAdmin card. To do this, run:
                                 </p>
-                                <pre>
-                                    cd ~/fabric-dev-servers
-                                    export FABRIC_VERSION=hlfv12
-                                    ./startFabric.sh
-                                    ./createPeerAdminCard.sh
-                                </pre>
+<pre>
+    cd ~/fabric-dev-servers
+    export FABRIC_VERSION=hlfv12
+    ./startFabric.sh
+    ./createPeerAdminCard.sh
+</pre>
                                 <p>Since we can't cover all the three options in this single post, I recommend reading the Hyperledger Composer 
                                     official business guide to learn about the Playground or Angular 4. In this post we will build and deploy a 
                                     business network and run it on the <i><b>composer-rest-server</b></i>.
