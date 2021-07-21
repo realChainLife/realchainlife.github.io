@@ -128,22 +128,26 @@
                                     Compiler installed: 
                                 </p>
                                 <h4><b>Install Rust & Wasm Compiler</b></h4>
-                                <pre>curl https://sh.rustup.rs -sSf | sh </pre>
-                                <pre>rustup install nightly</pre>
-                                <pre>rustup target add wasm32-unknown-unknown --toolchain nightly</pre>
+<pre>
+    curl https://sh.rustup.rs -sSf | sh 
+    rustup install nightly
+    rustup target add wasm32-unknown-unknown --toolchain nightly
+</pre>
                                 <h4><b>Install Support Software</b></h4>
                                 <pre>sudo apt install make clang pkg-config libssl-dev</pre>
                                 <h4><b>Build From Source</b></h4>
-                                <pre>git clone https://github.com/paritytech/polkadot.git</pre>
-                                <pre>cd polkadot</pre>
-                                <pre>./scripts/init.sh</pre>
-                                <pre>cargo build --release</pre>
-                                <pre>cargo test --all</pre>
-                                <pre>cd parachain/test-parachains/</pre>
-                                <pre>cargo build</pre>
-                                <pre>cd adder/collator</pre>
-                                <pre>cargo build</pre>
-                                <pre>cargo run</pre>
+<pre>
+    git clone https://github.com/paritytech/polkadot.git
+    cd polkadot
+    ./scripts/init.sh
+    cargo build --release
+    cargo test --all
+    cd parachain/test-parachains/
+    cargo build
+    cd adder/collator
+    cargo build
+    cargo run
+</pre>
                                 <p>Download wasm binaries for the parachain to the local machine:</p>
                                 <pre>scp parachain:¬/polkadot/parachain/tests/res/adder.wasm ¬Downloads/adder.wasm --projects-development-225311</pre>
                                 <p>For more parachain examples to interact with consider the parachain I've also deploying for the <a href="https://github.com/realChainLife/powerplay"><b>Powerplay Network</b></a> 	
